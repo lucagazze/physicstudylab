@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <!--
+    TEMPLATE "PHYSICS STUDY LAB" — structurally adapted from studiofacile/index.html
+    Replace before publishing:
+      1) The supporting SVG placeholders in /img (bonus mockups, personas, comparison, author —
+         everything except cover.jpg and page-1..4.jpg, which are finished AI-generated illustrations)
+      2) Domain / contact details: search "TU-DOMINIO"
+      3) Purchase link: search data-checkout and href="#offerta"
+      4) Meta Pixel / Google Tag Manager / Clarity: add your own IDs where indicated
+      5) Social-proof numbers (students, recent purchases) with real data
+      6) The author section (name, bio, photo)
+  -->
+
+  <!-- Meta Pixel: paste your own Facebook Pixel script here -->
+  <!-- <script> ... fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView'); </script> -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#173B6C">
+  <title>Physics Study Lab: 7 Parts, 38 Illustrated Chapters</title>
+  <meta name="description" content="Quantities, mechanics, fluids, thermodynamics, electricity, waves and modern physics in 7 illustrated parts. Understand it — don't just memorise it. £15, 30-day guarantee.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="Physics Study Lab">
+  <link rel="canonical" href="https://www.TU-DOMINIO.com/">
+  <meta property="og:url" content="https://www.TU-DOMINIO.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Physics Study Lab">
+  <meta property="og:title" content="Physics Study Lab | Learn Physics Visually">
+  <meta property="og:description" content="7 parts and 38 illustrated chapters to understand physics without memorising formulas.">
+  <meta property="og:image" content="https://www.TU-DOMINIO.com/img/cover.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Physics Study Lab">
+  <meta name="twitter:description" content="7 parts and 38 illustrated chapters to understand physics without memorising formulas.">
+
+  <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Analytics: add Google Tag Manager / Microsoft Clarity with your own IDs here -->
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #172033;
+      background: #F7F9FC;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; -webkit-tap-highlight-color: transparent; }
+    ul { list-style: none; }
+
+    :root {
+      --primary: #173B6C;
+      --primary-dark: #0F2A4D;
+      --primary-light: #E9EEF6;
+      --secondary: #6C63FF;
+      --secondary-light: #EFEEFF;
+      --cta: #FFC857;
+      --cta-hover: #E8AD32;
+      --cta-text: #172033;
+      --accent: #4DB6E6;
+      --bg-white: #FFFFFF;
+      --bg-page: #F7F9FC;
+      --bg-light: #EEF2FA;
+      --bg-dark: #12294D;
+      --text: #172033;
+      --text-light: #5B6472;
+      --border: #DDE4EF;
+      --success: #16A34A;
+      --guarantee-bg: #F0FDF4;
+      --shadow: 0 4px 20px rgba(15, 27, 51, 0.08);
+      --shadow-cta: 0 6px 22px rgba(255, 200, 87, 0.45);
+    }
+
+    h1, h2, h3, h4 { font-weight: 800; line-height: 1.2; }
+    h1 { font-size: 32px; color: #FFFFFF; }
+    h2 { font-size: 28px; color: var(--text); margin-bottom: 16px; }
+    h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    p { font-size: 18px; line-height: 1.8; margin-bottom: 16px; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 14px; }
+    .section { padding: 50px 14px; }
+    .section-alt { background: var(--bg-light); }
+    .section-snug-top { padding-top: 20px; }
+    .text-center { text-align: center; }
+
+    .lc { width: 1em; height: 1em; display: inline-block; vertical-align: -0.14em; flex-shrink: 0; }
+    .icon .lc, .stat-item .lc { color: var(--primary); stroke-width: 1.8; }
+    .guarantee-box .icon .lc { color: var(--success); }
+
+    .hero {
+      background: linear-gradient(150deg, #1F4A82 0%, #173B6C 48%, #0F2A4D 100%);
+      color: #FFFFFF;
+      padding: 48px 14px 68px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+      background: var(--bg-page);
+      border-radius: 50% 50% 0 0;
+      transform: translateY(1px);
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(720px 400px at 80% -10%, rgba(255, 200, 87, .14), transparent 62%),
+        radial-gradient(560px 340px at 5% 105%, rgba(108, 99, 255, .18), transparent 66%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+    .hero-mockup { max-width: 300px; margin: 0 auto 22px; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .hero h1 {
+      font-size: clamp(26px, 6.6vw, 32px);
+      margin-bottom: 20px; line-height: 1.2;
+      text-wrap: balance; letter-spacing: -0.015em;
+    }
+    .hero h1 mark {
+      background: transparent; color: var(--accent); padding: 0;
+      text-decoration: underline;
+      text-decoration-color: rgba(77, 182, 230, .45);
+      text-decoration-thickness: 3px; text-underline-offset: 6px;
+    }
+    .hero .subheadline { font-size: 18px; opacity: 0.95; margin-bottom: 32px; line-height: 1.6; }
+
+    .btn-cta {
+      display: flex; align-items: center; justify-content: center;
+      background: var(--cta); color: var(--cta-text);
+      font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 20px 32px; border-radius: 8px; cursor: pointer;
+      transition: all 0.3s ease; box-shadow: var(--shadow-cta); border: none;
+      text-align: center; width: 100%; max-width: 480px; margin: 0 auto; min-height: 64px;
+    }
+    .btn-cta:hover { background: var(--cta-hover); transform: scale(1.02); box-shadow: 0 6px 25px rgba(232, 173, 50, 0.55); }
+    .btn-cta:active { transform: scale(0.98); }
+
+    .cta-small-print { font-size: 13px; opacity: 0.85; margin-top: 16px; line-height: 1.6; }
+
+    .stats-bar { background: var(--bg-light); padding: 40px 20px; }
+    .stats-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .stat-item { text-align: center; padding: 20px; }
+    .stat-item .icon { font-size: 32px; margin-bottom: 8px; }
+    .stat-item strong { display: block; font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+
+    .solution-content { max-width: 800px; margin: 0 auto; }
+    .solution-image { max-width: 420px; margin: 40px auto; border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+
+    .topics-grid { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 900px; margin: 36px auto; }
+    @media (min-width: 640px) { .topics-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+    .topic-item { display: flex; align-items: flex-start; gap: 14px; background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); }
+    .topic-num { width: 32px; height: 32px; border-radius: 50%; background: var(--primary-light); color: var(--primary); font-size: 15px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .topic-item h3 { font-size: 17px; color: var(--primary); margin-bottom: 4px; line-height: 1.3; }
+    .topic-item p { font-size: 14.5px; color: var(--text-light); line-height: 1.6; margin: 0; }
+    .topic-pages { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--primary); background: var(--primary-light); border-radius: 999px; padding: 2px 10px; margin-bottom: 8px; }
+
+    .value-section { background: linear-gradient(160deg, var(--bg-dark) 0%, #1B2F63 55%, #2E2A6E 100%); color: #FFFFFF; padding: 60px 20px; }
+    .value-section h2 { color: #FFFFFF; }
+    .bonus-grid { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 1000px; margin: 40px auto; }
+    @media (min-width: 900px) { .bonus-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .amostra-btn { display: block; width: 100%; padding: 0; border: none; background: none; cursor: zoom-in; font-family: inherit; position: relative; border-radius: 12px; overflow: hidden; }
+    .amostra-btn img { display: block; width: 100%; height: auto; border-radius: 12px; }
+    .amostra-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: 12.5px; font-weight: 700; color: #fff; text-align: left; line-height: 1.3; background: linear-gradient(to top, rgba(12,20,44,.86), rgba(12,20,44,0)); }
+    .gal-cta-wrap { text-align: center; margin-top: 26px; }
+    .gal-cta { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 2px solid var(--primary); color: var(--primary); font-family: inherit; font-size: 16px; font-weight: 800; padding: 14px 26px; border-radius: 12px; cursor: pointer; transition: background .18s, transform .15s; }
+    .gal-cta:hover { background: var(--primary-light); transform: translateY(-2px); }
+    .gal-cta-sm { font-size: 14px; padding: 11px 20px; margin-top: 14px; }
+    .gal-cta-note { font-size: 14px; color: var(--text-light); margin: 10px 0 0; }
+
+    .bonus-sfoglia { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .bonus-sfoglia figure { flex: 1 1 120px; max-width: 160px; margin: 0; }
+    .bonus-sfoglia img { width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 2px 10px rgba(0,0,0,.2); display: block; }
+    .bonus-sfoglia figcaption { font-size: 11px; color: rgba(255,255,255,.7); margin-top: 5px; line-height: 1.35; }
+
+    .bonus-item-with-image {
+      background: rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 28px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;
+    }
+    .bonus-mockup { width: 100%; max-width: 220px; flex-shrink: 0; }
+    .bonus-mockup img { width: 100%; border-radius: 10px; display: block; }
+    .bonus-text { width: 100%; }
+    .bonus-text h3 { color: var(--cta); margin-bottom: 8px; font-size: 17px; line-height: 1.4; }
+    .bonus-text .value { font-size: 15px; color: var(--cta); font-weight: 700; margin-bottom: 14px; }
+    .bonus-text p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.85); }
+    .bonus-text ul { margin: 14px 0; text-align: left; display: inline-block; }
+    .bonus-text ul li { padding: 5px 0; font-size: 15px; display: flex; align-items: flex-start; gap: 8px; color: rgba(255,255,255,0.85); }
+    .bonus-text ul li::before { content: '✅'; flex-shrink: 0; }
+
+    .decision-box {
+      background: #FFFFFF; border-radius: 24px; padding: 32px 20px 28px; max-width: 540px;
+      margin: 44px auto 0; box-shadow: 0 12px 48px rgba(0,0,0,0.32), 0 0 0 1px rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .decision-box[id] { scroll-margin-top: 64px; }
+    @media (min-width: 640px) { .decision-box { border-radius: 28px; padding: 44px 36px 36px; margin: 56px auto 0; } }
+
+    .db-title { text-align: center; font-size: 24px; font-weight: 800; color: #111827; margin: 18px 0 22px; line-height: 1.25; font-family: inherit; }
+    .db-mockup { display: block; width: 100%; max-width: 260px; margin: 0 auto; filter: drop-shadow(0 12px 32px rgba(23,59,108,0.22)); border-radius: 14px; overflow: hidden; }
+
+    .db-checklist { list-style: none; margin: 0 0 24px; padding: 0; }
+    .db-checklist li { display: flex; align-items: center; gap: 12px; padding: 13px 4px; font-size: 15px; font-weight: 500; color: var(--text); border-bottom: 1px solid #f1f5f9; line-height: 1.4; }
+    .db-checklist li:last-child { border-bottom: none; }
+    .db-check { width: 22px; height: 22px; border-radius: 50%; background: #f0fdf4; border: 1.5px solid var(--success); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .db-check svg { width: 12px; height: 12px; stroke: #16a34a; stroke-width: 2.5; fill: none; }
+    .db-price-val { margin-left: auto; font-size: 14.5px; font-weight: 600; color: #64748b; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+    .db-anchoring { text-align: center; padding: 22px 0 20px; border-top: 1px solid #f1f5f9; }
+    .db-old-price { font-size: 16.5px; color: #64748b; text-decoration: line-through; margin-bottom: 4px; }
+    .db-new-price-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; margin-bottom: 2px; }
+    .db-new-price { font-size: 56px; font-weight: 900; color: var(--secondary); line-height: 1; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .db-discount-badge { display: inline-block; background: #fde68a; color: #92400e; font-size: 12.5px; font-weight: 800; padding: 6px 18px; border-radius: 9999px; margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    .db-cta {
+      display: block; width: 100%; background: var(--cta); color: var(--cta-text);
+      font-size: 17px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 20px 24px; border-radius: 10px; border: none; cursor: pointer; text-align: center;
+      transition: all 0.3s ease; box-shadow: var(--shadow-cta); margin-top: 20px; line-height: 1.3;
+    }
+    .db-cta:hover { background: var(--cta-hover); transform: scale(1.02); box-shadow: 0 8px 28px rgba(232,173,50,0.55); }
+    .db-cta:active { transform: scale(0.98); }
+
+    .db-trust { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 18px; padding-top: 14px; border-top: 1px solid #f1f5f9; }
+    .db-trust-item { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: #64748b; }
+    .db-trust-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+    .db-trust-icon svg { width: 15px; height: 15px; fill: var(--success); }
+    .db-small-print { font-size: 12px; color: #94a3b8; text-align: center; margin-top: 14px; line-height: 1.5; }
+
+    .testimonials-carousel-wrap { position: relative; }
+    @media (min-width: 768px) { .testimonials-carousel-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; } }
+
+    .testimonials-scroll {
+      display: flex; gap: 16px; overflow-x: auto; padding: 8px 24px 24px;
+      -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; scroll-padding-inline: 24px;
+      overscroll-behavior-inline: contain; scroll-behavior: smooth; scrollbar-width: none; align-items: stretch;
+    }
+    .testimonials-scroll::-webkit-scrollbar { display: none; }
+
+    .testimonial-item { flex: 0 0 82%; max-width: 340px; scroll-snap-align: center; }
+    @media (min-width: 480px) { .testimonial-item { flex: 0 0 60%; } }
+    @media (min-width: 768px) { .testimonial-item { flex: 0 0 46%; max-width: 380px; } }
+    @media (min-width: 1024px) { .testimonial-item { flex: 0 0 30%; max-width: 340px; } }
+
+    .testimonial-item img { width: 100%; border-radius: 12px; box-shadow: var(--shadow); transition: transform 280ms cubic-bezier(.2,.8,.2,1), box-shadow 280ms cubic-bezier(.2,.8,.2,1); }
+    .testimonial-item img:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(23, 59, 108, 0.2); }
+
+    .carousel-progress { height: 3px; background: rgba(23, 59, 108, 0.15); margin: 0 24px 8px; border-radius: 999px; overflow: hidden; }
+    .carousel-progress-inner { height: 100%; background: var(--primary); border-radius: 999px; width: 20%; transition: width 0.1s linear; }
+
+    .carousel-nav {
+      position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(23, 59, 108, 0.18);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10); display: none; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--primary); z-index: 5; transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .carousel-nav:hover { transform: translateY(-50%) scale(1.06); box-shadow: 0 10px 28px rgba(23, 59, 108, 0.24); }
+    .carousel-nav:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .carousel-nav[data-dir="prev"] { left: 8px; }
+    .carousel-nav[data-dir="next"] { right: 8px; }
+    @media (min-width: 768px) {
+      .carousel-nav { display: inline-flex; }
+      .carousel-nav[data-dir="prev"] { left: 16px; }
+      .carousel-nav[data-dir="next"] { right: 16px; }
+    }
+    .carousel-nav svg { width: 20px; height: 20px; }
+
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin: 12px 24px 0; flex-wrap: wrap; }
+    .carousel-dots button { appearance: none; border: none; background: rgba(23, 59, 108, 0.18); width: 8px; height: 8px; border-radius: 50%; padding: 0; cursor: pointer; transition: background-color 160ms ease, width 160ms ease, transform 160ms ease; -webkit-tap-highlight-color: transparent; }
+    .carousel-dots button:hover { background: rgba(23, 59, 108, 0.45); }
+    .carousel-dots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .carousel-dots button[aria-current="true"] { background: var(--primary); width: 22px; border-radius: 999px; }
+
+    .scroll-hint { text-align: center; font-size: 13px; color: var(--text-light); margin-top: 16px; }
+
+    .tst-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px 20px; box-shadow: var(--shadow); height: 100%; display: flex; flex-direction: column; }
+    .tst-card .stars { color: var(--cta); font-size: 15px; letter-spacing: 2px; line-height: 1; margin-bottom: 12px; }
+    .tst-card p { font-size: 15.5px; line-height: 1.65; color: var(--text); margin: 0 0 16px; flex: 1; }
+    .tst-card .who { font-size: 13.5px; font-weight: 700; color: var(--primary); line-height: 1.4; }
+    .tst-card .who span { display: block; font-weight: 500; color: var(--text-light); font-size: 12.5px; margin-top: 2px; }
+    .tst-nota { text-align: center; font-size: 12.5px; color: var(--text-light); margin-top: 18px; line-height: 1.6; }
+
+    .author-section { background: #FFFFFF; }
+    .author-content { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
+    .author-image { max-width: 260px; margin: 0 auto; }
+    .author-image img { border-radius: 12px; box-shadow: var(--shadow); }
+    .author-bio h4 { color: var(--primary); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .author-bio p { font-size: 16px; line-height: 1.8; }
+
+    .recap-list { max-width: 700px; margin: 32px auto; }
+    .recap-list li { padding: 12px 0; font-size: 18px; display: flex; align-items: flex-start; gap: 12px; }
+    .recap-list li::before { content: '✅'; font-size: 20px; flex-shrink: 0; line-height: 1.8; }
+
+    .price-recap { background: var(--bg-light); border: 2px solid var(--primary); border-radius: 12px; padding: 28px; text-align: center; max-width: 500px; margin: 32px auto; }
+    .price-recap .old-price { font-size: 24px; text-decoration: line-through; color: var(--text-light); margin-bottom: 8px; }
+    .price-recap .new-price { font-size: 48px; font-weight: 900; color: var(--secondary); margin-bottom: 16px; }
+
+    .guarantee-box { background: var(--guarantee-bg); border: 2px solid var(--success); border-radius: 12px; padding: 40px 24px; text-align: center; max-width: 700px; margin: 0 auto; }
+    .guarantee-box .icon { font-size: 64px; margin-bottom: 16px; }
+    .guarantee-box h3 { color: var(--success); font-size: 24px; margin-bottom: 16px; }
+    .guarantee-box p { font-size: 18px; color: var(--text); line-height: 1.7; }
+
+    .faq-container { max-width: 800px; margin: 40px auto; }
+    .faq-item { margin-bottom: 12px; }
+    .faq-question {
+      width: 100%; text-align: left; padding: 20px 24px; background: var(--bg-white);
+      border: 1px solid var(--border); border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; transition: all 0.2s;
+      font-family: 'Inter', sans-serif; color: var(--text); min-height: 44px;
+    }
+    .faq-question:hover { background: var(--bg-light); }
+    .faq-question::after { content: '+'; font-size: 28px; font-weight: 700; color: var(--primary); transition: transform 0.3s; flex-shrink: 0; margin-left: 16px; }
+    .faq-question[aria-expanded="true"]::after { transform: rotate(45deg); }
+    .faq-answer { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .32s cubic-bezier(.2, .8, .3, 1); background: var(--bg-light); border: 1px solid transparent; border-top: none; border-radius: 0 0 8px 8px; }
+    .faq-answer[hidden] { display: grid; }
+    .faq-answer:not([hidden]) { grid-template-rows: 1fr; border-color: var(--border); }
+    .faq-answer p { min-height: 0; overflow: hidden; font-size: 16px; line-height: 1.7; color: var(--text-light); margin: 0; padding: 0 24px; transition: padding .32s cubic-bezier(.2, .8, .3, 1); }
+    .faq-answer:not([hidden]) p { padding: 20px 24px; }
+
+    .final-cta { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: #FFFFFF; padding: 60px 20px; text-align: center; }
+    .final-cta h2 { color: #FFFFFF; margin-bottom: 24px; }
+    .final-cta p { font-size: 18px; max-width: 700px; margin: 0 auto 20px; opacity: 0.95; }
+
+    .cta-summary { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 28px; max-width: 500px; margin: 40px auto; }
+    .cta-summary ul { text-align: left; }
+    .cta-summary li { padding: 8px 0; font-size: 16px; display: flex; align-items: flex-start; gap: 8px; }
+    .cta-summary li::before { content: '✓'; color: var(--cta); font-weight: 700; flex-shrink: 0; font-size: 18px; }
+
+    .footer { background: var(--text); color: #9CA3AF; padding: 40px 20px 40px; text-align: center; font-size: 14px; }
+    .footer-links { margin: 20px 0; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .footer-links a { color: #9CA3AF; transition: color 0.2s; min-height: 44px; display: inline-flex; align-items: center; padding: 8px 12px; }
+    .footer-links a:hover { color: #FFFFFF; }
+    .footer .disclaimer { margin-top: 24px; font-size: 12px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.7; }
+
+    .comparison-section { background: var(--bg-light); padding: 60px 20px; }
+    .comparison-section .section-header { text-align: center; max-width: 800px; margin: 0 auto 36px; }
+    .comparison-section .section-header h2 { margin-top: 12px; font-size: clamp(24px, 5vw, 36px); line-height: 1.25; }
+
+    .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); background: rgba(23, 59, 108, 0.1); padding: 6px 16px; border-radius: 999px; }
+    .eyebrow-violet { color: var(--secondary); background: rgba(108, 99, 255, 0.1); }
+
+    .comparison-grid { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 768px) { .comparison-grid { grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; } }
+
+    .comparison-card { background: var(--bg-white); border-radius: 16px; padding: 28px 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; text-align: center; border: 2px solid var(--border); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .comparison-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15, 27, 51, 0.14); }
+    .comparison-card.bad-card { border-color: #fecaca; background: #fffafa; }
+    .comparison-card.good-card { border-color: #bbf7d0; background: #fafdfa; box-shadow: 0 8px 30px rgba(16, 185, 129, 0.12); }
+
+    .comparison-label { display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 18px; border-radius: 999px; margin-bottom: 18px; }
+    .comparison-label.bad { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
+    .comparison-label.good { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+
+    .comparison-bullets { list-style: none; padding: 0; margin: 0 0 22px; width: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .comparison-bullets li { font-size: 16px; font-weight: 600; line-height: 1.4; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .bad-list li { color: #991b1b; }
+    .good-list li { color: #166534; }
+    .comparison-card img { width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); margin-top: auto; object-fit: cover; }
+
+    .subjects-section { background: #FFFFFF; padding: 50px 14px; }
+    @media (min-width: 768px) { .subjects-section { padding: 80px 20px; } }
+
+    .subjects-section .section-header { text-align: center; max-width: 800px; margin: 0 auto 36px; }
+    .subjects-subtitle { font-size: 16.5px; color: var(--text-light); margin-top: 12px; line-height: 1.6; }
+
+    .subjects-accordion { max-width: 840px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .subject-item { background: var(--bg-light); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; }
+    .subject-item[data-open="true"], .subject-item.active { border-color: #cbd5e1; background: #FFFFFF; box-shadow: 0 4px 16px rgba(15, 27, 51, 0.06); }
+
+    .subject-summary { width: 100%; display: flex; align-items: center; gap: 14px; padding: 16px 18px; text-align: left; background: none; border: none; font-family: inherit; cursor: pointer; color: var(--text); transition: background 0.15s; }
+    .subject-summary:hover { background: rgba(23, 59, 108, 0.03); }
+
+    .subject-num { width: 32px; height: 32px; border-radius: 50%; background: var(--primary-light); color: var(--primary); font-size: 14px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .subject-title { font-size: 16.5px; font-weight: 700; color: var(--text); flex: 1; line-height: 1.35; }
+    .subject-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; transition: transform 0.25s ease; }
+    .subject-icon::before, .subject-icon::after { content: ''; position: absolute; background-color: var(--primary); border-radius: 2px; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: transform 0.25s ease; }
+    .subject-icon::before { width: 12px; height: 2px; }
+    .subject-icon::after { width: 2px; height: 12px; }
+    .subject-item[data-open="true"] .subject-icon::after, .subject-item.active .subject-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+    .subject-item[data-open="true"] .subject-icon, .subject-item.active .subject-icon { transform: rotate(180deg); }
+
+    .subject-content { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .subject-content-inner { padding: 4px 18px 18px 64px; }
+    @media (max-width: 560px) {
+      .subject-content-inner { padding: 4px 14px 16px 14px; }
+      .subject-summary { padding: 14px 14px; gap: 10px; }
+      .subject-title { font-size: 15px; }
+    }
+    .subject-content-list { list-style: none; padding: 0; margin: 0; }
+    .subject-content-list li { position: relative; padding-left: 20px; font-size: 15px; color: var(--text-light); margin-bottom: 8px; line-height: 1.5; }
+    .subject-content-list li:last-child { margin-bottom: 0; }
+    .subject-content-list li::before { content: '•'; color: var(--primary); font-weight: bold; font-size: 18px; position: absolute; left: 4px; top: -2px; }
+
+    .paraquem-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1000px; margin: 40px auto 0; }
+    @media (min-width: 768px) { .paraquem-grid { grid-template-columns: repeat(3, 1fr); } }
+    .paraquem-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s ease; }
+    .paraquem-card:hover { transform: translateY(-3px); }
+    .paraquem-foto { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+    .paraquem-info { padding: 20px 22px 24px; }
+    .paraquem-info h3 { font-size: 18px; color: var(--primary); margin-bottom: 8px; }
+    .paraquem-info p { font-size: 15px; color: var(--text-light); line-height: 1.7; margin: 0; }
+
+    .promo {
+      position: sticky; top: 0; z-index: 95;
+      background: linear-gradient(180deg, #1F4A82 0%, #173B6C 60%, #0F2A4D 100%);
+      border-bottom: 1px solid rgba(255, 200, 87, 0.42);
+      box-shadow: 0 2px 14px rgba(8, 16, 34, 0.24);
+      padding: 9px 16px;
+    }
+    .promo-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px 16px; flex-wrap: wrap; line-height: 1.3; }
+    .promo-txt { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255, 255, 255, 0.92); }
+    .promo-txt::before { content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: var(--cta); animation: promoPulse 2.6s ease-out infinite; }
+    @keyframes promoPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255, 200, 87, 0.55); }
+      70%  { box-shadow: 0 0 0 9px rgba(255, 200, 87, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 200, 87, 0); }
+    }
+    .promo-time { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.62); }
+    .promo-clock { font-size: 14px; font-weight: 700; letter-spacing: 0.2px; line-height: 1.2; color: var(--cta); background: rgba(0, 0, 0, 0.26); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 7px; padding: 4px 9px; }
+    @media (max-width: 768px) {
+      .promo { padding: 8px 12px; }
+      .promo-in { flex-direction: column; gap: 5px; text-align: center; }
+      .promo-txt { font-size: 11.5px; letter-spacing: 0.05em; }
+      .promo-time { font-size: 11.5px; }
+      .promo-clock { font-size: 12.5px; padding: 3px 7px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .promo-txt::before { animation: none; } }
+
+    section[id] { scroll-margin-top: 64px; }
+
+    @media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 768px) {
+      h1 { font-size: 48px; }
+      h2 { font-size: 36px; }
+      .container { padding: 0 20px; }
+      .hero { padding: 60px 20px 80px; }
+      .hero h1 { font-size: 48px; }
+      .hero-mockup { max-width: 380px; margin-bottom: 30px; }
+      .hero .subheadline { font-size: 20px; }
+      .section { padding: 80px 20px; }
+      .section-snug-top { padding-top: 40px; }
+      .author-content { grid-template-columns: 260px 1fr; text-align: left; }
+      .author-image { margin: 0; }
+      .scroll-hint { display: none; }
+    }
+    @media (min-width: 1024px) {
+      .hero h1 { font-size: 56px; }
+      h2 { font-size: 42px; }
+    }
+
+    .sp-toast {
+      position: fixed; left: 14px; top: 14px; z-index: 99999;
+      display: flex; align-items: center; gap: 12px;
+      background: #fff; border: 1px solid #e4e9ee; border-radius: 12px;
+      padding: 10px 14px 10px 10px; max-width: 330px;
+      box-shadow: 0 10px 30px rgba(18,25,31,.22);
+      opacity: 0; visibility: hidden; transform: translateY(-16px) scale(.97);
+      transition: opacity .45s ease, transform .45s cubic-bezier(.2,.8,.3,1), visibility .45s;
+    }
+    .sp-toast.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .sp-mini { position: relative; flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; overflow: hidden; background: var(--primary); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 15px; }
+    .sp-txt { min-width: 0; line-height: 1.4; }
+    .sp-name { font-size: 13.5px; font-weight: 700; color: #12191f; display: block; }
+    .sp-prod { font-size: 12px; color: #5b6874; display: block; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sp-meta { font-size: 10.5px; color: #98a3ad; display: flex; align-items: center; gap: 5px; margin-top: 3px; }
+    .sp-meta .ok { color: var(--success); font-weight: 700; }
+    .sp-close {
+      position: absolute; top: -10px; right: -10px; width: 26px; height: 26px; padding: 0; line-height: 1;
+      display: flex; align-items: center; justify-content: center; border: 1px solid #e0e6eb; border-radius: 50%;
+      background: #fff; color: #8a949e; font-size: 16px; font-weight: 600; font-family: inherit; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(18,25,31,.14);
+      transition: background .18s ease, color .18s ease, transform .18s ease, border-color .18s ease;
+    }
+    .sp-close:hover { background: #ffffff; border-color: #cbd5e1; color: #12191f; transform: scale(1.08); box-shadow: 0 4px 12px rgba(18,25,31,.2); }
+    .sp-close:active { transform: scale(.96); }
+    @media (max-width: 560px) { .sp-toast { left: 8px; right: 8px; top: 10px; max-width: none; } }
+
+    .lb-overlay {
+      position: fixed; inset: 0; background: rgba(10, 16, 30, 0.88); z-index: 999999;
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .lb-overlay.open { display: flex; }
+    .lb-box { max-width: 560px; width: 100%; text-align: center; }
+    .lb-box img { max-height: 82vh; margin: 0 auto; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+    .lb-cap { color: #fff; font-size: 15px; font-weight: 600; margin-top: 14px; }
+    .lb-count { color: rgba(255,255,255,.6); font-size: 13px; margin-top: 4px; }
+    .lb-close, .lb-prev, .lb-next {
+      position: fixed; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); color: #fff;
+      border-radius: 50%; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 20px; transition: background .15s;
+    }
+    .lb-close:hover, .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,.24); }
+    .lb-close { top: 20px; right: 20px; }
+    .lb-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 20px; top: 50%; transform: translateY(-50%); }
+    @media (max-width: 640px) {
+      .lb-prev { left: 8px; width: 40px; height: 40px; }
+      .lb-next { right: 8px; width: 40px; height: 40px; }
+      .lb-close { top: 10px; right: 10px; width: 40px; height: 40px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+   {"@type":"Product","name":"Physics Study Lab Complete Kit",
+    "description":"Physics in 7 parts and 38 illustrated chapters: fundamentals, mechanics, fluids, thermodynamics, electricity, waves and optics, and modern physics. Plus 3 bonuses, in English.",
+    "image":"https://www.TU-DOMINIO.com/img/cover.jpg",
+    "brand":{"@type":"Brand","name":"Physics Study Lab"},
+    "offers":{"@type":"Offer","price":"15","priceCurrency":"GBP","availability":"https://schema.org/InStock",
+              "url":"https://www.TU-DOMINIO.com/#offerta",
+              "hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":30,"applicableCountry":"GB"}}},
+   {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How will I receive the material?","acceptedAnswer":{"@type":"Answer","text":"As soon as you complete your purchase you'll get an automatic email with the access link. It's high-resolution PDF, ready to download, print or read on any device."}},
+    {"@type":"Question","name":"Is it a one-off payment or a subscription?","acceptedAnswer":{"@type":"Answer","text":"One-off payment of £15. No instalments, no recurring charges. Pay once and the material is yours for good."}},
+    {"@type":"Question","name":"What language is the material in?","acceptedAnswer":{"@type":"Answer","text":"100% in English, using the same terminology you use in class. It isn't a machine translation."}},
+    {"@type":"Question","name":"Does it match my exam board or level?","acceptedAnswer":{"@type":"Answer","text":"Yes. The content covers the general physics that comes up at GCSE, A-Level and in the first year of science and engineering degrees, whatever your exam board."}},
+    {"@type":"Question","name":"Can I print the material?","acceptedAnswer":{"@type":"Answer","text":"Yes. The PDFs are designed in high resolution, ideal for printing, annotating or using as a quick reference before an exam."}}]}]}
+  </script>
+</head>
+<body>
+
+  <div class="sp-toast" id="spToast" role="status" aria-live="polite">
+    <button class="sp-close" id="spClose" aria-label="Close">×</button>
+    <span class="sp-mini" id="spAvatar">PS</span>
+    <div class="sp-txt">
+      <span class="sp-name" id="spName">Olivia, from London</span>
+      <span class="sp-prod" id="spProd">Complete Kit · 7 Parts + 3 Bonuses</span>
+      <span class="sp-meta"><span class="ok">✔ Access confirmed</span> · <span id="spTime">4 minutes ago</span></span>
+    </div>
+  </div>
+
+  <div class="promo" role="status" aria-live="off">
+    <div class="promo-in">
+      <span class="promo-txt">Launch offer</span>
+      <span class="promo-time">Valid until today, <span class="promo-clock" id="promoClock"></span></span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-mockup">
+        <img src="./img/cover.jpg" alt="Physics Study Lab Complete Kit" width="896" height="1200" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+      <p class="hero-social">
+        <span class="stars" aria-hidden="true" style="font-size:19px;letter-spacing:3px;color:var(--accent)">★★★★★</span><br>
+        <span style="font-size:15px;opacity:.95"><strong>2,400+ students</strong> already study with Physics Study Lab</span>
+      </p>
+      <h1>The Simplest Way to Learn PHYSICS <mark>Without Memorising Formulas</mark></h1>
+      <p class="subheadline">The illustrated study guide for GCSE, A-Level and first-year students who want to actually understand physics — not just cram it the night before.</p>
+      <a href="#offerta" id="cta-hero" class="btn-cta">I WANT TO STUDY THE EASY WAY</a>
+      <p class="cta-small-print">
+        <svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Secure payment · Instant access · 30-day no-questions guarantee
+      </p>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="icon"><svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></div>
+          <strong>2,400+ students</strong>
+          <p>already use Physics Study Lab's materials</p>
+        </div>
+        <div class="stat-item">
+          <div class="icon"><svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
+          <strong>96% find it easier</strong>
+          <p>to understand than a traditional textbook</p>
+        </div>
+        <div class="stat-item">
+          <div class="icon"><svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+          <strong>100% in English</strong>
+          <p>plain, direct language — built for studying, not a manual</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE PAGES -->
+  <section class="section" aria-label="Sample pages from the material">
+    <div class="container">
+      <h2 class="text-center">This Is What the Pages Actually Look Like</h2>
+      <p class="text-center" style="max-width:640px;margin:0 auto 8px;color:var(--text-light);font-size:17px;">Real pages from the book — direct language, visual organisation, and diagrams that stick. Tap one to see it full size:</p>
+
+      <div class="testimonials-carousel-wrap" role="region" aria-label="Sample pages carousel">
+        <button type="button" class="carousel-nav" data-dir="prev" data-target="amostras-scroll" aria-label="Previous sample">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="carousel-nav" data-dir="next" data-target="amostras-scroll" aria-label="Next sample">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <div class="testimonials-scroll" id="amostras-scroll" role="list" data-no-autoplay>
+          <article class="testimonial-item amostra-item" role="listitem">
+            <button type="button" class="amostra-btn" data-lb="samples" data-lb-index="0" aria-label="Enlarge: Vectors in a page">
+              <img src="./img/page-1.jpg" alt="Vectors in a page" width="768" height="1376" loading="lazy" decoding="async">
+              <span class="amostra-cap">Vectors in a page</span>
+            </button>
+          </article>
+          <article class="testimonial-item amostra-item" role="listitem">
+            <button type="button" class="amostra-btn" data-lb="samples" data-lb-index="1" aria-label="Enlarge: Newton's Laws, illustrated">
+              <img src="./img/page-2.jpg" alt="Newton's Laws, illustrated" width="768" height="1376" loading="lazy" decoding="async">
+              <span class="amostra-cap">Newton's Laws, illustrated</span>
+            </button>
+          </article>
+          <article class="testimonial-item amostra-item" role="listitem">
+            <button type="button" class="amostra-btn" data-lb="samples" data-lb-index="2" aria-label="Enlarge: How a circuit works">
+              <img src="./img/page-3.jpg" alt="How a circuit works" width="768" height="1376" loading="lazy" decoding="async">
+              <span class="amostra-cap">How a circuit works</span>
+            </button>
+          </article>
+          <article class="testimonial-item amostra-item" role="listitem">
+            <button type="button" class="amostra-btn" data-lb="samples" data-lb-index="3" aria-label="Enlarge: Sound, light and waves">
+              <img src="./img/page-4.jpg" alt="Sound, light and waves" width="768" height="1376" loading="lazy" decoding="async">
+              <span class="amostra-cap">Sound, light and waves</span>
+            </button>
+          </article>
+        </div>
+
+        <div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-inner" id="amostras-progress"></div></div>
+        <div class="carousel-dots" id="amostras-dots" role="tablist" aria-label="Sample pages navigation"></div>
+      </div>
+
+      <div class="gal-cta-wrap">
+        <button type="button" class="gal-cta" data-lb="samples" data-lb-index="0">
+          <svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg> See all 4 sample pages
+        </button>
+        <p class="gal-cta-note">Real pages from the book, in high resolution, so you know exactly what you're getting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section-alt section-snug-top" aria-label="Student reviews">
+    <div class="container">
+      <h2 class="text-center" style="margin-bottom: 32px;">What the 2,400+ Students Already Using Physics Study Lab Say:</h2>
+
+      <div class="testimonials-carousel-wrap" role="region" aria-label="Reviews carousel">
+        <button type="button" class="carousel-nav" data-dir="prev" data-target="testimonials-scroll" aria-label="Previous review">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="carousel-nav" data-dir="next" data-target="testimonials-scroll" aria-label="Next review">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <div class="testimonials-scroll" id="testimonials-scroll" role="list">
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"I resat physics twice and never really understood vectors until I saw the chapter in Physics Study Lab. One page taught me what three lessons from my teacher hadn't."</p>
+              <div class="who">Chloe R. <span>GCSE student, Manchester</span></div>
+            </div>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"Bought it two days before my thermodynamics mock. The heat and entropy pages saved me — I finally understood the difference between heat and temperature."</p>
+              <div class="who">Jack S. <span>A-Level, Bristol</span></div>
+            </div>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"Formulas stopped being a list to memorise. Now I understand where each one comes from and when to use it. That changed everything."</p>
+              <div class="who">Amelia F. <span>Sixth form, Leeds</span></div>
+            </div>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"The step-by-step worked problems bonus is pure gold. I use it as a guide every time I get stuck on a dynamics question."</p>
+              <div class="who">Oliver P. <span>1st year, Physics degree</span></div>
+            </div>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"I'm a mum going back into education. I didn't have time to read a 500-page textbook. I understood this in a weekend."</p>
+              <div class="who">Anna-Marie G. <span>Access to HE student</span></div>
+            </div>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"The electricity and circuits part, with the electric field drawings, is the clearest explanation I've seen without getting lost in the maths."</p>
+              <div class="who">Daniel L. <span>Year 11, Birmingham</span></div>
+            </div>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"I use the quick revision cards before every test. In 20 minutes I cover what used to take me an entire evening re-reading my notes."</p>
+              <div class="who">Sophie M. <span>A-Level, Glasgow</span></div>
+            </div>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"I tutor GCSE physics and now recommend this to every student as extra support. The illustrations do the work I used to have to explain twice."</p>
+              <div class="who">Mr. Harris <span>Physics tutor</span></div>
+            </div>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <div class="tst-card"><div class="stars">★★★★★</div>
+              <p>"I thought modern physics (relativity, quantum) would be impossible without a degree. The last part explains it in a surprisingly simple way."</p>
+              <div class="who">Freya T. <span>Year 13, Edinburgh</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-inner" id="testimonials-progress"></div></div>
+        <div class="carousel-dots" id="testimonials-dots" role="tablist" aria-label="Reviews navigation"></div>
+      </div>
+      <p class="tst-nota">These reviews illustrate the style of feedback you'll be collecting — swap them for real student reviews as soon as you have them.</p>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="comparison-section" aria-label="Comparison with traditional study methods">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">The Difference Is Visual</span>
+        <h2>Thousands of students already made their studying simpler by switching:</h2>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comparison-card bad-card">
+          <div class="comparison-label bad">THIS</div>
+          <ul class="comparison-bullets bad-list">
+            <li>Exhausting and tedious</li>
+            <li>Formulas with no context</li>
+            <li>Puts you to sleep</li>
+          </ul>
+          <img src="./img/bad-page.svg" alt="Traditional physics textbook page: dense text, no illustrations" width="760" height="1000" loading="lazy" decoding="async">
+        </div>
+
+        <div class="comparison-card good-card">
+          <div class="comparison-label good">FOR THIS</div>
+          <ul class="comparison-bullets good-list">
+            <li>Fast to memorise</li>
+            <li>Instantly easy to understand</li>
+            <li>Visual and intuitive!</li>
+          </ul>
+          <img src="./img/page-1.jpg" alt="Physics Study Lab page: the same content, illustrated" width="768" height="1376" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBJECTS ACCORDION -->
+  <section class="subjects-section" aria-label="What's inside">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow eyebrow-violet">Contents</span>
+        <h2>Take a look at the 7 parts and 38 chapters</h2>
+        <p class="subjects-subtitle">From basic quantities to modern physics — all illustrated, all exam-relevant</p>
+      </div>
+
+      <div class="subjects-accordion" role="list">
+        <div class="subject-item" data-open="false" role="listitem">
+          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-1">
+            <span class="subject-num" aria-hidden="true">1</span>
+            <span class="subject-title">Fundamentals <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 5-16</em></span>
+            <span class="subject-icon" aria-hidden="true"></span>
+          </button>
+          <div class="subject-content" id="subj-content-1" role="region">
+            <div class="subject-content-inner"><ul class="subject-content-list"><li>Quantities</li><li>Units</li><li>Vectors</li><li>Conversions</li><li>Graphs</li></ul></div>
+          </div>
+        </div>
+        <div class="subject-item" data-open="false" role="listitem">
+          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-2">
+            <span class="subject-num" aria-hidden="true">2</span>
+            <span class="subject-title">Mechanics <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 17-34</em></span>
+            <span class="subject-icon" aria-hidden="true"></span>
+          </button>
+          <div class="subject-content" id="subj-content-2" role="region">
+            <div class="subject-content-inner"><ul class="subject-content-list"><li>Motion</li><li>Velocity</li><li>Acceleration</li><li>Force</li><li>Newton's Laws</li><li>Work</li><li>Energy</li><li>Momentum</li></ul></div>
+          </div>
+        </div>
+        <div class="subject-item" data-open="false" role="listitem">
+          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-3">
+            <span class="subject-num" aria-hidden="true">3</span>
+            <span class="subject-title">Fluids <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 35-46</em></span>
+            <span class="subject-icon" aria-hidden="true"></span>
+          </button>
+          <div class="subject-content" id="subj-content-3" role="region">
+            <div class="subject-content-inner"><ul class="subject-content-list"><li>Pressure</li><li>Density</li><li>Pascal's Principle</li><li>Archimedes' Principle</li><li>Bernoulli's Principle</li></ul></div>
+          </div>
+        </div>
+        <div class="subject-item" data-open="false" role="listitem">
+          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-4">
+            <span class="subject-num" aria-hidden="true">4</span>
+            <span class="subject-title">Thermodynamics <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 47-58</em></span>
+            <span class="subject-icon" aria-hidden="true"></span>
+          </button>
+          <div class="subject-content" id="subj-content-4" role="region">
+            <div class="subject-content-inner"><ul class="subject-content-list"><li>Temperature</li><li>Heat</li><li>Energy</li><li>Gases</li><li>Entropy</li></ul></div>
+          </div>
+        </div>
+        <div class="subject-item" data-open="false" role="listitem">
+          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-5">
+            <span class="subject-num" aria-hidden="true">5</span>
+            <span class="subject-title">Electricity <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 59-72</em></span>
+            <span class="subject-icon" aria-hidden="true"></span>
+          </button>
+          <div class="subject-content" id="subj-content-5" role="region">
+            <div class="subject-content-inner"><ul class="subject-content-list"><li>Charge</li><li>Electric field</li><li>Potential</li><li>Current</li><li>Resistance</li><li>Circuits</li></ul></div>
+          </div>
+        </div>
+        <div class="subject-item" data-open="false" role="listitem">
+          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-6">
+            <span class="subject-num" aria-hidden="true">6</span>
+            <span class="subject-title">Waves &amp; Optics <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 73-84</em></span>
+            <span class="subject-icon" aria-hidden="true"></span>
+          </button>
+          <div class="subject-content" id="subj-content-6" role="region">
+            <div class="subject-content-inner"><ul class="subject-content-list"><li>Waves</li><li>Sound</li><li>Light</li><li>Reflection</li><li>Refraction</li></ul></div>
+          </div>
+        </div>
+        <div class="subject-item" data-open="false" role="listitem">
+          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-7">
+            <span class="subject-num" aria-hidden="true">7</span>
+            <span class="subject-title">Modern Physics <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 85-94</em></span>
+            <span class="subject-icon" aria-hidden="true"></span>
+          </button>
+          <div class="subject-content" id="subj-content-7" role="region">
+            <div class="subject-content-inner"><ul class="subject-content-list"><li>Relativity</li><li>Quantum physics</li><li>The atom</li><li>Radiation</li></ul></div>
+          </div>
+        </div>
+        <div class="subject-item" data-open="false" role="listitem">
+          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-8">
+            <span class="subject-num" aria-hidden="true">&middot;</span>
+            <span class="subject-title">Wrapping up <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 95-98</em></span>
+            <span class="subject-icon" aria-hidden="true"></span>
+          </button>
+          <div class="subject-content" id="subj-content-8" role="region">
+            <div class="subject-content-inner"><ul class="subject-content-list"><li>Glossary &mdash; p. 95</li><li>Sources &amp; references &mdash; p. 97</li><li>Index &mdash; p. 98</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="text-center">What If There Were a Simpler Way?</h2>
+
+      <div class="solution-content">
+        <p class="text-center">Picture this:</p>
+        <p class="text-center">Instead of re-reading the same page on Newton's Laws five times trying to memorise three separate rules...</p>
+        <p class="text-center">...you open <strong>1 illustrated visual map</strong> that shows you all three laws side by side, in one glance.</p>
+
+        <div class="solution-image">
+          <img src="./img/page-2.jpg" alt="Sample page: Newton's Laws explained side by side" width="768" height="1376" loading="lazy" decoding="async">
+        </div>
+
+        <p class="text-center">Your brain <strong>sees the whole idea at once</strong>. The connections form on their own. And you finally understand why each formula matters, instead of memorising it without knowing where it comes from.</p>
+        <p class="text-center" style="font-size: 22px; font-weight: 700; margin-top: 40px;">That's exactly what the Physics Study Lab Kit does.</p>
+        <p class="text-center">It isn't &ldquo;just another PDF&rdquo;. It's the system that organises everything you already know (and everything you don't yet) into <strong>7 parts and 38 illustrated chapters</strong>, built so your brain <strong>understands instead of memorises</strong>.</p>
+        <p class="text-center">Because once you understand the basics, <strong>everything starts to make sense</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Here's Exactly What You Get:</h2>
+
+      <div style="margin: 20px auto 28px;">
+        <img src="./img/combo-mockup.svg" alt="Physics Study Lab Kit: mockup with sample pages" width="1000" height="1300" loading="lazy" decoding="async" style="max-width: 420px; width: 100%; display: block; margin: 0 auto; border-radius: 12px;">
+      </div>
+
+      <div class="topics-grid">
+        <div class="topic-item"><span class="topic-num">1</span><div><span class="topic-pages">pp. 5&ndash;16</span><h3>Fundamentals</h3><p>The basics you need to read everything else: quantities, units and vectors.</p></div></div>
+        <div class="topic-item"><span class="topic-num">2</span><div><span class="topic-pages">pp. 17&ndash;34</span><h3>Mechanics</h3><p>Motion, force and Newton's Laws, plus energy and momentum.</p></div></div>
+        <div class="topic-item"><span class="topic-num">3</span><div><span class="topic-pages">pp. 35&ndash;46</span><h3>Fluids</h3><p>Pressure, density, Pascal, Archimedes and Bernoulli, all in everyday examples.</p></div></div>
+        <div class="topic-item"><span class="topic-num">4</span><div><span class="topic-pages">pp. 47&ndash;58</span><h3>Thermodynamics</h3><p>Heat, temperature, gases and entropy, without formulas floating with no context.</p></div></div>
+        <div class="topic-item"><span class="topic-num">5</span><div><span class="topic-pages">pp. 59&ndash;72</span><h3>Electricity</h3><p>Charge, electric field, current, resistance and circuits, step by step.</p></div></div>
+        <div class="topic-item"><span class="topic-num">6</span><div><span class="topic-pages">pp. 73&ndash;84</span><h3>Waves &amp; Optics</h3><p>Sound, light, reflection and refraction, with diagrams you understand at a glance.</p></div></div>
+      </div>
+
+      <p class="text-center" style="font-size:15px;color:var(--text-light);max-width:760px;margin:0 auto;">
+        Plus: <strong>Modern Physics</strong> (relativity, quantum, the atom and radiation) and, to close, a <strong>glossary</strong>, <strong>sources</strong> and a full <strong>index</strong>.
+      </p>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="#offerta" class="btn-cta">I WANT TO SEE THE FULL OFFER</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE STACK -->
+  <section class="value-section">
+    <div class="container">
+      <h2 class="text-center">And That's Not All: You Also Get 3 Exclusive Bonuses</h2>
+
+      <div class="bonus-grid">
+        <div class="bonus-item-with-image">
+          <div class="bonus-mockup"><img src="./img/bonus-1.svg" alt="The 100 Physics Formulas Explained Visually" width="700" height="940" loading="lazy" decoding="async"></div>
+          <div class="bonus-text">
+            <h3>BONUS 1: &ldquo;The 100 Physics Formulas Explained Visually&rdquo;</h3>
+            <p class="value">Individual value: £12</p>
+            <p>Every formula with its own drawing, its &ldquo;why&rdquo;, and a worked example. Stop memorising loose letters and start understanding where every formula actually comes from.</p>
+            <div class="bonus-sfoglia">
+              <figure><img src="./img/bonus1-sample-1.svg" alt="Sample page from the formula glossary" width="700" height="1000" loading="lazy" decoding="async"><figcaption>Every formula with its definition and its drawing</figcaption></figure>
+              <figure><img src="./img/bonus1-sample-2.svg" alt="Comparison of commonly confused formulas" width="700" height="1000" loading="lazy" decoding="async"><figcaption>Weight vs. mass: the pair everyone confuses</figcaption></figure>
+            </div>
+            <button type="button" class="gal-cta gal-cta-sm" data-lb="bonus1" data-lb-index="0"><svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg> See Bonus 1 samples</button>
+          </div>
+        </div>
+
+        <div class="bonus-item-with-image">
+          <div class="bonus-mockup"><img src="./img/bonus-2.svg" alt="50 Physics Problems Solved Step by Step" width="700" height="940" loading="lazy" decoding="async"></div>
+          <div class="bonus-text">
+            <h3>BONUS 2: &ldquo;50 Physics Problems Solved Step by Step&rdquo;</h3>
+            <p class="value">Individual value: £12</p>
+            <ul>
+              <li>Kinematics and motion (10 problems)</li>
+              <li>Dynamics and Newton's Laws (10 problems)</li>
+              <li>Energy and work (8 problems)</li>
+              <li>Fluids and thermodynamics (12 problems)</li>
+              <li>Electricity, waves and optics (10 problems)</li>
+            </ul>
+            <p style="margin-top: 16px;">The problems that come up most in exams, solved from start to finish, so you learn the method — not just the answer.</p>
+            <div class="bonus-sfoglia">
+              <figure><img src="./img/bonus2-sample-1.svg" alt="A problem solved step by step" width="700" height="1000" loading="lazy" decoding="async"><figcaption>The full reasoning, not just the final answer</figcaption></figure>
+              <figure><img src="./img/bonus2-sample-2.svg" alt="Quick revision card" width="700" height="1000" loading="lazy" decoding="async"><figcaption>Questions to cover and test yourself with</figcaption></figure>
+            </div>
+            <button type="button" class="gal-cta gal-cta-sm" data-lb="bonus2" data-lb-index="0"><svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg> See Bonus 2 samples</button>
+          </div>
+        </div>
+
+        <div class="bonus-item-with-image">
+          <div class="bonus-mockup"><img src="./img/bonus-3.svg" alt="The Quick Guide to Passing Physics" width="700" height="940" loading="lazy" decoding="async"></div>
+          <div class="bonus-text">
+            <h3>BONUS 3: &ldquo;The Quick Guide to Passing Physics&rdquo;</h3>
+            <p class="value">Individual value: £7</p>
+            <p>A one-page summary per unit, perfect for revising the night before an exam: the key formulas, the most common mistakes, and the order you should study each topic in.</p>
+            <div class="bonus-sfoglia">
+              <figure><img src="./img/bonus2-sample-3.svg" alt="Comparison table of key formulas" width="700" height="1000" loading="lazy" decoding="async"><figcaption>The key formulas, all in one table</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DECISION BOX -->
+      <div class="decision-box" id="offerta">
+        <img src="./img/cover.jpg" alt="Complete Kit: 7 Parts + 3 Bonuses" class="db-mockup" width="896" height="1200" loading="lazy" decoding="async">
+
+        <h3 class="db-title">Physics Study Lab Kit</h3>
+
+        <ul class="db-checklist">
+          <li><span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>38 Illustrated Physics Chapters<span class="db-price-val">£29</span></li>
+          <li><span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Bonus 1: The 100 Formulas Explained<span class="db-price-val">£12</span></li>
+          <li><span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Bonus 2: 50 Problems Solved<span class="db-price-val">£12</span></li>
+          <li><span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Bonus 3: The Quick Pass Guide<span class="db-price-val">£7</span></li>
+          <li><span class="db-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>High-resolution PDF for printing<span class="db-price-val">Included</span></li>
+        </ul>
+
+        <div class="db-anchoring">
+          <p class="db-old-price">Total value: £60</p>
+          <p class="db-new-price-label">Today only:</p>
+          <p class="db-new-price">£15</p>
+          <span class="db-discount-badge">SAVE £45</span>
+        </div>
+
+        <a href="#offerta" data-checkout class="db-cta">YES, I WANT THE COMPLETE KIT FOR £15</a>
+
+        <div class="db-trust">
+          <span class="db-trust-item"><span class="db-trust-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>Secure checkout</span>
+          <span class="db-trust-item"><span class="db-trust-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg></span>Encrypted payment</span>
+          <span class="db-trust-item"><span class="db-trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>30-day guarantee</span>
+        </div>
+
+        <p class="db-small-print">One-off payment, no instalments, no hidden fees. <br>Note: connect this button to your own payment gateway (Stripe, Gumroad, etc.).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Is This Material Right for You?</h2>
+
+      <div class="paraquem-grid">
+        <div class="paraquem-card">
+          <img class="paraquem-foto" src="./img/persona-gcse.svg" alt="GCSE student studying physics" loading="lazy" width="900" height="675">
+          <div class="paraquem-info">
+            <h3>GCSE student</h3>
+            <p>You're studying physics right now and you're tired of trying to cram just to pass. You want to actually understand it, so it becomes the foundation for everything that comes next.</p>
+          </div>
+        </div>
+        <div class="paraquem-card">
+          <img class="paraquem-foto" src="./img/persona-alevel.svg" alt="A-Level or university student" loading="lazy" width="900" height="675">
+          <div class="paraquem-info">
+            <h3>A-Level / University</h3>
+            <p>You're preparing for A-Levels or taking first-year physics at university. You need to revise the basics fast and with confidence, without going back to an 800-page textbook.</p>
+          </div>
+        </div>
+        <div class="paraquem-card">
+          <img class="paraquem-foto" src="./img/persona-tutor.svg" alt="Tutor or self-taught learner" loading="lazy" width="900" height="675">
+          <div class="paraquem-info">
+            <h3>Tutor / self-taught</h3>
+            <p>You teach physics, or you're simply learning it on your own, without the dense language of textbooks or hours spent building your own diagrams from scratch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHOR -->
+  <section class="section author-section">
+    <div class="container">
+      <h2 class="text-center">Who's Behind Physics Study Lab</h2>
+
+      <div class="author-content">
+        <div class="author-image">
+          <img src="./img/author.svg" alt="Photo of the Physics Study Lab author" width="266" height="400" loading="lazy" decoding="async">
+        </div>
+        <div class="author-bio">
+          <h3>[Your Name Here]</h3>
+          <h4>[Your background] · Creator of Physics Study Lab</h4>
+          <p>[Say briefly who you are: for example, a physics teacher, an advanced student, or an educator — and how many students you've already helped simplify the subject.]</p>
+          <p>With a method built on <strong>visual clarity and effective memory</strong>, I turn dense content into mind maps, illustrations and practical summaries, so you finally understand what used to feel impossible.</p>
+          <p>This material wasn't built &ldquo;to sell&rdquo;. It was built <strong>because I went through the same frustration of studying physics with methods that didn't work</strong>.</p>
+          <p>And I found that once your brain <strong>sees information organised visually</strong>, everything changes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECAP -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="text-center">To Recap: Here's What You Get Today</h2>
+
+      <ul class="recap-list">
+        <li>38 Illustrated Physics Chapters, in 7 parts: from basic quantities to modern physics, all visual and organised</li>
+        <li>Bonus 1: &ldquo;The 100 Physics Formulas Explained Visually&rdquo; (worth £12)</li>
+        <li>Bonus 2: &ldquo;50 Physics Problems Solved Step by Step&rdquo; (worth £12)</li>
+        <li>Bonus 3: &ldquo;The Quick Guide to Passing Physics&rdquo; (worth £7)</li>
+        <li>Instant access: everything arrives by automatic email in under 2 minutes</li>
+        <li>30-day no-questions guarantee: try it risk-free</li>
+        <li>High-resolution PDF: print it, annotate it, take it anywhere</li>
+      </ul>
+
+      <div class="price-recap">
+        <p class="old-price">£60</p>
+        <p class="new-price">£15</p>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="#offerta" class="btn-cta">I WANT TO SEE THE FULL OFFER</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="section">
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="icon"><svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>The &ldquo;Try It Risk-Free&rdquo; Guarantee: 30 Days</h3>
+        <p>I understand you've probably already tried other methods that didn't work.</p>
+        <p>That's why I'm giving you <strong>30 full days</strong> to try the Physics Study Lab Kit.</p>
+        <p>If within that time you feel the material didn't help, wasn't useful, or simply wasn't what you expected, <strong>I'll refund 100% of what you paid</strong>.</p>
+        <p>No questions asked. No small print. No hassle.</p>
+        <p><strong>The risk is ZERO. The decision is yours.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="text-center">Frequently Asked Questions</h2>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq1">How will I receive the material?</button>
+          <div class="faq-answer" id="faq1" hidden><p>As soon as you complete your purchase you'll get an automatic email with the access link. It's high-resolution PDF, ready to download, print or read on any device.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq2">Is it a one-off payment or a subscription?</button>
+          <div class="faq-answer" id="faq2" hidden><p>One-off payment of £15. No instalments, no recurring charges, no surprises. Pay once and the material is yours for good.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq3">What language is the material in?</button>
+          <div class="faq-answer" id="faq3" hidden><p>100% in English, using the same terminology you use in class. It isn't a machine translation.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq4">Does it match my exam board or course?</button>
+          <div class="faq-answer" id="faq4" hidden><p>Yes. The content covers the general and applied physics required at GCSE, A-Level, and in first-year university courses, regardless of exam board or institution.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq5">Can I print the material?</button>
+          <div class="faq-answer" id="faq5" hidden><p>Yes, with no limits. The PDFs are designed in high resolution, ideal for printing, annotating, or using as a quick reference before an exam.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>One Last Thing Before You Decide...</h2>
+
+      <p>Physics doesn't have to be a nightmare.</p>
+      <p>You don't have to drive yourself mad memorising 100 formulas that make no sense.</p>
+      <p>You don't have to fight your way through an 800-page textbook.</p>
+      <p>And you definitely <strong>shouldn't fail because you were using a method that doesn't work</strong>.</p>
+      <p style="font-size: 22px; font-weight: 700; margin-top: 32px;">There's a simpler way. And it's one click away.</p>
+      <p>Over 2,400 students have already chosen to make studying simpler with Physics Study Lab.</p>
+      <p><strong>Now it's your turn.</strong></p>
+
+      <div class="cta-summary">
+        <ul>
+          <li>One-off cost: £15</li>
+          <li>Guarantee: 30 days, no questions asked</li>
+          <li>Access: instant, by email</li>
+        </ul>
+      </div>
+
+      <a href="#offerta" class="btn-cta">I WANT THE COMPLETE KIT FOR £15</a>
+
+      <p class="cta-small-print" style="margin-top: 24px;">
+        <svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg> You'll receive the material by email in under 2 minutes
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Physics Study Lab · All rights reserved · <a href="#" style="color: rgba(255,255,255,0.7); text-decoration: underline; margin-left: 8px;">Refund Policy</a></p>
+      <p class="disclaimer">Physics Study Lab is an independent educational resource. Learning outcomes depend on each student. [Add your contact details / business registration / address here if required in your jurisdiction.]</p>
+    </div>
+  </footer>
+
+  <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Sample pages gallery">
+    <button type="button" class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button type="button" class="lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <button type="button" class="lb-next" id="lbNext" aria-label="Next">›</button>
+    <div class="lb-box">
+      <img id="lbImg" src="" alt="">
+      <p class="lb-cap" id="lbCap"></p>
+      <p class="lb-count" id="lbCount"></p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var el = document.getElementById('promoClock');
+      if (!el) return;
+      try {
+        var today = new Date();
+        var dateStr = today.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+        el.textContent = dateStr || 'today';
+      } catch (e) {
+        el.textContent = 'today';
+      }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var AUTOPLAY_INTERVAL = 3200;
+      var RESUME_DELAY = 5000;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function initCarousel(scrollId, dotsId, itemSelector, progressId) {
+        var scroll = document.getElementById(scrollId);
+        var dotsWrap = document.getElementById(dotsId);
+        var progressBar = progressId ? document.getElementById(progressId) : null;
+        if (!scroll) return;
+
+        var realItems = Array.prototype.slice.call(scroll.querySelectorAll(itemSelector));
+        var N = realItems.length;
+        if (N < 2) return;
+
+        for (var c = 0; c < 2; c++) {
+          realItems.forEach(function (it) {
+            var clone = it.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            scroll.appendChild(clone);
+          });
+        }
+        var items = Array.prototype.slice.call(scroll.querySelectorAll(itemSelector));
+        var targetAbs = N;
+
+        var prevBtn = document.querySelector('.carousel-nav[data-target="' + scrollId + '"][data-dir="prev"]');
+        var nextBtn = document.querySelector('.carousel-nav[data-target="' + scrollId + '"][data-dir="next"]');
+
+        var autoplayTimer = null, resumeTimer = null, settleTimer = null;
+        var userActive = false, hovering = false, visible = true;
+        var noAutoplay = scroll.hasAttribute('data-no-autoplay');
+        var userScrolled = false;
+
+        function maxScroll() { return scroll.scrollWidth - scroll.clientWidth; }
+        function snapLeftOf(idx) {
+          var it = items[idx];
+          var left = it.offsetLeft - scroll.offsetLeft - (scroll.clientWidth - it.offsetWidth) / 2;
+          return Math.max(0, Math.min(maxScroll(), left));
+        }
+        function loopWidth() { return items[N].offsetLeft - items[0].offsetLeft; }
+        function getAbsIndex() {
+          var best = N, bd = Infinity, sl = scroll.scrollLeft;
+          for (var k = 0; k < items.length; k++) {
+            var d = Math.abs((items[k].offsetLeft - scroll.offsetLeft - (scroll.clientWidth - items[k].offsetWidth) / 2) - sl);
+            if (d < bd) { bd = d; best = k; }
+          }
+          return best;
+        }
+        function jumpTo(left) {
+          var prevBehavior = scroll.style.scrollBehavior;
+          scroll.style.scrollBehavior = 'auto';
+          scroll.scrollLeft = left;
+          scroll.style.scrollBehavior = prevBehavior;
+        }
+        var animId = null;
+        function cancelAnim() { if (animId) { cancelAnimationFrame(animId); animId = null; scroll.style.scrollSnapType = ''; } }
+        function animateTo(left) {
+          cancelAnim();
+          var startLeft = scroll.scrollLeft;
+          var dist = left - startLeft;
+          if (Math.abs(dist) < 1) return;
+          if (reduceMotion) { jumpTo(left); return; }
+          var t0 = performance.now();
+          var DUR = 380;
+          scroll.style.scrollSnapType = 'none';
+          function frame(now) {
+            var p = Math.min(1, (now - t0) / DUR);
+            var ease = 1 - Math.pow(1 - p, 3);
+            scroll.scrollLeft = startLeft + dist * ease;
+            if (p < 1) { animId = requestAnimationFrame(frame); }
+            else { animId = null; scroll.style.scrollSnapType = ''; }
+          }
+          animId = requestAnimationFrame(frame);
+        }
+        function scrollToAbs(idx) { if (!items[idx]) return; animateTo(snapLeftOf(idx)); }
+
+        function recenter() {
+          var lw = loopWidth();
+          if (lw <= 0) return;
+          var sl = scroll.scrollLeft;
+          if (sl < lw * 0.5) { jumpTo(sl + lw); targetAbs += N; }
+          else if (sl >= lw * 1.5) { jumpTo(sl - lw); targetAbs -= N; }
+        }
+        function next() {
+          if (targetAbs >= items.length - 2) { cancelAnim(); jumpTo(scroll.scrollLeft - loopWidth()); targetAbs -= N; }
+          targetAbs = targetAbs + 1;
+          scrollToAbs(targetAbs);
+          updateDots(((targetAbs % N) + N) % N);
+        }
+        function prev() {
+          if (targetAbs <= 1) { cancelAnim(); jumpTo(scroll.scrollLeft + loopWidth()); targetAbs += N; }
+          targetAbs = targetAbs - 1;
+          scrollToAbs(targetAbs);
+          updateDots(((targetAbs % N) + N) % N);
+        }
+
+        if (dotsWrap) {
+          dotsWrap.innerHTML = '';
+          realItems.forEach(function (_, i) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.setAttribute('role', 'tab');
+            b.setAttribute('aria-label', 'Go to item ' + (i + 1));
+            if (i === 0) b.setAttribute('aria-current', 'true');
+            b.addEventListener('click', function () {
+              pauseAutoplay(true);
+              targetAbs = N + i;
+              scrollToAbs(targetAbs);
+              updateDots(i);
+            });
+            dotsWrap.appendChild(b);
+          });
+        }
+
+        function autoplayStep() { if (userActive || hovering || document.hidden) return; next(); }
+        function startAutoplay() { if (reduceMotion || noAutoplay) return; stopAutoplay(); autoplayTimer = setInterval(autoplayStep, AUTOPLAY_INTERVAL); }
+        function stopAutoplay() { if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
+        function pauseAutoplay(retomar) {
+          userActive = true;
+          stopAutoplay();
+          clearTimeout(resumeTimer);
+          if (retomar !== false) {
+            resumeTimer = setTimeout(function () {
+              userActive = false;
+              hovering = false;
+              if (visible) startAutoplay();
+            }, RESUME_DELAY);
+          }
+        }
+        function updateDots(idx) {
+          if (dotsWrap) {
+            var dots = dotsWrap.querySelectorAll('button');
+            dots.forEach(function (d, i) {
+              if (i === idx) d.setAttribute('aria-current', 'true');
+              else d.removeAttribute('aria-current');
+            });
+          }
+          if (progressBar) progressBar.style.width = Math.max(8, ((idx + 1) / N) * 100) + '%';
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function () { pauseAutoplay(); prev(); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { pauseAutoplay(); next(); });
+
+        var hasHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+        if (hasHover) {
+          scroll.addEventListener('mouseenter', function () { hovering = true; stopAutoplay(); });
+          scroll.addEventListener('mouseleave', function () { hovering = false; if (!userActive) startAutoplay(); });
+        }
+
+        scroll.addEventListener('touchstart', function () { userScrolled = true; cancelAnim(); pauseAutoplay(); }, { passive: true });
+        scroll.addEventListener('wheel', function () { userScrolled = true; pauseAutoplay(); }, { passive: true });
+
+        scroll.addEventListener('scroll', function () {
+          clearTimeout(settleTimer);
+          settleTimer = setTimeout(function () {
+            if (userScrolled) { targetAbs = getAbsIndex(); userScrolled = false; }
+            var atRest = Math.abs(scroll.scrollLeft - snapLeftOf(getAbsIndex())) < 8;
+            if (atRest) recenter();
+            updateDots(targetAbs % N);
+          }, 180);
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              visible = e.isIntersecting;
+              if (e.isIntersecting && !userActive && !hovering) startAutoplay();
+              else if (!e.isIntersecting) stopAutoplay();
+            });
+          }, { threshold: 0.25 });
+          io.observe(scroll);
+        } else { startAutoplay(); }
+
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) stopAutoplay();
+          else if (!userActive && !hovering) startAutoplay();
+        });
+
+        window.addEventListener('resize', function () { updateDots(targetAbs % N); });
+
+        jumpTo(snapLeftOf(N));
+        updateDots(0);
+      }
+
+      function boot() {
+        initCarousel('testimonials-scroll', 'testimonials-dots', '.testimonial-item', 'testimonials-progress');
+        initCarousel('amostras-scroll', 'amostras-dots', '.testimonial-item', 'amostras-progress');
+      }
+
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', boot); }
+      else { boot(); }
+    })();
+  </script>
+
+  <script>
+    document.querySelectorAll('.subject-item').forEach(function (item) {
+      var btn = item.querySelector('.subject-summary');
+      var content = item.querySelector('.subject-content');
+      if (!btn || !content) return;
+      btn.addEventListener('click', function () {
+        var isOpen = item.getAttribute('data-open') === 'true';
+        document.querySelectorAll('.subject-item').forEach(function (other) {
+          if (other !== item && other.getAttribute('data-open') === 'true') {
+            other.setAttribute('data-open', 'false');
+            other.classList.remove('active');
+            var otherBtn = other.querySelector('.subject-summary');
+            var otherContent = other.querySelector('.subject-content');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            if (otherContent) otherContent.style.maxHeight = null;
+          }
+        });
+        if (isOpen) {
+          item.setAttribute('data-open', 'false');
+          item.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+          content.style.maxHeight = null;
+        } else {
+          item.setAttribute('data-open', 'true');
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var answer = document.getElementById(btn.getAttribute('aria-controls'));
+        btn.setAttribute('aria-expanded', !expanded);
+        answer.hidden = expanded;
+      });
+    });
+  </script>
+
+  <script>
+    (function () {
+      // NOTE: illustrative names/times only. Before publishing, wire this up to real
+      // purchases (e.g. via your payment gateway's webhook) or remove it — showing fake
+      // purchases as real can breach consumer-protection rules in the UK (CMA / CPRs).
+      var buyers = [
+        { name: 'Olivia, from London', prod: 'Bought the Complete Kit', time: '4 minutes ago' },
+        { name: 'James, from Manchester', prod: 'Complete Kit · 7 Parts + 3 Bonuses', time: '12 minutes ago' },
+        { name: 'Amelia, from Birmingham', prod: 'Bought the Complete Kit', time: '18 minutes ago' },
+        { name: 'Thomas, from Leeds', prod: 'Complete Kit · 7 Parts + 3 Bonuses', time: '25 minutes ago' },
+        { name: 'Isla, from Bristol', prod: 'Unlocked the Complete Kit', time: '31 minutes ago' },
+        { name: 'George, from Glasgow', prod: 'Complete Kit · 7 Parts + 3 Bonuses', time: '39 minutes ago' }
+      ];
+      var idx = 0;
+      var toast = document.getElementById('spToast');
+      var spName = document.getElementById('spName');
+      var spProd = document.getElementById('spProd');
+      var spTime = document.getElementById('spTime');
+      var spClose = document.getElementById('spClose');
+      if (!toast) return;
+
+      function showNext() {
+        var b = buyers[idx];
+        if (spName) spName.textContent = b.name;
+        if (spProd) spProd.textContent = b.prod;
+        if (spTime) spTime.textContent = b.time;
+        toast.classList.add('show');
+        setTimeout(function () { toast.classList.remove('show'); }, 6000);
+        idx = (idx + 1) % buyers.length;
+      }
+
+      if (spClose) {
+        spClose.addEventListener('click', function (e) { e.stopPropagation(); toast.classList.remove('show'); });
+      }
+
+      setTimeout(function () { showNext(); setInterval(showNext, 18000); }, 6000);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var GALLERIES = {
+        samples: {
+          pages: [
+            ['./img/page-1.jpg', 'Vectors in a page'],
+            ['./img/page-2.jpg', "Newton's Laws, illustrated"],
+            ['./img/page-3.jpg', 'How a circuit works'],
+            ['./img/page-4.jpg', 'Sound, light and waves']
+          ]
+        },
+        bonus1: {
+          pages: [
+            ['./img/bonus1-sample-1.svg', 'Every formula with its definition and its drawing'],
+            ['./img/bonus1-sample-2.svg', 'Weight vs. mass: the pair everyone confuses']
+          ]
+        },
+        bonus2: {
+          pages: [
+            ['./img/bonus2-sample-1.svg', 'The full reasoning, not just the final answer'],
+            ['./img/bonus2-sample-2.svg', 'Questions to cover and test yourself with'],
+            ['./img/bonus2-sample-3.svg', 'The key formulas, all in one table']
+          ]
+        }
+      };
+
+      var overlay = document.getElementById('lbOverlay');
+      var imgEl = document.getElementById('lbImg');
+      var capEl = document.getElementById('lbCap');
+      var countEl = document.getElementById('lbCount');
+      var closeBtn = document.getElementById('lbClose');
+      var prevBtn = document.getElementById('lbPrev');
+      var nextBtn = document.getElementById('lbNext');
+
+      var current = null, idx = 0;
+
+      function render() {
+        if (!current) return;
+        var pag = current.pages[idx];
+        imgEl.src = pag[0];
+        imgEl.alt = pag[1];
+        capEl.textContent = pag[1];
+        countEl.textContent = (idx + 1) + ' / ' + current.pages.length;
+      }
+      function open(galId, index) {
+        current = GALLERIES[galId];
+        if (!current) return;
+        idx = index || 0;
+        render();
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        current = null;
+      }
+      function next() { if (!current) return; idx = (idx + 1) % current.pages.length; render(); }
+      function prev() { if (!current) return; idx = (idx - 1 + current.pages.length) % current.pages.length; render(); }
+
+      document.addEventListener('click', function (e) {
+        var trigger = e.target.closest('[data-lb]');
+        if (!trigger) return;
+        e.preventDefault();
+        open(trigger.getAttribute('data-lb'), parseInt(trigger.getAttribute('data-lb-index') || '0', 10));
+      });
+
+      closeBtn.addEventListener('click', close);
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+    })();
+  </script>
+
+</body>
+</html>

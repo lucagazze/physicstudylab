@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 1000" width="700" height="1000">
+  <rect width="700" height="1000" fill="#FFFFFF"/>
+  <rect x="1" y="1" width="698" height="998" fill="none" stroke="#DDE4EF" stroke-width="2"/>
+  
+  <text x="350.0" y="500.0" font-family="Arial, sans-serif" font-size="42.0" font-weight="800" fill="#173B6C" text-anchor="middle">Glossary A-Z</text>
+  <text x="350.0" y="535.0" font-family="Arial, sans-serif" font-size="24.500000000000004" fill="#5B6472" text-anchor="middle">Every term with its drawing</text>
+</svg>
