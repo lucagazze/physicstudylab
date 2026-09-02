@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1300" width="1000" height="1300">
-  <rect width="1000" height="1300" fill="#FFFFFF"/>
-  <rect x="1" y="1" width="998" height="1298" fill="none" stroke="#DDE4EF" stroke-width="2"/>
-  
-  <text x="500.0" y="650.0" font-family="Arial, sans-serif" font-size="60.0" font-weight="800" fill="#173B6C" text-anchor="middle">Physics Study Lab</text>
-  <text x="500.0" y="700.0" font-family="Arial, sans-serif" font-size="35.0" fill="#5B6472" text-anchor="middle">Same content, illustrated</text>
-</svg>
