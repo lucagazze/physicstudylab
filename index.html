@@ -167,6 +167,25 @@
     .solution-content { max-width: 800px; margin: 0 auto; }
     .solution-image { max-width: 420px; margin: 40px auto; border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
 
+    .kit-fan { display: flex; justify-content: center; align-items: flex-end; margin: 30px auto 40px; padding: 26px 10px 10px; }
+    .kit-fan img { width: 84px; aspect-ratio: 768 / 1376; object-fit: cover; border-radius: 8px; box-shadow: 0 8px 20px rgba(15, 27, 51, 0.18); border: 2px solid #FFFFFF; flex-shrink: 0; }
+    .kit-fan img:not(:first-child) { margin-left: -20px; }
+    .kit-fan .kf-p1 { transform: rotate(-14deg); }
+    .kit-fan .kf-p2 { transform: rotate(-7deg) translateY(6px); }
+    .kit-fan .kf-cover { width: 104px; transform: translateY(-16px); z-index: 5; position: relative; box-shadow: 0 14px 30px rgba(15, 27, 51, 0.32); }
+    .kit-fan .kf-p3 { transform: rotate(7deg) translateY(6px); }
+    .kit-fan .kf-p4 { transform: rotate(14deg); }
+    @media (min-width: 480px) {
+      .kit-fan img { width: 104px; }
+      .kit-fan img:not(:first-child) { margin-left: -24px; }
+      .kit-fan .kf-cover { width: 130px; }
+    }
+    @media (min-width: 640px) {
+      .kit-fan img { width: 128px; }
+      .kit-fan img:not(:first-child) { margin-left: -30px; }
+      .kit-fan .kf-cover { width: 158px; }
+    }
+
     .topics-grid { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 900px; margin: 36px auto; }
     @media (min-width: 640px) { .topics-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
     .topic-item { display: flex; align-items: flex-start; gap: 14px; background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); }
@@ -884,8 +903,12 @@
     <div class="container">
       <h2 class="text-center">Here's Exactly What You Get:</h2>
 
-      <div style="margin: 20px auto 28px;">
-        <img src="./img/kit-overview.jpg" alt="Physics Study Lab Kit: book cover, illustrated pages and bonus cards" width="848" height="1264" loading="lazy" decoding="async" style="max-width: 420px; width: 100%; display: block; margin: 0 auto; border-radius: 12px;">
+      <div class="kit-fan" role="img" aria-label="The Physics Study Lab cover and four real sample pages, fanned out">
+        <img class="kf-p1" src="./img/page-1.jpg" alt="" loading="lazy" decoding="async">
+        <img class="kf-p2" src="./img/page-2.jpg" alt="" loading="lazy" decoding="async">
+        <img class="kf-cover" src="./img/cover.jpg" alt="" loading="lazy" decoding="async">
+        <img class="kf-p3" src="./img/page-3.jpg" alt="" loading="lazy" decoding="async">
+        <img class="kf-p4" src="./img/page-4.jpg" alt="" loading="lazy" decoding="async">
       </div>
 
       <div class="topics-grid">
