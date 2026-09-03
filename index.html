@@ -189,7 +189,7 @@
     .gal-cta-sm { font-size: 14px; padding: 11px 20px; margin-top: 14px; }
     .gal-cta-note { font-size: 14px; color: var(--text-light); margin: 10px 0 0; }
 
-    .bonus-sfoglia { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .bonus-sfoglia { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
     .bonus-sfoglia figure { flex: 1 1 120px; max-width: 160px; margin: 0; }
     .bonus-sfoglia img { width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 2px 10px rgba(0,0,0,.2); display: block; }
     .bonus-sfoglia figcaption { font-size: 11px; color: rgba(255,255,255,.7); margin-top: 5px; line-height: 1.35; }
@@ -546,7 +546,7 @@
     <span class="sp-mini" id="spAvatar">PS</span>
     <div class="sp-txt">
       <span class="sp-name" id="spName">Olivia, from London</span>
-      <span class="sp-prod" id="spProd">Complete Kit · 7 Parts + 3 Bonuses</span>
+      <span class="sp-prod" id="spProd">Complete Kit · 7 Parts + 2 Bonuses</span>
       <span class="sp-meta"><span class="ok">✔ Access confirmed</span> · <span id="spTime">4 minutes ago</span></span>
     </div>
   </div>
@@ -951,7 +951,7 @@
 
       <!-- DECISION BOX -->
       <div class="decision-box" id="offerta">
-        <img src="./img/cover.jpg" alt="Complete Kit: 7 Parts + 3 Bonuses" class="db-mockup" width="896" height="1200" loading="lazy" decoding="async">
+        <img src="./img/cover.jpg" alt="Complete Kit: 7 Parts + 2 Bonuses" class="db-mockup" width="896" height="1200" loading="lazy" decoding="async">
 
         <h3 class="db-title">Physics Study Lab Kit</h3>
 
@@ -1411,11 +1411,11 @@
       // purchases as real can breach consumer-protection rules in the UK (CMA / CPRs).
       var buyers = [
         { name: 'Olivia, from London', prod: 'Bought the Complete Kit', time: '4 minutes ago' },
-        { name: 'James, from Manchester', prod: 'Complete Kit · 7 Parts + 3 Bonuses', time: '12 minutes ago' },
+        { name: 'James, from Manchester', prod: 'Complete Kit · 7 Parts + 2 Bonuses', time: '12 minutes ago' },
         { name: 'Amelia, from Birmingham', prod: 'Bought the Complete Kit', time: '18 minutes ago' },
-        { name: 'Thomas, from Leeds', prod: 'Complete Kit · 7 Parts + 3 Bonuses', time: '25 minutes ago' },
+        { name: 'Thomas, from Leeds', prod: 'Complete Kit · 7 Parts + 2 Bonuses', time: '25 minutes ago' },
         { name: 'Isla, from Bristol', prod: 'Unlocked the Complete Kit', time: '31 minutes ago' },
-        { name: 'George, from Glasgow', prod: 'Complete Kit · 7 Parts + 3 Bonuses', time: '39 minutes ago' }
+        { name: 'George, from Glasgow', prod: 'Complete Kit · 7 Parts + 2 Bonuses', time: '39 minutes ago' }
       ];
       var idx = 0;
       var toast = document.getElementById('spToast');
