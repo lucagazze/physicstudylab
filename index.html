@@ -8,13 +8,50 @@
          everything except cover.jpg and page-1..4.jpg, which are finished AI-generated illustrations)
       2) Domain / contact details: search "TU-DOMINIO"
       3) Purchase link: search data-checkout and href="#offerta"
-      4) Meta Pixel / Google Tag Manager / Clarity: add your own IDs where indicated
+      4) Meta Pixel installed (ID 4633079520296335, PageView+ViewContent+InitiateCheckout).
+         Google Tag Manager / Clarity still need your own IDs where indicated.
+         Add the Purchase event on your post-payment confirmation page once checkout is live.
       5) Social-proof numbers (students, recent purchases) with real data
       6) The author section (name, bio, photo)
   -->
 
-  <!-- Meta Pixel: paste your own Facebook Pixel script here -->
-  <!-- <script> ... fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView'); </script> -->
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,
+    'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4633079520296335');
+    fbq('track', 'PageView');
+
+    var PSL_PRODUCT = {
+      content_ids: ['physics-study-lab-kit'],
+      content_name: 'Physics Study Lab Complete Kit',
+      content_type: 'product',
+      value: 13,
+      currency: 'GBP'
+    };
+    fbq('track', 'ViewContent', PSL_PRODUCT);
+
+    // Fires on the real buy button only (data-checkout) -- not on the
+    // "see full offer" links, which just scroll to the pricing section.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-checkout]');
+      if (!a) return;
+      fbq('track', 'InitiateCheckout', PSL_PRODUCT);
+    }, true);
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=4633079520296335&ev=PageView&noscript=1"></noscript>
+  <!-- End Meta Pixel -->
+  <!--
+    Purchase event NOT included here on purpose: this page cannot confirm
+    a completed payment (the buy button goes to an external checkout).
+    Fire fbq('track','Purchase',{value:13,currency:'GBP'}) on the
+    post-payment confirmation page/URL on physics-study-lab.impultienda.ar
+    instead -- firing it here would report fake conversions to Meta.
+  -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
