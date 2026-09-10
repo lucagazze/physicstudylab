@@ -347,11 +347,22 @@
 
     .scroll-hint { text-align: center; font-size: 13px; color: var(--text-light); margin-top: 16px; }
 
-    .tst-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px 20px; box-shadow: var(--shadow); height: 100%; display: flex; flex-direction: column; }
-    .tst-card .stars { color: var(--accent); font-size: 15px; letter-spacing: 2px; line-height: 1; margin-bottom: 12px; }
+    .tst-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 20px 20px 20px 6px; padding: 18px 20px 20px; box-shadow: var(--shadow); height: 100%; display: flex; flex-direction: column; }
+    .tst-card.tst-tint { background: var(--primary-light); border-color: transparent; }
+    .tst-card.tst-dark { background: var(--bg-dark); border-color: transparent; }
+    .tst-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .tst-top-left { display: flex; align-items: center; gap: 9px; }
+    .tst-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13.5px; color: #fff; flex-shrink: 0; }
+    .tst-heart { width: 16px; height: 16px; color: var(--cta); opacity: .5; flex-shrink: 0; }
+    .tst-card.tst-dark .tst-heart { color: var(--accent); opacity: .85; }
+    .tst-card .stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; line-height: 1; }
     .tst-card p { font-size: 15.5px; line-height: 1.65; color: var(--text); margin: 0 0 16px; flex: 1; }
+    .tst-card.tst-dark p { color: #FFFFFF; }
     .tst-card .who { font-size: 13.5px; font-weight: 700; color: var(--primary); line-height: 1.4; }
     .tst-card .who span { display: block; font-weight: 500; color: var(--text-light); font-size: 12.5px; margin-top: 2px; }
+    .tst-card.tst-tint .who { color: var(--primary-dark); }
+    .tst-card.tst-dark .who { color: var(--accent); }
+    .tst-card.tst-dark .who span { color: rgba(255,255,255,.72); }
     .tst-nota { text-align: center; font-size: 12.5px; color: var(--text-light); margin-top: 18px; line-height: 1.6; }
 
     .author-section { background: #f7f9fd; }
@@ -717,55 +728,118 @@
 
         <div class="testimonials-scroll" id="testimonials-scroll" role="list">
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--cta)">C</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"I resat physics twice and never really understood vectors until I saw the chapter in Physics Study Lab. One page taught me what three lessons from my teacher hadn't."</p>
               <div class="who">Chloe R. <span>GCSE student, Manchester</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card tst-tint">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--primary)">J</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"Bought it two days before my thermodynamics mock. The heat and entropy pages saved me — I finally understood the difference between heat and temperature."</p>
               <div class="who">Jack S. <span>A-Level, Bristol</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card tst-dark">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--success)">A</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"Formulas stopped being a list to memorise. Now I understand where each one comes from and when to use it. That changed everything."</p>
               <div class="who">Amelia F. <span>Sixth form, Leeds</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--primary-dark)">O</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"The flashcards bonus is pure gold before a test. Five minutes on the Newton's Laws cards and it's all back in my head, even after a term of not touching it."</p>
               <div class="who">Oliver P. <span>1st year, Physics degree</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card tst-tint">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--cta)">A</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"I'm a mum going back into education. I didn't have time to read a 500-page textbook. I understood this in a weekend."</p>
               <div class="who">Anna-Marie G. <span>Access to HE student</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--primary)">D</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"The electricity and circuits part, with the electric field drawings, is the clearest explanation I've seen without getting lost in the maths."</p>
               <div class="who">Daniel L. <span>Year 11, Birmingham</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card tst-dark">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--success)">S</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"I use the quick revision cards before every test. In 20 minutes I cover what used to take me an entire evening re-reading my notes."</p>
               <div class="who">Sophie M. <span>A-Level, Glasgow</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card tst-tint">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--primary-dark)">H</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"I tutor GCSE physics and now recommend this to every student as extra support. The illustrations do the work I used to have to explain twice."</p>
               <div class="who">Mr. Harris <span>Physics tutor</span></div>
             </div>
           </article>
           <article class="testimonial-item" role="listitem">
-            <div class="tst-card"><div class="stars">★★★★★</div>
+            <div class="tst-card">
+              <div class="tst-top">
+                <div class="tst-top-left">
+                  <div class="tst-avatar" style="background:var(--cta)">F</div>
+                  <div class="stars">★★★★★</div>
+                </div>
+                <svg class="tst-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.7-4.35-9.3-8.1C1.02 10.6 1.4 7.4 4 5.8c2.2-1.35 4.9-.7 6.4 1.2l1.6 2 1.6-2c1.5-1.9 4.2-2.55 6.4-1.2 2.6 1.6 2.98 4.8 1.3 7.1C18.7 16.65 12 21 12 21z"/></svg>
+              </div>
               <p>"I thought modern physics (relativity, quantum) would be impossible without a degree. The last part explains it in a surprisingly simple way."</p>
               <div class="who">Freya T. <span>Year 13, Edinburgh</span></div>
             </div>
