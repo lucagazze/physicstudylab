@@ -363,6 +363,13 @@
     .tst-card.tst-tint .who { color: var(--primary-dark); }
     .tst-card.tst-dark .who { color: var(--accent); }
     .tst-card.tst-dark .who span { color: rgba(255,255,255,.72); }
+    .tst-shot { appearance: none; -webkit-appearance: none; font: inherit; text-align: left; width: 100%; cursor: zoom-in; background: var(--bg-white); border: 1px solid var(--border); border-radius: 20px 20px 20px 6px; padding: 10px 10px 12px; box-shadow: var(--shadow); height: 100%; display: flex; flex-direction: column; }
+    .tst-shot img { display: block; width: 100%; height: auto; margin: auto 0; border-radius: 12px; box-shadow: none; }
+    .tst-shot-label { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 7px; font-size: 12px; font-weight: 700; color: var(--primary); margin: 10px 4px 0; letter-spacing: .2px; }
+    .tst-shot:hover img, .tst-shot:focus-visible img { opacity: .94; }
+    .tst-shot:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+    .tst-shot-zoom { margin-left: auto; font-weight: 600; color: var(--text-light); font-size: 11.5px; }
+    .tst-shot-label svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--success); }
     .tst-nota { text-align: center; font-size: 12.5px; color: var(--text-light); margin-top: 18px; line-height: 1.6; }
 
     .author-section { background: #f7f9fd; }
@@ -728,6 +735,36 @@
 
         <div class="testimonials-scroll" id="testimonials-scroll" role="list">
           <article class="testimonial-item" role="listitem">
+            <button type="button" class="tst-shot" data-lb="reviews" data-lb-index="0" aria-label="Enlarge this student message">
+              <img src="img/testimonials/real-1.jpg" alt="Screenshot of real comments from students praising the Physics Study Lab material" loading="lazy" decoding="async" width="900" height="919">
+              <div class="tst-shot-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Real message from a student
+                <span class="tst-shot-zoom">Tap to enlarge</span>
+              </div>
+            </button>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <button type="button" class="tst-shot" data-lb="reviews" data-lb-index="1" aria-label="Enlarge this student message">
+              <img src="img/testimonials/real-2.jpg" alt="Screenshot of real WhatsApp messages from students thanking for the material and saying it is easy to understand" loading="lazy" decoding="async" width="900" height="872">
+              <div class="tst-shot-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Real message from a student
+                <span class="tst-shot-zoom">Tap to enlarge</span>
+              </div>
+            </button>
+          </article>
+          <article class="testimonial-item" role="listitem">
+            <button type="button" class="tst-shot" data-lb="reviews" data-lb-index="2" aria-label="Enlarge this student message">
+              <img src="img/testimonials/real-3.jpg" alt="Screenshot of a real WhatsApp message from a student saying the content helps them understand and that they are happy with it" loading="lazy" decoding="async" width="900" height="919">
+              <div class="tst-shot-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Real message from a student
+                <span class="tst-shot-zoom">Tap to enlarge</span>
+              </div>
+            </button>
+          </article>
+          <article class="testimonial-item" role="listitem">
             <div class="tst-card">
               <div class="tst-top">
                 <div class="tst-top-left">
@@ -1018,7 +1055,7 @@
         <div class="carousel-progress" aria-hidden="true"><div class="carousel-progress-inner" id="testimonials-progress"></div></div>
         <div class="carousel-dots" id="testimonials-dots" role="tablist" aria-label="Reviews navigation"></div>
       </div>
-      <p class="tst-nota">These reviews illustrate the style of feedback you'll be collecting — swap them for real student reviews as soon as you have them.</p>
+      <p class="tst-nota">The screenshots above are real messages from students (names blurred for privacy). The written reviews that follow illustrate the style of feedback you'll be collecting.</p>
     </div>
   </section>
 
@@ -1735,6 +1772,13 @@
   <script>
     (function () {
       var GALLERIES = {
+        reviews: {
+          pages: [
+            ['./img/testimonials/real-1.jpg', 'Comments from students on the Physics Study Lab material'],
+            ['./img/testimonials/real-2.jpg', 'Messages from students after receiving the material'],
+            ['./img/testimonials/real-3.jpg', 'A student on how the content helps them understand']
+          ]
+        },
         samples: {
           pages: [
             ['./img/page-1.jpg', 'Vectors in a page'],
