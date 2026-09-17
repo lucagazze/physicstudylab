@@ -13,7 +13,7 @@ import os
 import json
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EMAIL = "support@physicsstudylab.com"
+EMAIL = "info@physicsstudylab.com"
 UPDATED = "17 September 2026"
 CO = "QUILLSTONE DIGITAL LLC"
 ADDR = "1057 NW 136th Ave, Miami, FL 33182, United States"
