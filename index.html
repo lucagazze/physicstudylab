@@ -408,6 +408,24 @@
     .btn-secondary { display: inline-block; background: #fff; color: var(--primary); font-weight: 800; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: transform 0.2s ease; }
     .btn-secondary:hover { transform: translateY(-2px); }
 
+    /* The Final Book of Physics — flagship upsell */
+    .fb-upsell { background: var(--bg-dark); border: 2px solid var(--accent); border-radius: 18px; box-shadow: 0 0 0 6px rgba(247, 207, 73, 0.12), 0 22px 54px rgba(0,0,0,0.30); max-width: 900px; margin: 0 auto; padding: 30px 24px; display: grid; grid-template-columns: 1fr; gap: 26px; align-items: center; }
+    @media (min-width: 760px) { .fb-upsell { grid-template-columns: 300px 1fr; padding: 40px 38px; gap: 38px; } }
+    .fb-upsell-cover img { width: 100%; max-width: 260px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 18px 44px rgba(0,0,0,0.5); }
+    .fb-upsell-text { text-align: left; }
+    .fb-badge { display: inline-block; background: #e8442a; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; padding: 6px 13px; border-radius: 999px; margin-bottom: 14px; }
+    .fb-upsell-text h3 { color: #fff; font-size: 26px; line-height: 1.25; margin-bottom: 10px; }
+    .fb-upsell-text > p { color: #c7d0e8; font-size: 15.5px; line-height: 1.7; margin-bottom: 16px; }
+    .fb-list { list-style: none; margin: 0 0 20px; padding: 0; }
+    .fb-list li { display: flex; align-items: flex-start; gap: 9px; color: #dbe3f5; font-size: 14.5px; line-height: 1.6; padding: 4px 0; }
+    .fb-list li::before { content: '›'; color: var(--accent); font-weight: 900; font-size: 17px; line-height: 1.35; flex-shrink: 0; }
+    .fb-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .fb-price-old { color: #8c99b8; font-size: 20px; text-decoration: line-through; }
+    .fb-price-new { color: var(--accent); font-size: 38px; font-weight: 900; line-height: 1; }
+    .fb-price-note { color: #e8442a; font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    .fb-upsell-text .btn-cta { display: inline-block; width: 100%; text-align: center; font-size: 16px; padding: 15px 22px; }
+    .fb-smallprint { color: #98a4c2; font-size: 12.5px; margin-top: 11px; text-align: center; }
+
     .faq-container { max-width: 800px; margin: 40px auto; }
     .faq-item { margin-bottom: 12px; }
     .faq-question {
@@ -1262,6 +1280,36 @@
   </section>
 
   <!-- BEYOND THE SYLLABUS + THE BIGGER PICTURE TEASER (featured) -->
+  <!-- THE FINAL BOOK OF PHYSICS (flagship upsell) -->
+  <section class="section" aria-label="The Final Book of Physics">
+    <div class="container">
+      <h2 class="text-center">The Biggest Thing We've Ever Made</h2>
+      <div class="fb-upsell">
+        <div class="fb-upsell-cover">
+          <img src="./img/finalbook-cover.webp" alt="The Final Book of Physics: a complete 127-page physics reference" width="714" height="1018" loading="lazy" decoding="async">
+        </div>
+        <div class="fb-upsell-text">
+          <span class="fb-badge">LAUNCH WEEK &middot; SAVE $52</span>
+          <h3>The Final Book of Physics</h3>
+          <p>Beyond the Syllabus and The Bigger Picture are chapters. This is the whole book &mdash; 127 pages, 12 parts, every corner of physics in one place.</p>
+          <ul class="fb-list">
+            <li>Mechanics, electricity, thermodynamics, quantum and relativity</li>
+            <li>Astrophysics, cosmology and the physics behind everyday tech</li>
+            <li>The 14 physicists who built the field, and the 7 books that shaped it</li>
+            <li>A full master reference: every formula, constant, unit and symbol</li>
+          </ul>
+          <div class="fb-price">
+            <span class="fb-price-old">$99</span>
+            <span class="fb-price-new">$47</span>
+            <span class="fb-price-note">this week only</span>
+          </div>
+          <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="finalbook-link" class="btn-cta">Add The Final Book &mdash; $47 &rarr;</a>
+          <p class="fb-smallprint">Instant A4 PDF &middot; 30-day no-questions guarantee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" aria-label="Beyond the Syllabus and The Bigger Picture advanced upsell">
     <div class="container">
       <div class="bts-teaser bts-teaser--featured">
