@@ -425,6 +425,15 @@
     .fb-price-note { color: #e8442a; font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
     .fb-upsell-text .btn-cta { display: inline-block; width: 100%; text-align: center; font-size: 16px; padding: 15px 22px; }
     .fb-smallprint { color: #98a4c2; font-size: 12.5px; margin-top: 11px; text-align: center; }
+    /* States plainly that the book is an add-on at checkout. Without it the
+       button promised $47 and the checkout opened on the $17.99 kit, so the
+       visitor met a different product and a different price at the exact
+       moment of highest intent. */
+    .fb-bundle-note { background: rgba(38,69,160,0.14); border: 1px solid rgba(199,208,232,0.28); border-radius: 10px; padding: 12px 14px; margin: 0 0 16px; color: #dbe3f5; font-size: 13.5px; line-height: 1.6; }
+    .fb-bundle-note strong { color: #fff; }
+    /* Same honesty fix on the two advanced guides: the price shown is the
+       add-on price, which only exists on top of the kit. */
+    .bts-addon-note { color: #98a4c2; font-size: 12.5px; font-weight: 700; margin: 0 0 9px; }
 
     .faq-container { max-width: 800px; margin: 40px auto; }
     .faq-item { margin-bottom: 12px; }
@@ -1289,7 +1298,7 @@
           <img src="./img/finalbook-cover.webp" alt="The Final Book of Physics: a complete 127-page physics reference" width="714" height="1018" loading="lazy" decoding="async">
         </div>
         <div class="fb-upsell-text">
-          <span class="fb-badge">LAUNCH WEEK &middot; SAVE $52</span>
+          <span class="fb-badge">OUR FLAGSHIP &middot; SAVE $52</span>
           <h3>The Final Book of Physics</h3>
           <p>Beyond the Syllabus and The Bigger Picture are chapters. This is the whole book &mdash; 127 pages, 12 parts, every corner of physics in one place.</p>
           <ul class="fb-list">
@@ -1301,9 +1310,10 @@
           <div class="fb-price">
             <span class="fb-price-old">$99</span>
             <span class="fb-price-new">$47</span>
-            <span class="fb-price-note">this week only</span>
+            <span class="fb-price-note">added at checkout</span>
           </div>
-          <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="finalbook-link" class="btn-cta">Add The Final Book &mdash; $47 &rarr;</a>
+          <p class="fb-bundle-note">The Final Book is an <strong>add-on</strong>, not a separate purchase. You&rsquo;ll get the <strong>Physics Study Lab Kit &mdash; $17.99</strong> with both bonuses, and tick <strong>The Final Book &mdash; $47</strong> on the same checkout. <strong>$64.99 in total.</strong></p>
+          <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="finalbook-link" class="btn-cta">Get the Kit + The Final Book &mdash; $64.99 &rarr;</a>
           <p class="fb-smallprint">Instant A4 PDF &middot; 30-day no-questions guarantee</p>
         </div>
       </div>
@@ -1320,12 +1330,14 @@
           <div class="bts-duo-card">
             <h4>Beyond the Syllabus</h4>
             <p>Examiners reward students who go past the definition and into the derivation. This is the 5 topics that separate a good grade from the top grade &mdash; Quantum Physics, Capacitance &amp; RC Circuits, Gravitational Fields, Particle Physics, and Astrophysics &amp; Cosmology &mdash; fully derived, step by step, not just defined. 34 pages.</p>
-            <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="bts-teaser-link" class="btn-secondary">See Beyond the Syllabus &mdash; $14.99 &rarr;</a>
+            <p class="bts-addon-note">Add-on at the kit checkout &mdash; $17.99 + $14.99</p>
+            <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="bts-teaser-link" class="btn-secondary">Get it with the Kit &mdash; $32.98 &rarr;</a>
           </div>
           <div class="bts-duo-card">
             <h4>The Bigger Picture</h4>
             <p>Inspired by the best-selling science book of all time, this is physics without the exam pressure &mdash; black holes, the Big Bang, Hawking radiation, and the one question physics still can't answer. Real equations, real worked examples, zero syllabus required. 47 pages.</p>
-            <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="tbp-teaser-link" class="btn-secondary">See The Bigger Picture &mdash; $19.99 &rarr;</a>
+            <p class="bts-addon-note">Add-on at the kit checkout &mdash; $17.99 + $19.99</p>
+            <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="tbp-teaser-link" class="btn-secondary">Get it with the Kit &mdash; $37.98 &rarr;</a>
           </div>
         </div>
       </div>
