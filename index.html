@@ -435,6 +435,42 @@
        add-on price, which only exists on top of the kit. */
     .bts-addon-note { color: #98a4c2; font-size: 12.5px; font-weight: 700; margin: 0 0 9px; }
 
+    .db-scope { background: #F8FAFC; border: 1px solid var(--border); border-left: 4px solid var(--primary);
+      border-radius: 8px; padding: 13px 15px; margin: 14px 0 0; font-size: 13.5px; line-height: 1.65;
+      color: #334155; text-align: left; }
+    .db-scope strong { color: #0F172A; }
+
+    /* Physics Solved — the practice book. Light, so it reads as a different
+       kind of thing from the dark flagship block that follows it. */
+    .ps-upsell { background: #F8F2DA; border: 2px solid #25314B; border-radius: 18px;
+      box-shadow: 0 18px 44px rgba(28,34,52,0.18); max-width: 940px; margin: 0 auto;
+      padding: 30px 24px; display: grid; grid-template-columns: 1fr; gap: 26px; align-items: center; }
+    @media (min-width: 760px) { .ps-upsell { grid-template-columns: 1fr 300px; padding: 40px 38px; gap: 38px; } }
+    .ps-text { text-align: left; }
+    .ps-badge { display: inline-block; background: #25314B; color: #E5C386; font-size: 12px;
+      font-weight: 800; letter-spacing: 0.08em; padding: 6px 13px; border-radius: 999px; margin-bottom: 14px; }
+    .ps-text h3 { color: #25314B; font-size: 28px; line-height: 1.2; margin-bottom: 10px; }
+    .ps-text > p { color: #46433A; font-size: 15.5px; line-height: 1.7; margin-bottom: 16px; }
+    .ps-list { list-style: none; margin: 0 0 20px; padding: 0; }
+    .ps-list li { display: flex; align-items: flex-start; gap: 9px; color: #3A3728; font-size: 14.5px;
+      line-height: 1.6; padding: 4px 0; }
+    .ps-list li > span { flex: 1; }
+    .ps-list li::before { content: '\203A'; color: #C19A4E; font-weight: 900; font-size: 17px;
+      line-height: 1.35; flex-shrink: 0; }
+    .ps-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .ps-price-new { color: #25314B; font-size: 38px; font-weight: 900; line-height: 1; }
+    .ps-price-note { color: #B4452A; font-size: 13px; font-weight: 800; letter-spacing: 0.04em;
+      text-transform: uppercase; }
+    .ps-note { background: rgba(37,49,75,0.07); border: 1px solid rgba(37,49,75,0.18); border-radius: 10px;
+      padding: 12px 14px; margin: 0 0 16px; color: #3A3728; font-size: 13.5px; line-height: 1.6; }
+    .ps-note strong { color: #25314B; }
+    .ps-text .btn-cta { display: inline-block; width: 100%; text-align: center; font-size: 16px; padding: 15px 22px; }
+    .ps-smallprint { color: #6E6A60; font-size: 12.5px; margin-top: 11px; text-align: center; }
+    .ps-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ps-shots img { width: 100%; border-radius: 6px; display: block;
+      box-shadow: 0 10px 26px rgba(28,34,52,0.28); border: 1px solid rgba(37,49,75,0.16); }
+    .ps-shots a:first-child { grid-column: 1 / -1; }
+
     .faq-container { max-width: 800px; margin: 40px auto; }
     .faq-item { margin-bottom: 12px; }
     .faq-question {
@@ -1109,7 +1145,7 @@
         <div class="topic-item"><span class="topic-num">2</span><div><span class="topic-pages">pp. 17&ndash;34</span><h3>Mechanics</h3><p>Motion, force and Newton's Laws, plus energy and momentum.</p></div></div>
         <div class="topic-item"><span class="topic-num">3</span><div><span class="topic-pages">pp. 35&ndash;46</span><h3>Fluids</h3><p>Pressure, density, Pascal, Archimedes and Bernoulli, all in everyday examples.</p></div></div>
         <div class="topic-item"><span class="topic-num">4</span><div><span class="topic-pages">pp. 47&ndash;58</span><h3>Thermodynamics</h3><p>Heat, temperature, gases and entropy, without formulas floating with no context.</p></div></div>
-        <div class="topic-item"><span class="topic-num">5</span><div><span class="topic-pages">pp. 59&ndash;72</span><h3>Electricity</h3><p>Charge, electric field, current, resistance and circuits, step by step.</p></div></div>
+        <div class="topic-item"><span class="topic-num">5</span><div><span class="topic-pages">pp. 59&ndash;72</span><h3>Electricity</h3><p>Charge, electric field, current, resistance and circuits, one idea at a time.</p></div></div>
         <div class="topic-item"><span class="topic-num">6</span><div><span class="topic-pages">pp. 73&ndash;84</span><h3>Waves &amp; Optics</h3><p>Sound, light, reflection and refraction, with diagrams you understand at a glance.</p></div></div>
       </div>
 
@@ -1192,6 +1228,13 @@
         </div>
 
         <p class="db-small-print">Digital book (PDF), instant download. One-off payment, no instalments, no hidden fees.</p>
+
+        <!-- Disqualifying honestly raises net conversion: it loses the buyer who
+             would have asked for a refund and reassures the one who would not.
+             Added after a refund request whose complaint was factually correct -
+             the kit explains physics beautifully and contains no practice at all. -->
+        <p class="db-scope"><strong>What this is:</strong> a visual book that makes physics finally make sense &mdash; one idea per page, drawn, not described.<br>
+        <strong>What it isn&rsquo;t:</strong> a book of exam questions. If you want problems worked step by step, that&rsquo;s <strong>Physics Solved</strong>, and you can add it on the same checkout.</p>
       </div>
     </div>
   </section>
@@ -1290,6 +1333,41 @@
 
   <!-- BEYOND THE SYLLABUS + THE BIGGER PICTURE TEASER (featured) -->
   <!-- THE FINAL BOOK OF PHYSICS (flagship upsell) -->
+  <!-- Physics Solved — the practice book. Added because a refund request made the
+       gap plain: the catalogue teaches, revises and goes deeper, and nothing in it
+       had ever asked the student to actually do a question. -->
+  <section class="section section-alt" aria-label="Physics Solved, the practice book">
+    <div class="container">
+      <h2 class="text-center">Understanding Physics and Using It Are Two Different Skills</h2>
+      <div class="ps-upsell">
+        <div class="ps-text">
+          <span class="ps-badge">NEW &middot; THE PRACTICE BOOK</span>
+          <h3>Physics Solved</h3>
+          <p>The Kit is the book that makes physics make sense. This is the one that gets you through the exam &mdash; 50 problems, each with a page to attempt it and a page that works it through, line by line.</p>
+          <ul class="ps-list">
+            <li><span>50 problems across all 7 parts of the Kit, every one tagged GCSE or A&#8209;level</span></li>
+            <li><span>The question on the left page, alone, with room to work. The full solution on the right</span></li>
+            <li><span><strong>The Trap</strong> on every solution: the exact wrong answer most students give, and why the brain produces it</span></li>
+            <li><span>The exam command words &mdash; what <em>state</em>, <em>explain</em>, <em>determine</em> and <em>show that</em> each actually demand</span></li>
+            <li><span>All 50 traps collected on one page, for the night before</span></li>
+          </ul>
+          <div class="ps-price">
+            <span class="ps-price-new">$19.99</span>
+            <span class="ps-price-note">added at checkout</span>
+          </div>
+          <p class="ps-note">Physics Solved is an <strong>add-on</strong>, not a separate purchase. You&rsquo;ll get the <strong>Physics Study Lab Kit &mdash; $17.99</strong> with both bonuses, and tick <strong>Physics Solved &mdash; $19.99</strong> on the same checkout. <strong>$37.98 in total.</strong></p>
+          <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="solved-link" class="btn-cta">Get the Kit + Physics Solved &rarr;</a>
+          <p class="ps-smallprint">111 pages &middot; instant A4 PDF &middot; 30-day no-questions guarantee</p>
+        </div>
+        <div class="ps-shots">
+          <a href="./img/physicssolved/solution.jpg" target="_blank" rel="noopener"><img src="./img/physicssolved/solution.jpg" alt="A worked solution page from Physics Solved, with numbered steps, the answer and the common mistake" width="1588" height="2246" loading="lazy" decoding="async"></a>
+          <a href="./img/physicssolved/problem.jpg" target="_blank" rel="noopener"><img src="./img/physicssolved/problem.jpg" alt="A problem page from Physics Solved, with space to work" width="1588" height="2246" loading="lazy" decoding="async"></a>
+          <a href="./img/physicssolved/traps.jpg" target="_blank" rel="noopener"><img src="./img/physicssolved/traps.jpg" alt="The index of all fifty traps in Physics Solved" width="1588" height="2246" loading="lazy" decoding="async"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" aria-label="The Final Book of Physics">
     <div class="container">
       <h2 class="text-center">The Biggest Thing We've Ever Made</h2>
@@ -1353,6 +1431,10 @@
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq1">How will I receive the material?</button>
           <div class="faq-answer" id="faq1" hidden><p>As soon as you complete your purchase you'll get an automatic email with the access link. It's high-resolution PDF, ready to download, print or read on any device.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faqpractice">Does the Kit include practice questions?</button>
+          <div class="faq-answer" id="faqpractice" hidden><p>No, and we would rather say so here than have you find out after paying. The Kit is built to make physics <em>make sense</em> &mdash; one idea per page, drawn rather than described. It has no exam questions in it. Practice is a separate book, <strong>Physics Solved</strong>: 50 problems worked step by step, which you can add for $19.99 on the same checkout.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq2">Is it a one-off payment or a subscription?</button>
