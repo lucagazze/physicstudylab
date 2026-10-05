@@ -396,23 +396,6 @@
     .guarantee-box h3 { color: var(--success); font-size: 24px; margin-bottom: 16px; }
     .guarantee-box p { font-size: 18px; color: #101828; line-height: 1.7; }
 
-    .bts-teaser { background: var(--bg-dark); border-radius: 16px; padding: 36px 28px; text-align: center; max-width: 700px; margin: 0 auto; }
-    .bts-badge { display: inline-block; background: var(--primary-light); color: var(--primary); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px; }
-    .bts-teaser h3 { color: #fff; font-size: 24px; margin-bottom: 12px; }
-    .bts-teaser p { color: #c7d0e8; font-size: 16px; line-height: 1.7; margin-bottom: 22px; }
-
-    .bts-teaser--featured { max-width: 820px; border: 2px solid var(--accent); box-shadow: 0 0 0 6px rgba(247, 207, 73, 0.12), 0 20px 50px rgba(0,0,0,0.28); }
-    .bts-teaser--featured .bts-badge { background: var(--accent); color: #1b3277; }
-    .bts-duo { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 6px; text-align: left; }
-    @media (min-width: 640px) { .bts-duo { grid-template-columns: 1fr 1fr; } }
-    .bts-duo-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; padding: 20px 20px 22px; display: flex; flex-direction: column; }
-    .bts-duo-card h4 { color: var(--accent); font-size: 17px; margin-bottom: 8px; line-height: 1.3; }
-    .bts-duo-card p { font-size: 14.5px; line-height: 1.65; color: #c7d0e8; margin-bottom: 16px; flex: 1; }
-    .bts-duo-card .btn-secondary { width: 100%; text-align: center; font-size: 14px; padding: 12px 18px; }
-    .btn-secondary { display: inline-block; background: #fff; color: var(--primary); font-weight: 800; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: transform 0.2s ease; }
-    .btn-secondary:hover { transform: translateY(-2px); }
-
-    /* The Final Book of Physics — flagship upsell */
     .fb-upsell { background: var(--bg-dark); border: 2px solid var(--accent); border-radius: 18px; box-shadow: 0 0 0 6px rgba(247, 207, 73, 0.12), 0 22px 54px rgba(0,0,0,0.30); max-width: 900px; margin: 0 auto; padding: 30px 24px; display: grid; grid-template-columns: 1fr; gap: 26px; align-items: center; }
     @media (min-width: 760px) { .fb-upsell { grid-template-columns: 300px 1fr; padding: 40px 38px; gap: 38px; } }
     .fb-upsell-cover img { width: 100%; max-width: 260px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 18px 44px rgba(0,0,0,0.5); }
@@ -435,9 +418,6 @@
        moment of highest intent. */
     .fb-bundle-note { background: rgba(38,69,160,0.14); border: 1px solid rgba(199,208,232,0.28); border-radius: 10px; padding: 12px 14px; margin: 0 0 16px; color: #dbe3f5; font-size: 13.5px; line-height: 1.6; }
     .fb-bundle-note strong { color: #fff; }
-    /* Same honesty fix on the two advanced guides: the price shown is the
-       add-on price, which only exists on top of the kit. */
-    .bts-addon-note { color: #98a4c2; font-size: 12.5px; font-weight: 700; margin: 0 0 9px; }
 
     .db-scope { background: #F8FAFC; border: 1px solid var(--border); border-left: 4px solid var(--primary);
       border-radius: 8px; padding: 13px 15px; margin: 14px 0 0; font-size: 13.5px; line-height: 1.65;
@@ -1388,7 +1368,7 @@
         <div class="fb-upsell-text">
           <span class="fb-badge">OUR FLAGSHIP &middot; SAVE $161</span>
           <h3>The Final Book of Physics</h3>
-          <p>Beyond the Syllabus and The Bigger Picture are chapters. This is the whole book &mdash; 127 pages, 12 parts, every corner of physics in one place.</p>
+          <p>Every other guide we make covers one corner of physics. This is the whole book &mdash; 127 pages, 12 parts, every corner in one place.</p>
           <ul class="fb-list">
             <li>Mechanics, electricity, thermodynamics, quantum and relativity</li>
             <li>Astrophysics, cosmology and the physics behind everyday tech</li>
@@ -1403,30 +1383,6 @@
           <p class="fb-bundle-note">The button opens a basket with <strong>three books already in it</strong>: the <strong>Physics Study Lab Kit &mdash; $17.99</strong> with both bonuses, <strong>The Final Book &mdash; $47</strong>, and <strong>Physics Solved &mdash; $19.99</strong>.</p>
           <a href="https://checkout.physicsstudylab.com/checkout/final-solved" id="finalbook-link" data-checkout class="btn-cta">Get all three books &rarr;</a>
           <p class="fb-smallprint">Instant A4 PDF &middot; 30-day no-questions guarantee</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-label="Beyond the Syllabus and The Bigger Picture advanced upsell">
-    <div class="container">
-      <div class="bts-teaser bts-teaser--featured">
-        <span class="bts-badge">OUR 2 MOST ADVANCED GUIDES</span>
-        <h3>Ready to Go Further Than the Syllabus?</h3>
-        <p>Most students stop at the definition. The ones who get the top grade &mdash; and the ones who just can't stop asking "but why?" &mdash; go further. These are the two guides built for them.</p>
-        <div class="bts-duo">
-          <div class="bts-duo-card">
-            <h4>Beyond the Syllabus</h4>
-            <p>Examiners reward students who go past the definition and into the derivation. This is the 5 topics that separate a good grade from the top grade &mdash; Quantum Physics, Capacitance &amp; RC Circuits, Gravitational Fields, Particle Physics, and Astrophysics &amp; Cosmology &mdash; fully derived, step by step, not just defined. 34 pages.</p>
-            <p class="bts-addon-note">Add-on at the kit checkout &mdash; $17.99 + $14.99</p>
-            <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="bts-teaser-link" data-checkout class="btn-secondary">Get it with the Kit &rarr;</a>
-          </div>
-          <div class="bts-duo-card">
-            <h4>The Bigger Picture</h4>
-            <p>Inspired by the best-selling science book of all time, this is physics without the exam pressure &mdash; black holes, the Big Bang, Hawking radiation, and the one question physics still can't answer. Real equations, real worked examples, zero syllabus required. 47 pages.</p>
-            <p class="bts-addon-note">Add-on at the kit checkout &mdash; $17.99 + $19.99</p>
-            <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="tbp-teaser-link" data-checkout class="btn-secondary">Get it with the Kit &rarr;</a>
-          </div>
         </div>
       </div>
     </div>
