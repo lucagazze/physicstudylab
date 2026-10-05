@@ -408,7 +408,7 @@
     .fb-list li::before { content: '›'; color: var(--accent); font-weight: 900; font-size: 17px; line-height: 1.35; flex-shrink: 0; }
     .fb-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
     .fb-price-old { color: #8c99b8; font-size: 20px; text-decoration: line-through; }
-    .fb-price-new { color: var(--accent); font-size: 38px; font-weight: 900; line-height: 1; }
+    .fb-price-new { color: var(--accent); font-size: 30px; font-weight: 900; line-height: 1; letter-spacing: 0.03em; }
     .fb-price-note { color: #e8442a; font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
     .fb-upsell-text .btn-cta { display: inline-block; width: 100%; text-align: center; font-size: 16px; padding: 15px 22px; }
     .fb-smallprint { color: #98a4c2; font-size: 12.5px; margin-top: 11px; text-align: center; }
@@ -1002,100 +1002,7 @@
   </section>
 
   <!-- SUBJECTS ACCORDION -->
-  <section class="subjects-section" aria-label="What's inside">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow eyebrow-violet">Contents</span>
-        <h2>Take a look at the 7 parts and 38 chapters</h2>
-        <p class="subjects-subtitle">From basic quantities to modern physics — all illustrated, all exam-relevant</p>
-      </div>
-
-      <div class="subjects-accordion" role="list">
-        <div class="subject-item" data-open="false" role="listitem">
-          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-1">
-            <span class="subject-num" aria-hidden="true">1</span>
-            <span class="subject-title">Fundamentals <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 5-16</em></span>
-            <span class="subject-icon" aria-hidden="true"></span>
-          </button>
-          <div class="subject-content" id="subj-content-1" role="region">
-            <div class="subject-content-inner"><ul class="subject-content-list"><li>Quantities</li><li>Units</li><li>Vectors</li><li>Conversions</li><li>Graphs</li></ul></div>
-          </div>
-        </div>
-        <div class="subject-item" data-open="false" role="listitem">
-          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-2">
-            <span class="subject-num" aria-hidden="true">2</span>
-            <span class="subject-title">Mechanics <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 17-34</em></span>
-            <span class="subject-icon" aria-hidden="true"></span>
-          </button>
-          <div class="subject-content" id="subj-content-2" role="region">
-            <div class="subject-content-inner"><ul class="subject-content-list"><li>Motion</li><li>Velocity</li><li>Acceleration</li><li>Force</li><li>Newton's Laws</li><li>Work</li><li>Energy</li><li>Momentum</li></ul></div>
-          </div>
-        </div>
-        <div class="subject-item" data-open="false" role="listitem">
-          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-3">
-            <span class="subject-num" aria-hidden="true">3</span>
-            <span class="subject-title">Fluids <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 35-46</em></span>
-            <span class="subject-icon" aria-hidden="true"></span>
-          </button>
-          <div class="subject-content" id="subj-content-3" role="region">
-            <div class="subject-content-inner"><ul class="subject-content-list"><li>Pressure</li><li>Density</li><li>Pascal's Principle</li><li>Archimedes' Principle</li><li>Bernoulli's Principle</li></ul></div>
-          </div>
-        </div>
-        <div class="subject-item" data-open="false" role="listitem">
-          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-4">
-            <span class="subject-num" aria-hidden="true">4</span>
-            <span class="subject-title">Thermodynamics <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 47-58</em></span>
-            <span class="subject-icon" aria-hidden="true"></span>
-          </button>
-          <div class="subject-content" id="subj-content-4" role="region">
-            <div class="subject-content-inner"><ul class="subject-content-list"><li>Temperature</li><li>Heat</li><li>Energy</li><li>Gases</li><li>Entropy</li></ul></div>
-          </div>
-        </div>
-        <div class="subject-item" data-open="false" role="listitem">
-          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-5">
-            <span class="subject-num" aria-hidden="true">5</span>
-            <span class="subject-title">Electricity <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 59-72</em></span>
-            <span class="subject-icon" aria-hidden="true"></span>
-          </button>
-          <div class="subject-content" id="subj-content-5" role="region">
-            <div class="subject-content-inner"><ul class="subject-content-list"><li>Charge</li><li>Electric field</li><li>Potential</li><li>Current</li><li>Resistance</li><li>Circuits</li></ul></div>
-          </div>
-        </div>
-        <div class="subject-item" data-open="false" role="listitem">
-          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-6">
-            <span class="subject-num" aria-hidden="true">6</span>
-            <span class="subject-title">Waves &amp; Optics <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 73-84</em></span>
-            <span class="subject-icon" aria-hidden="true"></span>
-          </button>
-          <div class="subject-content" id="subj-content-6" role="region">
-            <div class="subject-content-inner"><ul class="subject-content-list"><li>Waves</li><li>Sound</li><li>Light</li><li>Reflection</li><li>Refraction</li></ul></div>
-          </div>
-        </div>
-        <div class="subject-item" data-open="false" role="listitem">
-          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-7">
-            <span class="subject-num" aria-hidden="true">7</span>
-            <span class="subject-title">Modern Physics <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 85-94</em></span>
-            <span class="subject-icon" aria-hidden="true"></span>
-          </button>
-          <div class="subject-content" id="subj-content-7" role="region">
-            <div class="subject-content-inner"><ul class="subject-content-list"><li>Relativity</li><li>Quantum physics</li><li>The atom</li><li>Radiation</li></ul></div>
-          </div>
-        </div>
-        <div class="subject-item" data-open="false" role="listitem">
-          <button class="subject-summary" type="button" aria-expanded="false" aria-controls="subj-content-8">
-            <span class="subject-num" aria-hidden="true">&middot;</span>
-            <span class="subject-title">Wrapping up <em style="font-style:normal;opacity:.6;font-weight:600">&middot; pp. 95-98</em></span>
-            <span class="subject-icon" aria-hidden="true"></span>
-          </button>
-          <div class="subject-content" id="subj-content-8" role="region">
-            <div class="subject-content-inner"><ul class="subject-content-list"><li>Glossary &mdash; p. 95</li><li>Sources &amp; references &mdash; p. 97</li><li>Index &mdash; p. 98</li></ul></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOLUTION -->
+    <!-- SOLUTION -->
   <section class="section section-alt">
     <div class="container">
       <h2 class="text-center">What If There Were a Simpler Way?</h2>
@@ -1376,8 +1283,7 @@
             <li>A full master reference: every formula, constant, unit and symbol</li>
           </ul>
           <div class="fb-price">
-            <span class="fb-price-old">$246</span>
-            <span class="fb-price-new">$84.98</span>
+            <span class="fb-price-new">SPECIAL OFFER</span>
             <span class="fb-price-note">all three books</span>
           </div>
           <p class="fb-bundle-note">The button opens a basket with <strong>three books already in it</strong>: the <strong>Physics Study Lab Kit &mdash; $17.99</strong> with both bonuses, <strong>The Final Book &mdash; $47</strong>, and <strong>Physics Solved &mdash; $19.99</strong>.</p>
