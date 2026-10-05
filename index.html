@@ -35,8 +35,12 @@
     };
     fbq('track', 'ViewContent', PSL_PRODUCT);
 
-    // Fires on the real buy button only (data-checkout) -- not on the
-    // "see full offer" links, which just scroll to the pricing section.
+    // Fires on every link that actually opens the checkout (data-checkout) --
+    // not on the "see full offer" links, which only scroll to the pricing block.
+    // The upsell buttons carry it too: they are the highest-intent clicks on the
+    // page, and without it Meta had no signal from them to optimise towards.
+    // Value stays at the kit price, which is what every one of these is
+    // guaranteed to buy; the real total belongs on the Purchase event.
     document.addEventListener('click', function (e) {
       var a = e.target.closest('[data-checkout]');
       if (!a) return;
@@ -50,7 +54,7 @@
     Purchase event NOT included here on purpose: this page cannot confirm
     a completed payment (the buy button goes to an external checkout).
     Fire fbq('track','Purchase',{value:13,currency:'GBP'}) on the
-    post-payment confirmation page/URL on physics-study-lab.impultienda.ar
+    post-payment confirmation page/URL on checkout.physicsstudylab.com
     instead -- firing it here would report fake conversions to Meta.
   -->
 
@@ -461,6 +465,7 @@
     .ps-price-new { color: #25314B; font-size: 38px; font-weight: 900; line-height: 1; }
     .ps-price-note { color: #B4452A; font-size: 13px; font-weight: 800; letter-spacing: 0.04em;
       text-transform: uppercase; }
+    .ps-anchor { color: #6E6A60; font-size: 13.5px; font-style: italic; margin: -4px 0 14px; }
     .ps-note { background: rgba(37,49,75,0.07); border: 1px solid rgba(37,49,75,0.18); border-radius: 10px;
       padding: 12px 14px; margin: 0 0 16px; color: #3A3728; font-size: 13.5px; line-height: 1.6; }
     .ps-note strong { color: #25314B; }
@@ -1170,10 +1175,10 @@
           <div class="bonus-text">
             <h3>BONUS 1: &ldquo;The Words of Physics: 104 Terms Explained with Illustrations&rdquo;</h3>
             <p class="value">Individual value: $19</p>
-            <p>Every term with its own drawing, its &ldquo;why&rdquo;, and a worked example. Stop memorising loose letters and start understanding what every word in physics actually means.</p>
+            <p>Every term with its own drawing, so the definition arrives as a picture instead of a sentence you have to read three times. Stop memorising loose letters and start understanding what every word in physics actually means.</p>
             <div class="bonus-sfoglia">
-              <figure><img src="./img/bonus1-sample-1.jpg" alt="Sample page from the formula glossary" width="768" height="1376" loading="lazy" decoding="async"><figcaption>Every formula with its definition and its drawing</figcaption></figure>
-              <figure><img src="./img/bonus1-sample-2.jpg" alt="Comparison of commonly confused formulas" width="768" height="1376" loading="lazy" decoding="async"><figcaption>Weight vs. mass: the pair everyone confuses</figcaption></figure>
+              <figure><img src="./img/bonus1-sample-1.jpg" alt="A page of electricity terms from The Words of Physics, each with its own drawing" width="768" height="1095" loading="lazy" decoding="async"><figcaption>Eight terms a page, each with its own drawing</figcaption></figure>
+              <figure><img src="./img/bonus1-sample-2.jpg" alt="A page of mechanics terms from The Words of Physics" width="768" height="1095" loading="lazy" decoding="async"><figcaption>Grouped by topic, so related words sit together</figcaption></figure>
             </div>
           </div>
         </div>
@@ -1184,16 +1189,18 @@
             <h3>BONUS 2: &ldquo;Rapid Revision Cards in Physics: 30 Cards on the Topics That Come Up Most&rdquo;</h3>
             <p class="value">Individual value: $19</p>
             <ul>
-              <li>Vectors</li>
+              <li>Units &amp; vectors</li>
               <li>Mechanics</li>
+              <li>Fluids</li>
+              <li>Thermodynamics</li>
               <li>Electricity</li>
-              <li>Waves</li>
-              <li>Light</li>
+              <li>Waves &amp; light</li>
+              <li>Radioactivity</li>
             </ul>
-            <p style="margin-top: 16px;">These 5 topics cover the majority of what actually comes up in GCSE and A-Level exams. Cover the answer, test yourself, and know instantly what still needs work.</p>
+            <p style="margin-top: 16px;">One topic per card, across all seven parts of the Kit: the key equation, the three facts you have to be able to state, and one exam tip. Two cards to a page with a line to cut along, so the deck fits in a pocket. Cover the facts and recall them before you check &mdash; that is what makes it stick.</p>
             <div class="bonus-sfoglia">
-              <figure><img src="./img/bonus2-sample-1.jpg" alt="Quick revision card" width="768" height="1376" loading="lazy" decoding="async"><figcaption>Questions to cover and test yourself with</figcaption></figure>
-              <figure><img src="./img/bonus2-sample-2.jpg" alt="Comparison table of key formulas" width="768" height="1376" loading="lazy" decoding="async"><figcaption>The key formulas, all in one table</figcaption></figure>
+              <figure><img src="./img/bonus2-sample-1.jpg" alt="Two rapid revision cards on density, pressure and Archimedes, with a cutting line between them" width="768" height="1095" loading="lazy" decoding="async"><figcaption>Two cards a page, with a line to cut along</figcaption></figure>
+              <figure><img src="./img/bonus2-sample-2.jpg" alt="Two rapid revision cards, each with its equation, three facts and an exam tip" width="768" height="1095" loading="lazy" decoding="async"><figcaption>One equation, three facts, one exam tip</figcaption></figure>
             </div>
           </div>
         </div>
@@ -1346,7 +1353,7 @@
           <p>The Kit is the book that makes physics make sense. This is the one that gets you through the exam &mdash; 50 problems, each with a page to attempt it and a page that works it through, line by line.</p>
           <ul class="ps-list">
             <li><span>50 problems across all 7 parts of the Kit, every one tagged GCSE or A&#8209;level</span></li>
-            <li><span>The question on the left page, alone, with room to work. The full solution on the right</span></li>
+            <li><span>The question sits alone on its own page, so you have to attempt it. The solution is overleaf, not alongside &mdash; which is the whole reason it sticks</span></li>
             <li><span><strong>The Trap</strong> on every solution: the exact wrong answer most students give, and why the brain produces it</span></li>
             <li><span>The exam command words &mdash; what <em>state</em>, <em>explain</em>, <em>determine</em> and <em>show that</em> each actually demand</span></li>
             <li><span>All 50 traps collected on one page, for the night before</span></li>
@@ -1355,8 +1362,9 @@
             <span class="ps-price-new">$19.99</span>
             <span class="ps-price-note">added at checkout</span>
           </div>
+          <p class="ps-anchor">One hour with a physics tutor costs more than this, and covers about two questions.</p>
           <p class="ps-note">Physics Solved is an <strong>add-on</strong>, not a separate purchase. You&rsquo;ll get the <strong>Physics Study Lab Kit &mdash; $17.99</strong> with both bonuses, and tick <strong>Physics Solved &mdash; $19.99</strong> on the same checkout. <strong>$37.98 in total.</strong></p>
-          <a href="https://physics-study-lab.impultienda.ar/checkout/kit-complete" id="solved-link" class="btn-cta">Get the Kit + Physics Solved &rarr;</a>
+          <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="solved-link" data-checkout class="btn-cta">Get the Kit + Physics Solved &rarr;</a>
           <p class="ps-smallprint">111 pages &middot; instant A4 PDF &middot; 30-day no-questions guarantee</p>
         </div>
         <div class="ps-shots">
@@ -1391,7 +1399,7 @@
             <span class="fb-price-note">added at checkout</span>
           </div>
           <p class="fb-bundle-note">The Final Book is an <strong>add-on</strong>, not a separate purchase. You&rsquo;ll get the <strong>Physics Study Lab Kit &mdash; $17.99</strong> with both bonuses, and tick <strong>The Final Book &mdash; $47</strong> on the same checkout. <strong>$64.99 in total.</strong></p>
-          <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="finalbook-link" class="btn-cta">Get the Kit + The Final Book &rarr;</a>
+          <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="finalbook-link" data-checkout class="btn-cta">Get the Kit + The Final Book &rarr;</a>
           <p class="fb-smallprint">Instant A4 PDF &middot; 30-day no-questions guarantee</p>
         </div>
       </div>
@@ -1409,13 +1417,13 @@
             <h4>Beyond the Syllabus</h4>
             <p>Examiners reward students who go past the definition and into the derivation. This is the 5 topics that separate a good grade from the top grade &mdash; Quantum Physics, Capacitance &amp; RC Circuits, Gravitational Fields, Particle Physics, and Astrophysics &amp; Cosmology &mdash; fully derived, step by step, not just defined. 34 pages.</p>
             <p class="bts-addon-note">Add-on at the kit checkout &mdash; $17.99 + $14.99</p>
-            <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="bts-teaser-link" class="btn-secondary">Get it with the Kit &rarr;</a>
+            <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="bts-teaser-link" data-checkout class="btn-secondary">Get it with the Kit &rarr;</a>
           </div>
           <div class="bts-duo-card">
             <h4>The Bigger Picture</h4>
             <p>Inspired by the best-selling science book of all time, this is physics without the exam pressure &mdash; black holes, the Big Bang, Hawking radiation, and the one question physics still can't answer. Real equations, real worked examples, zero syllabus required. 47 pages.</p>
             <p class="bts-addon-note">Add-on at the kit checkout &mdash; $17.99 + $19.99</p>
-            <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="tbp-teaser-link" class="btn-secondary">Get it with the Kit &rarr;</a>
+            <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" id="tbp-teaser-link" data-checkout class="btn-secondary">Get it with the Kit &rarr;</a>
           </div>
         </div>
       </div>
@@ -1477,7 +1485,7 @@
         </ul>
       </div>
 
-      <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" class="btn-cta">I WANT THE COMPLETE KIT FOR $17.99</a>
+      <a href="https://checkout.physicsstudylab.com/checkout/kit-complete" data-checkout class="btn-cta">I WANT THE COMPLETE KIT FOR $17.99</a>
 
       <p class="cta-small-print" style="margin-top: 24px;">
         <svg aria-hidden="true" focusable="false" class="lc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>  Digital book (PDF) · You'll receive the material by email in under 2 minutes
@@ -1819,14 +1827,14 @@
         },
         bonus1: {
           pages: [
-            ['./img/bonus1-sample-1.jpg', 'Every formula with its definition and its drawing'],
-            ['./img/bonus1-sample-2.jpg', 'Weight vs. mass: the pair everyone confuses']
+            ['./img/bonus1-sample-1.jpg', 'Eight terms a page, each with its own drawing'],
+            ['./img/bonus1-sample-2.jpg', 'Grouped by topic, so related words sit together']
           ]
         },
         bonus2: {
           pages: [
-            ['./img/bonus2-sample-1.jpg', 'Questions to cover and test yourself with'],
-            ['./img/bonus2-sample-2.jpg', 'The key formulas, all in one table']
+            ['./img/bonus2-sample-1.jpg', 'Two cards a page, with a line to cut along'],
+            ['./img/bonus2-sample-2.jpg', 'One equation, three facts, one exam tip']
           ]
         }
       };
