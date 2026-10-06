@@ -1,1 +1,6 @@
 .vercel
+
+# Paid products: never to the public site
+*.pdf
+.DS_Store
+.claude/

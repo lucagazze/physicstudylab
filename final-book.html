@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <!--
+    TEMPLATE "PHYSICS STUDY LAB" — structurally adapted from studiofacile/index.html
+    Replace before publishing:
+      1) The supporting SVG placeholders in /img (bonus mockups, personas, comparison, author —
+         everything except cover.jpg and page-1..4.jpg, which are finished AI-generated illustrations)
+      2) Domain: physicsstudylab.com (set 2026-09-29)
+      3) Purchase link: search data-checkout and href="#offerta"
+      4) Meta Pixel installed (ID 4633079520296335, PageView+ViewContent+InitiateCheckout).
+         Google Tag Manager / Clarity still need your own IDs where indicated.
+         Add the Purchase event on your post-payment confirmation page once checkout is live.
+      5) Social-proof numbers (students, recent purchases) with real data
+      6) The author section (name, bio, photo)
+  -->
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,
+    'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4633079520296335');
+    fbq('track', 'PageView');
+
+    // This page sells ONE product and the pixel has to say so. Left on the kit
+    // values, Meta would score every $47 visitor as a $17.99 visitor and would
+    // optimise both funnels towards the cheaper one.
+    // Value follows the landing's own convention (kit $17.99 -> 13 GBP, a ratio
+    // of 0.723), so the two pages stay comparable: 47 x 0.723 = 34.
+    var PSL_PRODUCT = {
+      content_ids: ['the-final-book-of-physics'],
+      content_name: 'The Final Book of Physics',
+      content_type: 'product',
+      value: 34,
+      currency: 'GBP'
+    };
+    fbq('track', 'ViewContent', PSL_PRODUCT);
+
+    // Fires on every link that actually opens the checkout (data-checkout) --
+    // not on the "see full offer" links, which only scroll to the pricing block.
+    // The upsell buttons carry it too: they are the highest-intent clicks on the
+    // page, and without it Meta had no signal from them to optimise towards.
+    // Value stays at the kit price, which is what every one of these is
+    // guaranteed to buy; the real total belongs on the Purchase event.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-checkout]');
+      if (!a) return;
+      fbq('track', 'InitiateCheckout', PSL_PRODUCT);
+    }, true);
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=4633079520296335&ev=PageView&noscript=1"></noscript>
+  <!-- End Meta Pixel -->
+  <!--
+    Purchase event NOT included here on purpose: this page cannot confirm
+    a completed payment (the buy button goes to an external checkout).
+    Fire fbq('track','Purchase',{value:13,currency:'GBP'}) on the
+    post-payment confirmation page/URL on checkout.physicsstudylab.com
+    instead -- firing it here would report fake conversions to Meta.
+  -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2645a0">
+  <title>The Final Book of Physics — 127 pages, every corner of physics</title>
+  <meta name="description" content="The complete physics reference: 127 pages, 12 parts, from Newton's laws to dark energy. Written and checked page by page.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="Physics Study Lab">
+  <link rel="canonical" href="https://physicsstudylab.com/">
+  <meta property="og:url" content="https://physicsstudylab.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Physics Study Lab">
+  <meta property="og:title" content="Physics Study Lab | Learn Physics Visually">
+  <meta property="og:description" content="7 parts and 38 illustrated chapters to understand physics without memorising formulas.">
+  <meta property="og:image" content="https://physicsstudylab.com/img/cover.jpg">
+  <meta property="og:image:width" content="896">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image:alt" content="Physics Study Lab — Learn Physics Visually">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Physics Study Lab">
+  <meta name="twitter:description" content="7 parts and 38 illustrated chapters to understand physics without memorising formulas.">
+  <meta name="twitter:image" content="https://physicsstudylab.com/img/cover.jpg">
+
+  <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Analytics: add Google Tag Manager / Microsoft Clarity with your own IDs here -->
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; max-width: 100%; overflow-x: hidden; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #101828;
+      background: #FFFFFF;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      max-width: 100%;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; -webkit-tap-highlight-color: transparent; }
+    ul { list-style: none; }
+
+    :root {
+      --primary: #2645a0;
+      --primary-dark: #1c3479;
+      --primary-light: #eff4fd;
+      --cta: #f97216;
+      --cta-hover: #dd5f0a;
+      --accent: #f7cf49;
+      --bg-white: #FFFFFF;
+      --bg-page: #FFFFFF;
+      --bg-light: #f4f7fd;
+      --bg-dark: #1b3277;
+      --text: #101828;
+      --text-light: #667085;
+      --border: #e1e8f4;
+      --success: #10B981;
+      --guarantee-bg: #F0FDF4;
+      --shadow: 0 4px 20px rgba(16, 24, 40, 0.08);
+      --shadow-cta: 0 6px 22px rgba(249, 114, 22, 0.42);
+    }
+
+    h1, h2, h3, h4 { font-weight: 800; line-height: 1.2; }
+    h1 { font-size: 32px; color: #FFFFFF; }
+    h2 { font-size: 28px; color: var(--text); margin-bottom: 16px; }
+    h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    p { font-size: 18px; line-height: 1.8; margin-bottom: 16px; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 14px; }
+    .section { padding: 50px 14px; }
+    .section-alt { background: var(--bg-light); }
+    .section-snug-top { padding-top: 20px; }
+    .text-center { text-align: center; }
+
+    .lc { width: 1em; height: 1em; display: inline-block; vertical-align: -0.14em; flex-shrink: 0; }
+    .icon .lc, .stat-item .lc { color: var(--primary); stroke-width: 1.8; }
+    .guarantee-box .icon .lc { color: #059669; }
+    .icon .lc { width: 1em; height: 1em; }
+    .guarantee-icon .lc { stroke-width: 1.9; }
+    .lc[width], .lc[height] { width: 1em; height: 1em; }
+
+    .hero {
+      background: linear-gradient(150deg, #2f55b5 0%, #2645a0 48%, #1f3c92 100%);
+      color: #FFFFFF;
+      padding: 48px 14px 68px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+      background: var(--bg-white);
+      border-radius: 50% 50% 0 0;
+      transform: translateY(1px);
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(720px 400px at 80% -10%, rgba(247, 207, 73, .13), transparent 62%),
+        radial-gradient(560px 340px at 5% 105%, rgba(249, 114, 22, .13), transparent 66%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+    .hero-mockup { max-width: 440px; margin: 0 auto 22px; filter: drop-shadow(0 20px 42px rgba(0,0,0,0.42)); }
+    .hero h1 {
+      font-size: clamp(26px, 6.6vw, 32px);
+      margin-bottom: 20px; line-height: 1.2;
+      text-wrap: balance; letter-spacing: -0.015em;
+    }
+    .hero h1 mark {
+      background: transparent; color: var(--accent); padding: 0;
+      text-decoration: underline;
+      text-decoration-color: rgba(247, 207, 73, .38);
+      text-decoration-thickness: 3px; text-underline-offset: 6px;
+    }
+    .hero .subheadline { font-size: 18px; opacity: 0.95; margin-bottom: 32px; line-height: 1.6; }
+
+    .hero-social {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 3px;
+      font-size: 15px; line-height: 1.5; opacity: 0.95; margin: 0 auto 22px;
+    }
+    .hero-social .stars { font-size: 19px; letter-spacing: 3px; color: var(--accent); }
+    .hero-social strong { font-weight: 700; }
+
+    .btn-cta {
+      display: flex; align-items: center; justify-content: center;
+      background: var(--cta); color: #FFFFFF;
+      font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 20px 32px; border-radius: 8px; cursor: pointer;
+      transition: all 0.3s ease; box-shadow: var(--shadow-cta); border: none;
+      text-align: center; width: 100%; max-width: 480px; margin: 0 auto; min-height: 64px;
+    }
+    .btn-cta:hover { background: var(--cta-hover); transform: scale(1.02); box-shadow: 0 6px 25px rgba(249, 114, 22, 0.5); }
+    .btn-cta:active { transform: scale(0.98); }
+
+    .cta-small-print { font-size: 13px; opacity: 0.85; margin-top: 16px; line-height: 1.6; }
+
+    .stats-bar { background: var(--bg-light); padding: 40px 20px; }
+    .stats-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .stat-item { text-align: center; padding: 20px; }
+    .stat-item .icon { font-size: 32px; margin-bottom: 8px; }
+    .stat-item strong { display: block; font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+
+    .solution-content { max-width: 800px; margin: 0 auto; }
+    .solution-image { max-width: 420px; margin: 40px auto; border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
+
+    .kit-collage { max-width: 520px; margin: 30px auto 40px; }
+    .kit-collage img { width: 100%; height: auto; border-radius: 14px; }
+
+    .topics-grid { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 900px; margin: 36px auto; }
+    @media (min-width: 640px) { .topics-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+    .topic-item { display: flex; align-items: flex-start; gap: 14px; background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); }
+    .topic-num { width: 32px; height: 32px; border-radius: 50%; background: var(--primary-light); color: var(--primary); font-size: 15px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .topic-item h3 { font-size: 17px; color: var(--primary); margin-bottom: 4px; line-height: 1.3; }
+    .topic-item p { font-size: 14.5px; color: var(--text-light); line-height: 1.6; margin: 0; }
+    .topic-pages { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--primary); background: var(--primary-light); border-radius: 999px; padding: 2px 10px; margin-bottom: 8px; }
+
+    .value-section { background: var(--bg-dark); color: #FFFFFF; padding: 60px 20px; }
+    .value-section h2 { color: #FFFFFF; }
+    .bonus-grid { display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 900px; margin: 40px auto; }
+    @media (min-width: 640px) { .bonus-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .amostra-btn { display: block; width: 100%; padding: 0; border: none; background: none; cursor: zoom-in; font-family: inherit; position: relative; border-radius: 12px; overflow: hidden; }
+    .amostra-btn img { display: block; width: 100%; height: auto; border-radius: 12px; }
+    .amostra-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: 12.5px; font-weight: 700; color: #fff; text-align: left; line-height: 1.3; background: linear-gradient(to top, rgba(12,20,44,.86), rgba(12,20,44,0)); }
+    .gal-cta-wrap { text-align: center; margin-top: 26px; }
+    .gal-cta { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 2px solid var(--primary); color: var(--primary); font-family: inherit; font-size: 16px; font-weight: 800; padding: 14px 26px; border-radius: 12px; cursor: pointer; transition: background .18s, transform .15s; }
+    .gal-cta:hover { background: var(--primary-light); transform: translateY(-2px); }
+    .gal-cta-sm { font-size: 14px; padding: 11px 20px; margin-top: 14px; }
+    .gal-cta-note { font-size: 14px; color: var(--text-light); margin: 10px 0 0; }
+    .amostra-item img { background: #FFFFFF; border: 1px solid #dbe6fa; }
+
+    .bonus-sfoglia { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
+    .bonus-sfoglia figure { flex: 1 1 120px; max-width: 160px; margin: 0; }
+    .bonus-sfoglia img { width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); box-shadow: 0 2px 10px rgba(0,0,0,.2); display: block; }
+    .bonus-sfoglia figcaption { font-size: 11px; color: rgba(255,255,255,.7); margin-top: 5px; line-height: 1.35; }
+
+    .bonus-item-with-image {
+      background: rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 24px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;
+    }
+    @media (min-width: 640px) {
+      .bonus-item-with-image { border-radius: 16px; padding: 32px 28px; gap: 24px; }
+    }
+    .bonus-mockup { width: 100%; max-width: 240px; flex-shrink: 0; }
+    .bonus-mockup img { width: 100%; border-radius: 10px; display: block; }
+    .bonus-text { width: 100%; }
+    .bonus-text h3 { color: var(--accent); margin-bottom: 8px; font-size: 17px; line-height: 1.4; }
+    .bonus-text .value { font-size: 15px; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
+    .bonus-text p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.85); }
+    .bonus-text ul { margin: 14px 0; text-align: left; display: inline-block; }
+    .bonus-text ul li { padding: 5px 0; font-size: 15px; display: flex; align-items: flex-start; gap: 8px; color: rgba(255,255,255,0.85); }
+    .bonus-text ul li::before { content: '✅'; flex-shrink: 0; }
+
+    .decision-box {
+      background: #FFFFFF; border-radius: 24px; padding: 32px 20px 28px; max-width: 540px;
+      margin: 36px auto 0; box-shadow: 0 12px 48px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.1);
+      position: relative;
+    }
+    .decision-box[id] { scroll-margin-top: 64px; }
+    @media (min-width: 640px) { .decision-box { border-radius: 28px; padding: 44px 36px 36px; margin: 48px auto 0; } }
+
+    .db-title { text-align: center; font-size: 24px; font-weight: 800; color: #111827; margin: 18px 0 22px; line-height: 1.25; font-family: inherit; }
+    .db-mockup { display: block; width: 100%; max-width: 380px; margin: 0 auto; filter: drop-shadow(0 12px 32px rgba(38, 69, 160, 0.22)); }
+
+    .db-checklist { list-style: none; margin: 0 0 24px; padding: 0; }
+    .db-checklist li { display: flex; align-items: center; gap: 12px; padding: 13px 4px; font-size: 15px; font-weight: 500; color: var(--text); border-bottom: 1px solid #f1f5f9; line-height: 1.4; }
+    .db-checklist li:last-child { border-bottom: none; }
+    .db-check { width: 22px; height: 22px; border-radius: 50%; background: #f0fdf4; border: 1.5px solid #22c55e; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .db-check svg { width: 12px; height: 12px; stroke: #16a34a; stroke-width: 2.5; fill: none; }
+    .db-price-val { margin-left: auto; font-size: 14.5px; font-weight: 600; color: #64748b; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+    .db-anchoring { text-align: center; padding: 22px 0 20px; border-top: 1px solid #f1f5f9; }
+    .db-old-price { font-size: 16.5px; color: #64748b; text-decoration: line-through; margin-bottom: 4px; }
+    .db-new-price-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; margin-bottom: 2px; }
+    .db-new-price { font-size: 56px; font-weight: 900; color: #16a34a; line-height: 1; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .db-discount-badge { display: inline-block; background: #fde68a; color: #92400e; font-size: 12.5px; font-weight: 800; padding: 6px 18px; border-radius: 9999px; margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    .db-cta {
+      display: block; width: 100%; background: var(--cta); color: #FFFFFF;
+      font-size: 17px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 20px 24px; border-radius: 10px; border: none; cursor: pointer; text-align: center;
+      transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(249, 114, 22, 0.4); margin-top: 20px; line-height: 1.3;
+    }
+    .db-cta:hover { background: var(--cta-hover); transform: scale(1.02); box-shadow: 0 6px 24px rgba(249, 114, 22, 0.5); }
+    .db-cta:active { transform: scale(0.98); }
+
+    .db-trust { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+    .db-trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-light); }
+    .db-trust-icon { width: 16px; height: 16px; flex-shrink: 0; }
+    .db-trust-icon svg { width: 16px; height: 16px; fill: var(--success); }
+    .db-small-print { font-size: 12px; color: var(--text-light); text-align: center; margin-top: 16px; line-height: 1.6; }
+
+    .testimonials-carousel-wrap { position: relative; }
+    @media (min-width: 768px) { .testimonials-carousel-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; } }
+
+    .testimonials-scroll {
+      display: flex; gap: 16px; overflow-x: auto; padding: 8px 24px 24px;
+      -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; scroll-padding-inline: 24px;
+      overscroll-behavior-inline: contain; scroll-behavior: smooth; scrollbar-width: none; align-items: stretch;
+    }
+    .testimonials-scroll::-webkit-scrollbar { display: none; }
+
+    .testimonial-item { flex: 0 0 82%; max-width: 340px; scroll-snap-align: center; }
+    @media (min-width: 480px) { .testimonial-item { flex: 0 0 60%; } }
+    @media (min-width: 768px) { .testimonial-item { flex: 0 0 46%; max-width: 380px; } }
+    @media (min-width: 1024px) { .testimonial-item { flex: 0 0 30%; max-width: 340px; } }
+
+    .testimonial-item img { width: 100%; border-radius: 12px; box-shadow: var(--shadow); transition: transform 280ms cubic-bezier(.2,.8,.2,1), box-shadow 280ms cubic-bezier(.2,.8,.2,1); }
+    .testimonial-item img:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(38, 69, 160, 0.18); }
+
+    .carousel-progress { height: 3px; background: rgba(38, 69, 160, 0.15); margin: 0 24px 8px; border-radius: 999px; overflow: hidden; }
+    .carousel-progress-inner { height: 100%; background: var(--primary); border-radius: 999px; width: 20%; transition: width 0.1s linear; }
+
+    .carousel-nav {
+      position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(38, 69, 160, 0.18);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10); display: none; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--primary); z-index: 5; transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .carousel-nav:hover { transform: translateY(-50%) scale(1.06); box-shadow: 0 10px 28px rgba(38, 69, 160, 0.22); }
+    .carousel-nav:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .carousel-nav:disabled { opacity: 0.35; cursor: default; transform: translateY(-50%); }
+    .carousel-nav[data-dir="prev"] { left: 8px; }
+    .carousel-nav[data-dir="next"] { right: 8px; }
+    @media (min-width: 768px) {
+      .carousel-nav { display: inline-flex; }
+      .carousel-nav[data-dir="prev"] { left: 16px; }
+      .carousel-nav[data-dir="next"] { right: 16px; }
+    }
+    .carousel-nav svg { width: 20px; height: 20px; }
+
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin: 12px 24px 0; flex-wrap: wrap; }
+    .carousel-dots button { appearance: none; border: none; background: rgba(38, 69, 160, 0.18); width: 8px; height: 8px; border-radius: 50%; padding: 0; cursor: pointer; transition: background-color 160ms ease, width 160ms ease, transform 160ms ease; -webkit-tap-highlight-color: transparent; }
+    .carousel-dots button:hover { background: rgba(38, 69, 160, 0.45); }
+    .carousel-dots button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .carousel-dots button[aria-current="true"] { background: var(--primary); width: 22px; border-radius: 999px; }
+
+    .scroll-hint { text-align: center; font-size: 13px; color: var(--text-light); margin-top: 16px; }
+
+    .tst-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 20px 20px 20px 6px; padding: 18px 20px 20px; box-shadow: var(--shadow); height: 100%; display: flex; flex-direction: column; }
+    .tst-card.tst-tint { background: var(--primary-light); border-color: transparent; }
+    .tst-card.tst-dark { background: var(--bg-dark); border-color: transparent; }
+    .tst-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .tst-top-left { display: flex; align-items: center; gap: 9px; }
+    .tst-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13.5px; color: #fff; flex-shrink: 0; }
+    .tst-heart { width: 16px; height: 16px; color: var(--cta); opacity: .5; flex-shrink: 0; }
+    .tst-card.tst-dark .tst-heart { color: var(--accent); opacity: .85; }
+    .tst-card .stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; line-height: 1; }
+    .tst-card p { font-size: 15.5px; line-height: 1.65; color: var(--text); margin: 0 0 16px; flex: 1; }
+    .tst-card.tst-dark p { color: #FFFFFF; }
+    .tst-card .who { font-size: 13.5px; font-weight: 700; color: var(--primary); line-height: 1.4; }
+    .tst-card .who span { display: block; font-weight: 500; color: var(--text-light); font-size: 12.5px; margin-top: 2px; }
+    .tst-card.tst-tint .who { color: var(--primary-dark); }
+    .tst-card.tst-dark .who { color: var(--accent); }
+    .tst-card.tst-dark .who span { color: rgba(255,255,255,.72); }
+    .tst-shot { appearance: none; -webkit-appearance: none; font: inherit; text-align: left; width: 100%; cursor: zoom-in; background: var(--bg-white); border: 1px solid var(--border); border-radius: 20px 20px 20px 6px; padding: 10px 10px 12px; box-shadow: var(--shadow); height: 100%; display: flex; flex-direction: column; }
+    .tst-shot img { display: block; width: 100%; height: auto; margin: auto 0; border-radius: 12px; box-shadow: none; }
+    .tst-shot-label { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 7px; font-size: 12px; font-weight: 700; color: var(--primary); margin: 10px 4px 0; letter-spacing: .2px; }
+    .tst-shot:hover img, .tst-shot:focus-visible img { opacity: .94; }
+    .tst-shot:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+    .tst-shot-zoom { margin-left: auto; font-weight: 600; color: var(--text-light); font-size: 11.5px; }
+    .tst-shot-label svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--success); }
+    .tst-nota { text-align: center; font-size: 12.5px; color: var(--text-light); margin-top: 18px; line-height: 1.6; }
+
+    .author-section { background: #f7f9fd; }
+    .author-content { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center; }
+    .author-image { max-width: 300px; margin: 0 auto; }
+    .author-image img { border-radius: 12px; box-shadow: var(--shadow); }
+    .author-bio h4 { color: var(--primary); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .author-bio p { font-size: 16px; line-height: 1.8; }
+
+    .recap-list { max-width: 700px; margin: 32px auto; }
+    .recap-list li { padding: 12px 0; font-size: 18px; display: flex; align-items: flex-start; gap: 12px; }
+    .recap-list li::before { content: '✅'; font-size: 20px; flex-shrink: 0; line-height: 1.8; }
+
+    .price-recap { background: var(--bg-light); border: 2px solid var(--primary); border-radius: 12px; padding: 28px; text-align: center; max-width: 500px; margin: 32px auto; }
+    .price-recap .old-price { font-size: 24px; text-decoration: line-through; color: var(--text-light); margin-bottom: 8px; }
+    .price-recap .new-price { font-size: 48px; font-weight: 900; color: var(--primary); margin-bottom: 16px; }
+
+    .guarantee-box { background: var(--guarantee-bg); border: 2px solid var(--success); border-radius: 12px; padding: 40px 24px; text-align: center; max-width: 700px; margin: 0 auto; }
+    .guarantee-box .icon { font-size: 64px; margin-bottom: 16px; }
+    .guarantee-box h3 { color: var(--success); font-size: 24px; margin-bottom: 16px; }
+    .guarantee-box p { font-size: 18px; color: #101828; line-height: 1.7; }
+
+    .fb-upsell { background: var(--bg-dark); border: 2px solid var(--accent); border-radius: 18px; box-shadow: 0 0 0 6px rgba(247, 207, 73, 0.12), 0 22px 54px rgba(0,0,0,0.30); max-width: 900px; margin: 0 auto; padding: 30px 24px; display: grid; grid-template-columns: 1fr; gap: 26px; align-items: center; }
+    @media (min-width: 760px) { .fb-upsell { grid-template-columns: 300px 1fr; padding: 40px 38px; gap: 38px; } }
+    .fb-upsell-cover img { width: 100%; max-width: 260px; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 18px 44px rgba(0,0,0,0.5); }
+    .fb-upsell-text { text-align: left; }
+    .fb-badge { display: inline-block; background: #e8442a; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; padding: 6px 13px; border-radius: 999px; margin-bottom: 14px; }
+    .fb-upsell-text h3 { color: #fff; font-size: 26px; line-height: 1.25; margin-bottom: 10px; }
+    .fb-upsell-text > p { color: #c7d0e8; font-size: 15.5px; line-height: 1.7; margin-bottom: 16px; }
+    .fb-list { list-style: none; margin: 0 0 20px; padding: 0; }
+    .fb-list li { display: flex; align-items: flex-start; gap: 9px; color: #dbe3f5; font-size: 14.5px; line-height: 1.6; padding: 4px 0; }
+    .fb-list li::before { content: '›'; color: var(--accent); font-weight: 900; font-size: 17px; line-height: 1.35; flex-shrink: 0; }
+    .fb-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .fb-price-old { color: #8c99b8; font-size: 20px; text-decoration: line-through; }
+    .fb-price-new { color: var(--accent); font-size: 30px; font-weight: 900; line-height: 1; letter-spacing: 0.03em; }
+    .fb-price-note { color: #e8442a; font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    .fb-upsell-text .btn-cta { display: inline-block; width: 100%; text-align: center; font-size: 16px; padding: 15px 22px; }
+    .fb-smallprint { color: #98a4c2; font-size: 12.5px; margin-top: 11px; text-align: center; }
+    /* States plainly that the book is an add-on at checkout. Without it the
+       button promised $47 and the checkout opened on the $17.99 kit, so the
+       visitor met a different product and a different price at the exact
+       moment of highest intent. */
+    .fb-bundle-note { background: rgba(38,69,160,0.14); border: 1px solid rgba(199,208,232,0.28); border-radius: 10px; padding: 12px 14px; margin: 0 0 16px; color: #dbe3f5; font-size: 13.5px; line-height: 1.6; }
+    .fb-bundle-note strong { color: #fff; }
+
+    .db-scope { background: #F8FAFC; border: 1px solid var(--border); border-left: 4px solid var(--primary);
+      border-radius: 8px; padding: 13px 15px; margin: 14px 0 0; font-size: 13.5px; line-height: 1.65;
+      color: #334155; text-align: left; }
+    .db-scope strong { color: #0F172A; }
+
+    /* Physics Solved — the practice book. Light, so it reads as a different
+       kind of thing from the dark flagship block that follows it. */
+    .ps-upsell { background: #F8F2DA; border: 2px solid #25314B; border-radius: 18px;
+      box-shadow: 0 18px 44px rgba(28,34,52,0.18); max-width: 940px; margin: 0 auto;
+      padding: 30px 24px; display: grid; grid-template-columns: 1fr; gap: 26px; align-items: center; }
+    @media (min-width: 760px) { .ps-upsell { grid-template-columns: 1fr 300px; padding: 40px 38px; gap: 38px; } }
+    .ps-text { text-align: left; }
+    .ps-badge { display: inline-block; background: #25314B; color: #E5C386; font-size: 12px;
+      font-weight: 800; letter-spacing: 0.08em; padding: 6px 13px; border-radius: 999px; margin-bottom: 14px; }
+    .ps-text h3 { color: #25314B; font-size: 28px; line-height: 1.2; margin-bottom: 10px; }
+    .ps-text > p { color: #46433A; font-size: 15.5px; line-height: 1.7; margin-bottom: 16px; }
+    .ps-list { list-style: none; margin: 0 0 20px; padding: 0; }
+    .ps-list li { display: flex; align-items: flex-start; gap: 9px; color: #3A3728; font-size: 14.5px;
+      line-height: 1.6; padding: 4px 0; }
+    .ps-list li > span { flex: 1; }
+    .ps-list li::before { content: '\203A'; color: #C19A4E; font-weight: 900; font-size: 17px;
+      line-height: 1.35; flex-shrink: 0; }
+    .ps-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .ps-price-old { color: #8C8878; font-size: 20px; text-decoration: line-through; }
+    .ps-price-new { color: #25314B; font-size: 38px; font-weight: 900; line-height: 1; }
+    .ps-price-note { color: #B4452A; font-size: 13px; font-weight: 800; letter-spacing: 0.04em;
+      text-transform: uppercase; }
+    .ps-anchor { color: #6E6A60; font-size: 13.5px; font-style: italic; margin: -4px 0 14px; }
+    .ps-note { background: rgba(37,49,75,0.07); border: 1px solid rgba(37,49,75,0.18); border-radius: 10px;
+      padding: 12px 14px; margin: 0 0 16px; color: #3A3728; font-size: 13.5px; line-height: 1.6; }
+    .ps-note strong { color: #25314B; }
+    .ps-text .btn-cta { display: inline-block; width: 100%; text-align: center; font-size: 16px; padding: 15px 22px; }
+    .ps-smallprint { color: #6E6A60; font-size: 12.5px; margin-top: 11px; text-align: center; }
+    .ps-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ps-shots img { width: 100%; border-radius: 6px; display: block;
+      box-shadow: 0 10px 26px rgba(28,34,52,0.28); border: 1px solid rgba(37,49,75,0.16); }
+    .ps-shots a:first-child { grid-column: 1 / -1; }
+
+    .faq-container { max-width: 800px; margin: 40px auto; }
+    .faq-item { margin-bottom: 12px; }
+    .faq-question {
+      width: 100%; text-align: left; padding: 20px 24px; background: var(--bg-white);
+      border: 1px solid var(--border); border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; transition: all 0.2s;
+      font-family: 'Inter', sans-serif; color: var(--text); min-height: 44px;
+    }
+    .faq-question:hover { background: #f7f9fd; }
+    .faq-question::after { content: '+'; font-size: 28px; font-weight: 700; color: var(--primary); transition: transform 0.3s; flex-shrink: 0; margin-left: 16px; }
+    .faq-question[aria-expanded="true"]::after { transform: rotate(45deg); }
+    .faq-answer { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .32s cubic-bezier(.2, .8, .3, 1); background: #f7f9fd; border: 1px solid transparent; border-top: none; border-radius: 0 0 8px 8px; }
+    .faq-answer[hidden] { display: grid; }
+    .faq-answer:not([hidden]) { grid-template-rows: 1fr; border-color: var(--border); }
+    .faq-answer p { min-height: 0; overflow: hidden; font-size: 16px; line-height: 1.7; color: var(--text-light); margin: 0; padding: 0 24px; transition: padding .32s cubic-bezier(.2, .8, .3, 1); }
+    .faq-answer:not([hidden]) p { padding: 20px 24px; }
+
+    .final-cta { background: linear-gradient(135deg, #1b3277 0%, #2645a0 100%); color: #FFFFFF; padding: 60px 20px; text-align: center; }
+    .final-cta h2 { color: #FFFFFF; margin-bottom: 24px; }
+    .final-cta p { font-size: 18px; max-width: 700px; margin: 0 auto 20px; opacity: 0.95; }
+
+    .cta-summary { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 28px; max-width: 500px; margin: 40px auto; }
+    .cta-summary ul { text-align: left; }
+    .cta-summary li { padding: 8px 0; font-size: 16px; display: flex; align-items: flex-start; gap: 8px; }
+    .cta-summary li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; font-size: 18px; }
+
+    .footer { background: #101828; color: #9CA3AF; padding: 40px 20px 40px; text-align: center; font-size: 14px; }
+    .footer-links { margin: 20px 0; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .footer-links a { color: #9CA3AF; transition: color 0.2s; min-height: 44px; display: inline-flex; align-items: center; padding: 8px 12px; }
+    .footer-links a:hover { color: #FFFFFF; }
+    .footer .disclaimer { margin-top: 24px; font-size: 12px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.7; }
+
+    .comparison-section { background: var(--bg-light); padding: 60px 20px; }
+    .comparison-section .section-header { text-align: center; max-width: 800px; margin: 0 auto 36px; }
+    .comparison-section .section-header h2 { margin-top: 12px; font-size: clamp(24px, 5vw, 36px); line-height: 1.25; }
+
+    .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); background: rgba(38, 69, 160, 0.1); padding: 6px 16px; border-radius: 999px; }
+    .eyebrow-violet, .eyebrow-inverse { color: var(--primary); background: rgba(38, 69, 160, 0.08); }
+
+    .comparison-grid { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 768px) { .comparison-grid { grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; } }
+
+    .comparison-card { background: var(--bg-white); border-radius: 16px; padding: 28px 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; text-align: center; border: 2px solid var(--border); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .comparison-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(16, 24, 40, 0.12); }
+    .comparison-card.bad-card { border-color: #fecaca; background: #fffafa; }
+    .comparison-card.good-card { border-color: #bbf7d0; background: #fafdfa; box-shadow: 0 8px 30px rgba(16, 185, 129, 0.12); }
+
+    .comparison-label { display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 18px; border-radius: 999px; margin-bottom: 18px; }
+    .comparison-label.bad { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
+    .comparison-label.good { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+
+    .comparison-bullets { list-style: none; padding: 0; margin: 0 0 22px; width: 100%; display: flex; flex-direction: column; gap: 10px; }
+    .comparison-bullets li { font-size: 16px; font-weight: 600; line-height: 1.4; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .bad-list li { color: #991b1b; }
+    .good-list li { color: #166534; }
+    .comparison-card img { width: 100%; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); margin-top: auto; margin-bottom: auto; object-fit: cover; }
+
+    .subjects-section { background: #FFFFFF; padding: 50px 14px; }
+    @media (min-width: 768px) { .subjects-section { padding: 80px 20px; } }
+
+    .subjects-section .section-header { text-align: center; max-width: 800px; margin: 0 auto 36px; }
+    .subjects-subtitle { font-size: 16.5px; color: var(--text-light); margin-top: 12px; line-height: 1.6; }
+
+    .subjects-accordion { max-width: 840px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .subject-item { background: var(--bg-light); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; }
+    .subject-item[data-open="true"], .subject-item.active { border-color: #cbd5e1; background: #FFFFFF; box-shadow: 0 4px 16px rgba(16, 24, 40, 0.06); }
+
+    .subject-summary { width: 100%; display: flex; align-items: center; gap: 14px; padding: 16px 18px; text-align: left; background: none; border: none; font-family: inherit; cursor: pointer; color: var(--text); transition: background 0.15s; }
+    .subject-summary:hover { background: rgba(38, 69, 160, 0.03); }
+
+    .subject-num { width: 32px; height: 32px; border-radius: 50%; background: var(--primary-light); color: var(--primary); font-size: 15px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .subject-title { font-size: 16.5px; font-weight: 700; color: var(--text); flex: 1; line-height: 1.35; }
+    .subject-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; transition: transform 0.25s ease; }
+    .subject-icon::before, .subject-icon::after { content: ''; position: absolute; background-color: var(--primary); border-radius: 2px; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: transform 0.25s ease; }
+    .subject-icon::before { width: 12px; height: 2px; }
+    .subject-icon::after { width: 2px; height: 12px; }
+    .subject-item[data-open="true"] .subject-icon::after, .subject-item.active .subject-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+    .subject-item[data-open="true"] .subject-icon, .subject-item.active .subject-icon { transform: rotate(180deg); }
+
+    .subject-content { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .subject-content-inner { padding: 4px 18px 18px 64px; }
+    @media (max-width: 560px) {
+      .subject-content-inner { padding: 4px 14px 16px 14px; }
+      .subject-summary { padding: 14px 14px; gap: 10px; }
+      .subject-title { font-size: 15px; }
+    }
+    .subject-content-list { list-style: none; padding: 0; margin: 0; }
+    .subject-content-list li { position: relative; padding-left: 20px; font-size: 15px; color: var(--text-light); margin-bottom: 8px; line-height: 1.5; }
+    .subject-content-list li:last-child { margin-bottom: 0; }
+    .subject-content-list li::before { content: '•'; color: var(--primary); font-weight: bold; font-size: 18px; position: absolute; left: 4px; top: -2px; }
+
+    .paraquem-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1000px; margin: 40px auto 0; }
+    @media (min-width: 768px) { .paraquem-grid { grid-template-columns: repeat(3, 1fr); } }
+    .paraquem-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s ease; }
+    .paraquem-card:hover { transform: translateY(-3px); }
+    .paraquem-foto { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+    .paraquem-info { padding: 20px 22px 24px; }
+    .paraquem-info h3 { font-size: 18px; color: var(--primary); margin-bottom: 8px; }
+    .paraquem-info p { font-size: 15px; color: var(--text-light); line-height: 1.7; margin: 0; }
+
+    .promo {
+      position: sticky; top: 0; z-index: 95;
+      background: linear-gradient(180deg, #2f55b5 0%, #2645a0 60%, #1f3c92 100%);
+      border-bottom: 1px solid rgba(247, 207, 73, 0.42);
+      box-shadow: 0 2px 14px rgba(8, 16, 34, 0.24);
+      padding: 9px 16px;
+    }
+    .promo-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px 16px; flex-wrap: wrap; line-height: 1.3; }
+    .promo-txt { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255, 255, 255, 0.92); }
+    .promo-txt::before { content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: promoPulse 2.6s ease-out infinite; }
+    @keyframes promoPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(247, 207, 73, 0.55); }
+      70%  { box-shadow: 0 0 0 9px rgba(247, 207, 73, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(247, 207, 73, 0); }
+    }
+    .promo-time { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.62); }
+    .promo-clock { font-size: 14px; font-weight: 700; letter-spacing: 0.2px; line-height: 1.2; color: var(--accent); background: rgba(0, 0, 0, 0.26); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 7px; padding: 4px 9px; }
+    @media (max-width: 768px) {
+      .promo { padding: 8px 12px; }
+      .promo-in { flex-direction: column; gap: 5px; text-align: center; }
+      .promo-txt { font-size: 11.5px; letter-spacing: 0.05em; }
+      .promo-time { font-size: 11.5px; }
+      .promo-clock { font-size: 12.5px; padding: 3px 7px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .promo-txt::before { animation: none; } }
+
+    section[id] { scroll-margin-top: 64px; }
+
+    @media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 768px) {
+      h1 { font-size: 48px; }
+      h2 { font-size: 36px; }
+      .container { padding: 0 20px; }
+      .hero { padding: 60px 20px 80px; }
+      .hero h1 { font-size: 48px; }
+      .hero-mockup { max-width: 620px; margin-bottom: 30px; }
+      .hero .subheadline { font-size: 20px; }
+      .section { padding: 80px 20px; }
+      .section-snug-top { padding-top: 40px; }
+      .author-content { grid-template-columns: 300px 1fr; text-align: left; }
+      .author-image { margin: 0; }
+      .scroll-hint { display: none; }
+    }
+    @media (min-width: 1024px) {
+      .hero h1 { font-size: 56px; }
+      h2 { font-size: 42px; }
+    }
+
+    .sp-toast {
+      position: fixed; left: 14px; top: 14px; z-index: 99999;
+      display: flex; align-items: center; gap: 12px;
+      background: #fff; border: 1px solid #e4e9ee; border-radius: 12px;
+      padding: 10px 14px 10px 10px; max-width: 330px;
+      box-shadow: 0 10px 30px rgba(18,25,31,.22);
+      opacity: 0; visibility: hidden; transform: translateY(-16px) scale(.97);
+      transition: opacity .45s ease, transform .45s cubic-bezier(.2,.8,.3,1), visibility .45s;
+    }
+    .sp-toast.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    /* El kit va sin fondo: se apoya sobre el propio blanco del aviso, no sobre un circulo */
+    .sp-mini { position: relative; flex: 0 0 auto; width: 62px; height: 46px; display: flex; align-items: center; justify-content: center; }
+    .sp-mini img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .sp-txt { min-width: 0; line-height: 1.4; }
+    .sp-name { font-size: 13.5px; font-weight: 700; color: #12191f; display: block; }
+    .sp-prod { font-size: 12px; color: #5b6874; display: block; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sp-meta { font-size: 10.5px; color: #98a3ad; display: flex; align-items: center; gap: 5px; margin-top: 3px; }
+    .sp-meta .ok { color: #28a745; font-weight: 700; }
+    .sp-close {
+      position: absolute; top: -10px; right: -10px; width: 26px; height: 26px; padding: 0; line-height: 1;
+      display: flex; align-items: center; justify-content: center; border: 1px solid #e0e6eb; border-radius: 50%;
+      background: #fff; color: #8a949e; font-size: 16px; font-weight: 600; font-family: inherit; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(18,25,31,.14);
+      transition: background .18s ease, color .18s ease, transform .18s ease, border-color .18s ease;
+    }
+    .sp-close:hover { background: #ffffff; border-color: #cbd5e1; color: #12191f; transform: scale(1.08); box-shadow: 0 4px 12px rgba(18,25,31,.2); }
+    .sp-close:active { transform: scale(.96); }
+    @media (max-width: 560px) { .sp-toast { left: 8px; right: 8px; top: 10px; max-width: none; } }
+
+    .lb-overlay {
+      position: fixed; inset: 0; background: rgba(10, 16, 30, 0.88); z-index: 999999;
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .lb-overlay.open { display: flex; }
+    .lb-box { max-width: 560px; width: 100%; text-align: center; }
+    .lb-box img { max-height: 82vh; margin: 0 auto; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+    .lb-cap { color: #fff; font-size: 15px; font-weight: 600; margin-top: 14px; }
+    .lb-count { color: rgba(255,255,255,.6); font-size: 13px; margin-top: 4px; }
+    .lb-close, .lb-prev, .lb-next {
+      position: fixed; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); color: #fff;
+      border-radius: 50%; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 20px; transition: background .15s;
+    }
+    .lb-close:hover, .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,.24); }
+    .lb-close { top: 20px; right: 20px; }
+    .lb-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 20px; top: 50%; transform: translateY(-50%); }
+    @media (max-width: 640px) {
+      .lb-prev { left: 8px; width: 40px; height: 40px; }
+      .lb-next { right: 8px; width: 40px; height: 40px; }
+      .lb-close { top: 10px; right: 10px; width: 40px; height: 40px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+   {"@type":"Product","name":"Physics Study Lab Complete Kit",
+    "description":"Physics in 7 parts and 38 illustrated chapters: fundamentals, mechanics, fluids, thermodynamics, electricity, waves and optics, and modern physics. Plus 2 bonuses, in English.",
+    "image":"https://physicsstudylab.com/img/cover.jpg",
+    "brand":{"@type":"Brand","name":"Physics Study Lab"},
+    "offers":{"@type":"Offer","price":"17.99","priceCurrency":"USD","availability":"https://schema.org/InStock",
+              "url":"https://checkout.physicsstudylab.com/checkout/kit-complete",
+              "hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":30,"applicableCountry":"GB"}}},
+   {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How will I receive the material?","acceptedAnswer":{"@type":"Answer","text":"As soon as you complete your purchase you'll get an automatic email with the access link. It's high-resolution PDF, ready to download, print or read on any device."}},
+    {"@type":"Question","name":"Is it a one-off payment or a subscription?","acceptedAnswer":{"@type":"Answer","text":"One-off payment of $17.99. No instalments, no recurring charges. Pay once and the material is yours for good."}},
+    {"@type":"Question","name":"What language is the material in?","acceptedAnswer":{"@type":"Answer","text":"100% in English, using the same terminology you use in class. It isn't a machine translation."}},
+    {"@type":"Question","name":"Does it match my exam board or level?","acceptedAnswer":{"@type":"Answer","text":"Yes. The core physics is the same whichever board you sit — AQA, OCR, Edexcel or Eduqas — so the material covers what comes up at GCSE and A-Level, plus first-year university courses."}},
+    {"@type":"Question","name":"Can I print the material?","acceptedAnswer":{"@type":"Answer","text":"Yes. The PDFs are designed in high resolution, ideal for printing, annotating or using as a quick reference before an exam."}}]}]}
+  </script>
+</head>
+<body>
+
+  <!--
+    THE FINAL BOOK OF PHYSICS — standalone page (added 2026-10-06)
+
+    WHY THIS PAGE EXISTS. index.html is the Kit funnel: it speaks to a student
+    revising for an exam and opens at $17.99. The reels being made now — the blue
+    sky, the rainbow, Marie Curie — speak to adults who simply like physics, and
+    every one of them ends "more in the bio". Pointing that traffic at a school
+    revision kit was sending the right people to the wrong door.
+
+    ONE OFFER ON THIS PAGE, ON PURPOSE. There is no $17.99 button anywhere here.
+    The Kit belongs at the checkout as the order bump, not beside the product as a
+    cheaper way out of it. Likewise the landing keeps its three-book basket and
+    gains no $47 button: two doors, two audiences, the same destination.
+
+    Everything claimed below is checked against the book itself: 127 pages, 12
+    parts, 14 physicists, 7 books, and the master reference. The sample pages are
+    the real article, and three of them are the exact pages the reels explain.
+  -->
+
+  <style>
+    .fbp-hero{padding:72px 0 56px;text-align:center}
+    /* The landing styles h1 white, because its hero is navy. This hero is light,
+       so the inherited colour rendered the title white on white -- invisible. */
+    .fbp-hero h1{font-size:clamp(34px,6vw,58px);line-height:1.1;margin:18px 0 14px;color:#101828}
+    .fbp-kicker{display:inline-block;padding:8px 18px;border-radius:999px;
+      background:rgba(229,195,134,.14);border:1px solid rgba(229,195,134,.5);
+      color:#C9A86A;font-weight:700;letter-spacing:2px;font-size:13px}
+    .fbp-sub{max-width:660px;margin:0 auto 30px;font-size:19px;line-height:1.6;opacity:.88}
+    .fbp-cover{max-width:330px;width:60%;margin:0 auto 26px;display:block;border-radius:10px;
+      box-shadow:0 30px 70px rgba(0,0,0,.45)}
+    .fbp-facts{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:26px 0 34px}
+    .fbp-fact{padding:14px 22px;border-radius:14px;border:1px solid rgba(0,0,0,.1);
+      background:rgba(0,0,0,.025);min-width:120px}
+    .fbp-fact b{display:block;font-size:30px;line-height:1.1}
+    .fbp-fact span{font-size:13px;letter-spacing:1px;opacity:.65;text-transform:uppercase}
+    .fbp-parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:28px}
+    .fbp-part{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:rgba(0,0,0,.02)}
+    .fbp-part i{font-style:normal;font-weight:800;color:#C9A86A;min-width:30px}
+    .fbp-shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:26px}
+    .fbp-shots figure{margin:0}
+    .fbp-shots img{width:100%;border-radius:8px;box-shadow:0 14px 34px rgba(0,0,0,.22);display:block}
+    .fbp-shots figcaption{margin-top:8px;font-size:13px;opacity:.65;text-align:center}
+    .fbp-offer{max-width:620px;margin:0 auto;text-align:center;padding:38px 26px;border-radius:20px;
+      border:2px solid rgba(229,195,134,.55);background:rgba(229,195,134,.07)}
+    .fbp-price{font-size:58px;font-weight:800;line-height:1;margin:10px 0 4px}
+    .fbp-once{font-size:15px;opacity:.7;margin-bottom:22px}
+    .fbp-bump{margin-top:18px;font-size:14px;opacity:.75;line-height:1.5}
+    @media (max-width:640px){.fbp-hero{padding:48px 0 40px}}
+  </style>
+
+  <!-- ───────────────────────────────────────────────────────────── HERO -->
+  <section class="fbp-hero">
+    <div class="container">
+      <span class="fbp-kicker">THE COMPLETE REFERENCE</span>
+      <h1>The Final Book of Physics</h1>
+      <p class="fbp-sub">127 pages. 12 parts. From Newton's laws to dark energy &mdash;
+        every corner of physics in one book, written and checked page by page.</p>
+      <img class="fbp-cover" src="./img/finalbook-cover.webp"
+           alt="The Final Book of Physics, a complete 127-page physics reference"
+           width="714" height="1018">
+      <div class="fbp-facts">
+        <div class="fbp-fact"><b>127</b><span>pages</span></div>
+        <div class="fbp-fact"><b>12</b><span>parts</span></div>
+        <div class="fbp-fact"><b>14</b><span>physicists</span></div>
+        <div class="fbp-fact"><b>A4</b><span>instant PDF</span></div>
+      </div>
+      <a href="https://checkout.physicsstudylab.com/checkout/final-book" data-checkout class="btn-cta">Get The Final Book &mdash; $47 &rarr;</a>
+      <p class="fbp-once">One&#8209;off payment &middot; instant download &middot; 30&#8209;day no&#8209;questions guarantee</p>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────────── WHAT IT IS -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="text-center">Not revision notes. A reference you keep.</h2>
+      <p class="fbp-sub" style="margin-top:18px">
+        Most physics books stop where the exam stops. This one doesn't. It is written for
+        anyone who wants the subject explained properly &mdash; whether you studied it once and
+        never got it, or never studied it and always wanted to.
+      </p>
+      <p class="fbp-sub">
+        Every law is <strong>drawn</strong>, not just stated. Relativity is derived, not quoted.
+        And when a result is strange, the book says why it is strange instead of moving on.
+      </p>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────────────────────────────── THE 12 PARTS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">What's inside</h2>
+      <div class="fbp-parts">
+        <div class="fbp-part"><i>1</i><span>Classical mechanics &mdash; kinematics, Newton's laws, momentum, orbits, oscillation</span></div>
+        <div class="fbp-part"><i>2</i><span>Electricity, magnetism and waves &mdash; circuits, induction, Maxwell, interference</span></div>
+        <div class="fbp-part"><i>3</i><span>Thermodynamics &mdash; heat, the gas laws, entropy, heat engines</span></div>
+        <div class="fbp-part"><i>4</i><span>The quantum world &mdash; the photoelectric effect, duality, uncertainty, tunnelling</span></div>
+        <div class="fbp-part"><i>5</i><span>Relativity &mdash; special and general, the Lorentz factor, E = mc&sup2;, gravitational waves</span></div>
+        <div class="fbp-part"><i>6</i><span>The universe &mdash; stars, supernovae, black holes, the Big Bang, dark matter and dark energy</span></div>
+        <div class="fbp-part"><i>7</i><span>Physics in everyday life &mdash; the microwave, GPS, fibre optics, lasers, MRI, the blue sky</span></div>
+        <div class="fbp-part"><i>8</i><span>The people &mdash; the 14 physicists who built the field, and what each one changed</span></div>
+        <div class="fbp-part"><i>9</i><span>The books &mdash; the 7 that shaped physics, and what is actually in them</span></div>
+        <div class="fbp-part"><i>10</i><span>Models and frameworks &mdash; how physicists think, not just what they concluded</span></div>
+        <div class="fbp-part"><i>11</i><span>Master reference &mdash; every formula, constant, unit and Greek symbol in one place</span></div>
+        <div class="fbp-part"><i>12</i><span>Closing &mdash; where the open questions still are</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────────────────── SAMPLE PAGES -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="text-center">Real pages from the book</h2>
+      <p class="fbp-sub" style="margin-top:16px">
+        If you came here from one of the videos, you have already seen three of these explained.
+      </p>
+      <div class="fbp-shots">
+        <figure>
+          <a href="./img/finalbook/61-blue-sky-red-sunset.png" target="_blank" rel="noopener">
+            <img src="./img/finalbook/61-blue-sky-red-sunset.png" alt="The page explaining why the sky is blue and sunsets are red, with a diagram of light scattering in the atmosphere" width="864" height="1232" loading="lazy" decoding="async"></a>
+          <figcaption>Why the sky is blue</figcaption>
+        </figure>
+        <figure>
+          <a href="./img/finalbook/62-rainbows.png" target="_blank" rel="noopener">
+            <img src="./img/finalbook/62-rainbows.png" alt="The page on how rainbows form, with the ray path drawn inside a raindrop" width="864" height="1232" loading="lazy" decoding="async"></a>
+          <figcaption>How rainbows form</figcaption>
+        </figure>
+        <figure>
+          <a href="./img/finalbook/81-curie.png" target="_blank" rel="noopener">
+            <img src="./img/finalbook/81-curie.png" alt="The page on Marie Curie, with portrait and a summary of her work on radioactivity" width="864" height="1232" loading="lazy" decoding="async"></a>
+          <figcaption>Marie Curie</figcaption>
+        </figure>
+        <figure>
+          <a href="./img/finalbook/49-black-holes.png" target="_blank" rel="noopener">
+            <img src="./img/finalbook/49-black-holes.png" alt="The page on black holes, with the Schwarzschild radius and the event horizon drawn" width="864" height="1232" loading="lazy" decoding="async"></a>
+          <figcaption>Black holes</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────── WHAT MAKES IT DIFFERENT -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Three things most physics books leave out</h2>
+      <div class="fbp-parts" style="margin-top:26px">
+        <div class="fbp-part"><i>&#9733;</i><span><strong>The people.</strong> Newton, Faraday, Curie, Noether, Wu, Feynman, Hawking and eight more &mdash; who they were and exactly what each one changed.</span></div>
+        <div class="fbp-part"><i>&#9733;</i><span><strong>The books.</strong> The seven that shaped the subject, from the <em>Principia</em> to <em>The Elegant Universe</em>, and what is actually inside each one.</span></div>
+        <div class="fbp-part"><i>&#9733;</i><span><strong>The master reference.</strong> Every formula, constant, unit, prefix and Greek symbol, collected in one place at the back instead of scattered through the chapters.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────── THE OFFER -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="fbp-offer">
+        <h2 style="margin:0">The Final Book of Physics</h2>
+        <div class="fbp-price">$47</div>
+        <p class="fbp-once">One&#8209;off payment. No subscription, no instalments.</p>
+        <a href="https://checkout.physicsstudylab.com/checkout/final-book" data-checkout class="btn-cta">Get The Final Book &rarr;</a>
+        <p class="fbp-once" style="margin:16px 0 0">127 pages &middot; instant A4 PDF &middot; 30&#8209;day no&#8209;questions guarantee</p>
+        <p class="fbp-bump">Studying for an exam as well? The illustrated 38&#8209;chapter
+          <strong>Physics Study Lab Kit</strong> is offered on the next page for $17.99,
+          with its two bonuses included.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────────────────────────────────────── FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px">
+      <h2 class="text-center">Questions</h2>
+      <div class="faq-item">
+        <div class="faq-question">Is this a printed book?</div>
+        <div class="faq-answer" style="display:block">No. It is a high-resolution A4 PDF, delivered by email within minutes. Print it, annotate it, or keep it on your phone.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do I need to have studied physics?</div>
+        <div class="faq-answer" style="display:block">No. It starts where physics starts and builds. The maths is shown when it matters and explained when it is used.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How is it different from the Physics Study Lab Kit?</div>
+        <div class="faq-answer" style="display:block">The Kit is built around a syllabus, for someone revising. This is the whole subject as a reference, for someone who wants to understand it. Many people end up with both.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What if it isn't for me?</div>
+        <div class="faq-answer" style="display:block">Thirty days, no questions asked. Email <a href="mailto:info@physicsstudylab.com">info@physicsstudylab.com</a> and you get your money back.</div>
+      </div>
+      <p class="text-center" style="margin-top:34px">
+        <a href="https://checkout.physicsstudylab.com/checkout/final-book" data-checkout class="btn-cta">Get The Final Book &mdash; $47 &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Physics Study Lab · All rights reserved · <a href="/refund-policy" style="color: rgba(255,255,255,0.7); text-decoration: underline; margin-left: 8px;">Refund Policy</a><a href="/privacy" style="color: rgba(255,255,255,0.7); text-decoration: underline; margin-left: 8px;">Privacy</a><a href="/terms" style="color: rgba(255,255,255,0.7); text-decoration: underline; margin-left: 8px;">Terms</a><a href="/support" style="color: rgba(255,255,255,0.7); text-decoration: underline; margin-left: 8px;">Support</a><a href="https://catalog.physicsstudylab.com/" style="color: rgba(255,255,255,0.7); text-decoration: underline; margin-left: 8px;" target="_blank" rel="noopener">All products</a></p>
+      <p class="disclaimer">Physics Study Lab is an independent educational resource. Learning outcomes depend on each student. Sold by QUILLSTONE DIGITAL LLC, 1057 NW 136th Ave, Miami, FL 33182, United States. Support: <a href="mailto:info@physicsstudylab.com" style="color:inherit">info@physicsstudylab.com</a></p>
+    </div>
+  </footer>
+
+  <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Sample pages gallery">
+    <button type="button" class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button type="button" class="lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <button type="button" class="lb-next" id="lbNext" aria-label="Next">›</button>
+    <div class="lb-box">
+      <img id="lbImg" src="" alt="">
+      <p class="lb-cap" id="lbCap"></p>
+      <p class="lb-count" id="lbCount"></p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var el = document.getElementById('promoClock');
+      if (!el) return;
+      try {
+        var today = new Date();
+        var dateStr = today.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+        el.textContent = dateStr || 'today';
+      } catch (e) {
+        el.textContent = 'today';
+      }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var AUTOPLAY_INTERVAL = 3200;
+      var RESUME_DELAY = 5000;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function initCarousel(scrollId, dotsId, itemSelector, progressId) {
+        var scroll = document.getElementById(scrollId);
+        var dotsWrap = document.getElementById(dotsId);
+        var progressBar = progressId ? document.getElementById(progressId) : null;
+        if (!scroll) return;
+
+        var realItems = Array.prototype.slice.call(scroll.querySelectorAll(itemSelector));
+        var N = realItems.length;
+        if (N < 2) return;
+
+        for (var c = 0; c < 2; c++) {
+          realItems.forEach(function (it) {
+            var clone = it.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            scroll.appendChild(clone);
+          });
+        }
+        var items = Array.prototype.slice.call(scroll.querySelectorAll(itemSelector));
+        var targetAbs = N;
+
+        var prevBtn = document.querySelector('.carousel-nav[data-target="' + scrollId + '"][data-dir="prev"]');
+        var nextBtn = document.querySelector('.carousel-nav[data-target="' + scrollId + '"][data-dir="next"]');
+
+        var autoplayTimer = null, resumeTimer = null, settleTimer = null;
+        var userActive = false, hovering = false, visible = true;
+        var noAutoplay = scroll.hasAttribute('data-no-autoplay');
+        var userScrolled = false;
+
+        function maxScroll() { return scroll.scrollWidth - scroll.clientWidth; }
+        function snapLeftOf(idx) {
+          var it = items[idx];
+          var left = it.offsetLeft - scroll.offsetLeft - (scroll.clientWidth - it.offsetWidth) / 2;
+          return Math.max(0, Math.min(maxScroll(), left));
+        }
+        function loopWidth() { return items[N].offsetLeft - items[0].offsetLeft; }
+        function getAbsIndex() {
+          var best = N, bd = Infinity, sl = scroll.scrollLeft;
+          for (var k = 0; k < items.length; k++) {
+            var d = Math.abs((items[k].offsetLeft - scroll.offsetLeft - (scroll.clientWidth - items[k].offsetWidth) / 2) - sl);
+            if (d < bd) { bd = d; best = k; }
+          }
+          return best;
+        }
+        function jumpTo(left) {
+          var prevBehavior = scroll.style.scrollBehavior;
+          scroll.style.scrollBehavior = 'auto';
+          scroll.scrollLeft = left;
+          scroll.style.scrollBehavior = prevBehavior;
+        }
+        var animId = null;
+        function cancelAnim() { if (animId) { cancelAnimationFrame(animId); animId = null; scroll.style.scrollSnapType = ''; } }
+        function animateTo(left) {
+          cancelAnim();
+          var startLeft = scroll.scrollLeft;
+          var dist = left - startLeft;
+          if (Math.abs(dist) < 1) return;
+          if (reduceMotion) { jumpTo(left); return; }
+          var t0 = performance.now();
+          var DUR = 380;
+          scroll.style.scrollSnapType = 'none';
+          function frame(now) {
+            var p = Math.min(1, (now - t0) / DUR);
+            var ease = 1 - Math.pow(1 - p, 3);
+            scroll.scrollLeft = startLeft + dist * ease;
+            if (p < 1) { animId = requestAnimationFrame(frame); }
+            else { animId = null; scroll.style.scrollSnapType = ''; }
+          }
+          animId = requestAnimationFrame(frame);
+        }
+        function scrollToAbs(idx) { if (!items[idx]) return; animateTo(snapLeftOf(idx)); }
+
+        function recenter() {
+          var lw = loopWidth();
+          if (lw <= 0) return;
+          var sl = scroll.scrollLeft;
+          if (sl < lw * 0.5) { jumpTo(sl + lw); targetAbs += N; }
+          else if (sl >= lw * 1.5) { jumpTo(sl - lw); targetAbs -= N; }
+        }
+        function next() {
+          if (targetAbs >= items.length - 2) { cancelAnim(); jumpTo(scroll.scrollLeft - loopWidth()); targetAbs -= N; }
+          targetAbs = targetAbs + 1;
+          scrollToAbs(targetAbs);
+          updateDots(((targetAbs % N) + N) % N);
+        }
+        function prev() {
+          if (targetAbs <= 1) { cancelAnim(); jumpTo(scroll.scrollLeft + loopWidth()); targetAbs += N; }
+          targetAbs = targetAbs - 1;
+          scrollToAbs(targetAbs);
+          updateDots(((targetAbs % N) + N) % N);
+        }
+
+        if (dotsWrap) {
+          dotsWrap.innerHTML = '';
+          realItems.forEach(function (_, i) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.setAttribute('role', 'tab');
+            b.setAttribute('aria-label', 'Go to item ' + (i + 1));
+            if (i === 0) b.setAttribute('aria-current', 'true');
+            b.addEventListener('click', function () {
+              pauseAutoplay(true);
+              targetAbs = N + i;
+              scrollToAbs(targetAbs);
+              updateDots(i);
+            });
+            dotsWrap.appendChild(b);
+          });
+        }
+
+        function autoplayStep() { if (userActive || hovering || document.hidden) return; next(); }
+        function startAutoplay() { if (reduceMotion || noAutoplay) return; stopAutoplay(); autoplayTimer = setInterval(autoplayStep, AUTOPLAY_INTERVAL); }
+        function stopAutoplay() { if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
+        function pauseAutoplay(retomar) {
+          userActive = true;
+          stopAutoplay();
+          clearTimeout(resumeTimer);
+          if (retomar !== false) {
+            resumeTimer = setTimeout(function () {
+              userActive = false;
+              hovering = false;
+              if (visible) startAutoplay();
+            }, RESUME_DELAY);
+          }
+        }
+        function updateDots(idx) {
+          if (dotsWrap) {
+            var dots = dotsWrap.querySelectorAll('button');
+            dots.forEach(function (d, i) {
+              if (i === idx) d.setAttribute('aria-current', 'true');
+              else d.removeAttribute('aria-current');
+            });
+          }
+          if (progressBar) progressBar.style.width = Math.max(8, ((idx + 1) / N) * 100) + '%';
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function () { pauseAutoplay(); prev(); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { pauseAutoplay(); next(); });
+
+        var hasHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+        if (hasHover) {
+          scroll.addEventListener('mouseenter', function () { hovering = true; stopAutoplay(); });
+          scroll.addEventListener('mouseleave', function () { hovering = false; if (!userActive) startAutoplay(); });
+        }
+
+        scroll.addEventListener('touchstart', function () { userScrolled = true; cancelAnim(); pauseAutoplay(); }, { passive: true });
+        scroll.addEventListener('wheel', function () { userScrolled = true; pauseAutoplay(); }, { passive: true });
+
+        scroll.addEventListener('scroll', function () {
+          clearTimeout(settleTimer);
+          settleTimer = setTimeout(function () {
+            if (userScrolled) { targetAbs = getAbsIndex(); userScrolled = false; }
+            var atRest = Math.abs(scroll.scrollLeft - snapLeftOf(getAbsIndex())) < 8;
+            if (atRest) recenter();
+            updateDots(targetAbs % N);
+          }, 180);
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              visible = e.isIntersecting;
+              if (e.isIntersecting && !userActive && !hovering) startAutoplay();
+              else if (!e.isIntersecting) stopAutoplay();
+            });
+          }, { threshold: 0.25 });
+          io.observe(scroll);
+        } else { startAutoplay(); }
+
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) stopAutoplay();
+          else if (!userActive && !hovering) startAutoplay();
+        });
+
+        window.addEventListener('resize', function () { updateDots(targetAbs % N); });
+
+        jumpTo(snapLeftOf(N));
+        updateDots(0);
+      }
+
+      function boot() {
+        initCarousel('testimonials-scroll', 'testimonials-dots', '.testimonial-item', 'testimonials-progress');
+        initCarousel('amostras-scroll', 'amostras-dots', '.testimonial-item', 'amostras-progress');
+      }
+
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', boot); }
+      else { boot(); }
+    })();
+  </script>
+
+  <script>
+    document.querySelectorAll('.subject-item').forEach(function (item) {
+      var btn = item.querySelector('.subject-summary');
+      var content = item.querySelector('.subject-content');
+      if (!btn || !content) return;
+      btn.addEventListener('click', function () {
+        var isOpen = item.getAttribute('data-open') === 'true';
+        document.querySelectorAll('.subject-item').forEach(function (other) {
+          if (other !== item && other.getAttribute('data-open') === 'true') {
+            other.setAttribute('data-open', 'false');
+            other.classList.remove('active');
+            var otherBtn = other.querySelector('.subject-summary');
+            var otherContent = other.querySelector('.subject-content');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            if (otherContent) otherContent.style.maxHeight = null;
+          }
+        });
+        if (isOpen) {
+          item.setAttribute('data-open', 'false');
+          item.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+          content.style.maxHeight = null;
+        } else {
+          item.setAttribute('data-open', 'true');
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var answer = document.getElementById(btn.getAttribute('aria-controls'));
+        btn.setAttribute('aria-expanded', !expanded);
+        answer.hidden = expanded;
+      });
+    });
+  </script>
+
+  <script>
+    (function () {
+      // NOTE: illustrative names/times only. Before publishing, wire this up to real
+      // purchases (e.g. via your payment gateway's webhook) or remove it — showing fake
+      // purchases as real can breach consumer-protection rules in the UK (CMA / CPRs).
+      var buyers = [
+        { name: 'Olivia, from London', prod: 'Bought the Complete Kit', time: '4 minutes ago' },
+        { name: 'James, from Manchester', prod: 'Complete Kit · 7 Parts + 2 Bonuses', time: '12 minutes ago' },
+        { name: 'Amelia, from Birmingham', prod: 'Bought the Complete Kit', time: '18 minutes ago' },
+        { name: 'Thomas, from Leeds', prod: 'Complete Kit · 7 Parts + 2 Bonuses', time: '25 minutes ago' },
+        { name: 'Isla, from Bristol', prod: 'Unlocked the Complete Kit', time: '31 minutes ago' },
+        { name: 'George, from Glasgow', prod: 'Complete Kit · 7 Parts + 2 Bonuses', time: '39 minutes ago' }
+      ];
+      var idx = 0;
+      var toast = document.getElementById('spToast');
+      var spName = document.getElementById('spName');
+      var spProd = document.getElementById('spProd');
+      var spTime = document.getElementById('spTime');
+      var spClose = document.getElementById('spClose');
+      if (!toast) return;
+
+      function showNext() {
+        var b = buyers[idx];
+        if (spName) spName.textContent = b.name;
+        if (spProd) spProd.textContent = b.prod;
+        if (spTime) spTime.textContent = b.time;
+        toast.classList.add('show');
+        setTimeout(function () { toast.classList.remove('show'); }, 6000);
+        idx = (idx + 1) % buyers.length;
+      }
+
+      if (spClose) {
+        spClose.addEventListener('click', function (e) { e.stopPropagation(); toast.classList.remove('show'); });
+      }
+
+      setTimeout(function () { showNext(); setInterval(showNext, 18000); }, 6000);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var GALLERIES = {
+        reviews: {
+          pages: [
+            ['./img/testimonials/real-1.jpg', 'Comments from students on the Physics Study Lab material'],
+            ['./img/testimonials/real-2.jpg', 'Messages from students after receiving the material'],
+            ['./img/testimonials/real-3.jpg', 'A student on how the content helps them understand'],
+            ['./img/testimonials/real-4.jpg', 'A student on the electricity, circuits and modern physics chapters'],
+            ['./img/testimonials/real-5.jpg', 'A parent on their daughter using the guide before her mocks'],
+            ['./img/testimonials/real-6.jpg', 'A student on the flashcards bonus and the electricity chapter'],
+            ['./img/testimonials/real-7.jpg', 'A student on finally understanding velocity-time graphs']
+          ]
+        },
+        samples: {
+          pages: [
+            ['./img/page-1.jpg', 'Vectors in a page'],
+            ['./img/page-2.jpg', "Newton's Laws, illustrated"],
+            ['./img/page-3.jpg', 'How a circuit works'],
+            ['./img/page-4.jpg', 'Sound, light and waves']
+          ]
+        },
+        bonus1: {
+          pages: [
+            ['./img/bonus1-sample-1.jpg', 'Eight terms a page, each with its own drawing'],
+            ['./img/bonus1-sample-2.jpg', 'Grouped by topic, so related words sit together']
+          ]
+        },
+        bonus2: {
+          pages: [
+            ['./img/bonus2-sample-1.jpg', 'Two cards a page, with a line to cut along'],
+            ['./img/bonus2-sample-2.jpg', 'One equation, three facts, one exam tip']
+          ]
+        }
+      };
+
+      var overlay = document.getElementById('lbOverlay');
+      var imgEl = document.getElementById('lbImg');
+      var capEl = document.getElementById('lbCap');
+      var countEl = document.getElementById('lbCount');
+      var closeBtn = document.getElementById('lbClose');
+      var prevBtn = document.getElementById('lbPrev');
+      var nextBtn = document.getElementById('lbNext');
+
+      var current = null, idx = 0;
+
+      function render() {
+        if (!current) return;
+        var pag = current.pages[idx];
+        imgEl.src = pag[0];
+        imgEl.alt = pag[1];
+        capEl.textContent = pag[1];
+        countEl.textContent = (idx + 1) + ' / ' + current.pages.length;
+      }
+      function open(galId, index) {
+        current = GALLERIES[galId];
+        if (!current) return;
+        idx = index || 0;
+        render();
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        current = null;
+      }
+      function next() { if (!current) return; idx = (idx + 1) % current.pages.length; render(); }
+      function prev() { if (!current) return; idx = (idx - 1 + current.pages.length) % current.pages.length; render(); }
+
+      document.addEventListener('click', function (e) {
+        var trigger = e.target.closest('[data-lb]');
+        if (!trigger) return;
+        e.preventDefault();
+        open(trigger.getAttribute('data-lb'), parseInt(trigger.getAttribute('data-lb-index') || '0', 10));
+      });
+
+      closeBtn.addEventListener('click', close);
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+    })();
+  </script>
+
+</body>
+</html>
